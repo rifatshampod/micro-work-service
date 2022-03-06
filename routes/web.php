@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+    //return redirect('welcome'); //to redirect to a page
+
 });
+Route::get('/welcome', function () {
+    return view('welcome');
+   
+    
+});
+Route::view("index",'home');
+// short route syntax, 1st parameter URL, second parameter page name in blade template
+
