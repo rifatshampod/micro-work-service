@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
+  <x-assets/>
 
   <body>
     <!-- Hero start -->
     <section class="hero mb-5">
+
+      <x-header/>
 
       <div class="container">
         <div class="aboutHeroContent">
