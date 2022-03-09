@@ -58,7 +58,7 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                   <li class="nav-item mx-2">
-                    <a class="nav-link text-white" href="index.html"
+                    <a class="nav-link text-white" href="/"
                       >Home</a
                     >
                   </li>
@@ -81,7 +81,7 @@
                     <a class="nav-link text-white" href="employeeWalet.html">Post a Job</a>
                   </li>
                   <li class="nav-item mx-2 me-5">
-                    <a class="nav-link text-white" href="support.html">Help</a>
+                    <a class="nav-link text-white" href="/about">Help</a>
                   </li>
                   <li class="nav-item navSignIn mx-1 px-3 mb-2">
                     <a

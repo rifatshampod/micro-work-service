@@ -18,11 +18,7 @@ Route::get('/', function () {
     //return redirect('welcome'); //to redirect to a page
 
 });
-Route::get('/welcome', function () {
-    return view('welcome');
-   
-    
-});
+
 Route::view("index",'home');
 Route::view("about", 'about');
 
