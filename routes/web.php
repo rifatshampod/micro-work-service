@@ -24,5 +24,7 @@ Route::get('/welcome', function () {
     
 });
 Route::view("index",'home');
+Route::view("about", 'about');
+
 // short route syntax, 1st parameter URL, second parameter page name in blade template
 
