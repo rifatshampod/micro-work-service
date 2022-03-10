@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <x-assets/>
+  <x-assets title="About : "/>
 
   <body>
     <!-- Hero start -->

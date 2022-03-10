@@ -19,8 +19,16 @@ Route::get('/', function () {
 
 });
 
-Route::view("index",'home');
+//Route::view("index",'home');
+Route::get('home', function () {
+    //return view('home');
+    return redirect('/'); //to redirect to a page
+
+});
+
 Route::view("about", 'about');
+Route::view("faq", 'faq');
+
 
 // short route syntax, 1st parameter URL, second parameter page name in blade template
 
