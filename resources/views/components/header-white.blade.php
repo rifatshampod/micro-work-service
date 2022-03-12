@@ -1,10 +1,11 @@
-        <!-- top header -->
-      <div class="topHeader">
+<!-- Hero start -->
+    <section class="">
+      <div class="topHeader bg-white">
         <div class="container">
           <div class="d-flex justify-content-between align-items-center py-3">
             <div class="d-flex flex-wrap align-items-center">
               <div class="mx-2">
-                <small class="fw-lighter cl-white"
+                <small class="fw-lighter"
                   ><i class="far fa-envelope me-2"></i
                   >ptoworkers@gmail.com</small
                 >
@@ -12,28 +13,28 @@
               <div
                 class="topHeadPhone d-flex align-items-center mx-2 bg-cl-green"
               >
-                <small class="fw-lighter cl-white"
+                <small class="fw-lighter"
                   ><i class="fas fa-phone-alt me-2"></i>+091-321654987</small
                 >
               </div>
             </div>
             <div class="topSocial d-flex">
               <div
-                class="topSocialIcon d-flex justify-content-center align-items-center cursor me-3"
+                class="topSocialIcon topSocialIcon2 d-flex justify-content-center align-items-center cursor me-3"
               >
-                <i class="fab fa-facebook-f cl-white"></i>
+                <i class="fab fa-facebook-f"></i>
               </div>
               <div
-                class="topSocialIcon d-flex justify-content-center align-items-center cursor"
+                class="topSocialIcon topSocialIcon2 d-flex justify-content-center align-items-center cursor"
               >
-                <i class="fab fa-twitter cl-white"></i>
+                <i class="fab fa-twitter"></i>
               </div>
             </div>
           </div>
         </div>
       </div>
       <!-- Bottom Header-->
-      <div class="bottomHeader" id="navbar">
+      <div class="bottomHeader bg-cl-navy-blue" id="navbar">
         <div class="container">
           <nav class="navbar navbar-expand-xl navbar-light">
             <div class="container-fluid px-0 py-2">
@@ -99,3 +100,5 @@
           </nav>
         </div>
       </div>
+    </section>
+    <!-- Hero end -->

@@ -28,6 +28,19 @@ Route::get('home', function () {
 
 Route::view("about", 'about');
 Route::view("faq", 'faq');
+Route::view("payment-proof", 'paymentHistory');
+Route::view("jobs", 'allJob');
+Route::view("gigs", 'allGig');
+Route::view("help", 'home'); //need to make help page
+Route::view("terms-of-services", 'terms');
+//Route::view("support", 'contact');
+Route::view("privacy-policy", 'privacy');
+Route::view("refund-policy", 'terms'); //need to add condition
+Route::view("career", 'career');
+Route::view("login", 'signIn');
+Route::view("signup", 'signUp');
+
+
 
 
 // short route syntax, 1st parameter URL, second parameter page name in blade template

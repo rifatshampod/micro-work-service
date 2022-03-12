@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <!-- link and header data --> 
-  <x-assets/>
+  <x-assets title="Edit profile : "/>
 
   <body>
     <!-- Hero start -->

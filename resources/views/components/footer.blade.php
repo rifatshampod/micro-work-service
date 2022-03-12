@@ -38,30 +38,30 @@
               </div>
               <div class="d-flex">
                 <div class="me-4">
-                  <div class="text-white cursor" onclick="location.href='index.html'">
+                  <div class="text-white cursor" onclick="location.href='/'">
                     <small>Home</small>
                   </div>
-                  <div class="text-white cursor" onclick="location.href='terms.html'">
+                  <div class="text-white cursor" onclick="location.href='/terms-of-services'">
                     <small>Terms of Services</small>
                   </div>
-                  <div class="text-white cursor" onclick="location.href='faq.html'">
+                  <div class="text-white cursor" onclick="location.href='/faq'">
                     <small>FAQs</small>
                   </div>
-                  <div class="text-white cursor" onclick="location.href='support.html'">
+                  <div class="text-white cursor" onclick="location.href='#'">
                     <small>Support</small>
                   </div>
                 </div>
                 <div>
-                  <div class="text-white cursor" onclick="location.href='about.html'">
+                  <div class="text-white cursor" onclick="location.href='/about'">
                     <small>About Us</small>
                   </div>
-                  <div class="text-white cursor" onclick="location.href='privacy.html'">
+                  <div class="text-white cursor" onclick="location.href='/privacy-policy'">
                     <small>Privacy Policy</small>
                   </div>
-                  <div class="text-white cursor" onclick="location.href='refundpolicy.html'">
+                  <div class="text-white cursor" onclick="location.href='/refund-policy'">
                     <small>Refund Policy</small>
                   </div>
-                  <div class="text-white cursor" onclick="location.href='career.html'">
+                  <div class="text-white cursor" onclick="location.href='/career'">
                     <small>Career</small>
                   </div>
                 </div>
