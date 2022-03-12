@@ -171,31 +171,46 @@
             <div class="text-center mb-5">
               <h2 class="cl-mat-black fw-bold">Upload Your CV</h2>
             </div>
-            <form action="">
+
+            <!-------------------      form starts          ------------------>
+
+            {{-- @if($errors->any())
+            @foreach ($errors->all() as $err)
+             <li>{{$err}}</li>
+            @endforeach
+            @endif --}}  <!-- to show all errors together as list -->
+
+            <form action="career" method="post">
+              @csrf
               <div class="row">
                 <div class="col-lg-6">
                   <div class="mb-3">
-                    <input
-                      class="w-100 px-3 py-2 bg-cl-ash2 border-0 rounded-3"
-                      type="text"
-                      placeholder="Your Name"
-                    />
+                    <input class="w-100 px-3 py-2 bg-cl-ash2 border-0 rounded-3" type="text" 
+                    name="name" placeholder="Your Name"/>
+                    <!-- to show errors individually -->
+                    <span style="color: red;">
+                      @error('name'){{$message}}@enderror
+                    </span>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="mb-3">
                     <input
                       class="w-100 px-3 py-2 bg-cl-ash2 border-0 rounded-3"
-                      type="Email"
+                      type="Email" name="email"
                       placeholder="Email"
                     />
+                    <!-- to show errors individually -->
+                    <span style="color: red;">
+                      @error('email'){{$message}}@enderror
+                    </span>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="mb-3">
                     <input
                       class="w-100 px-3 py-2 bg-cl-ash2 border-0 rounded-3"
-                      type="number"
+                      type="number" name="phone"
                       placeholder="Contact No."
                     />
                   </div>
@@ -203,7 +218,7 @@
                 <div class="col-lg-6">
                   <select
                     class="form-select border-0 mb-3 rounded-3 cl-grey bg-cl-ash2"
-                    aria-label="Default select example"
+                    aria-label="Default select example" name="department"
                   >
                     <option selected>Select Department</option>
                     <option value="1">Design</option>
@@ -214,16 +229,19 @@
                 <div class="col-lg-12">
                   <div class="fileUpload bg-cl-ash2">
                     <!-- We'll transform this input into a pond  -->
-                    <input type="file" class="filepond mb-5" name="filepond"
+                    <input type="file" class="filepond mb-5" name="file"
                         multiple data-max-file-size="1TB" data-max-files="1" />
+                        <!-- to show errors individually -->
+                    <span style="color: red;">
+                      @error('file'){{$message}}@enderror
+                    </span>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center mb-5">
-                  <button
-                    class="bg-cl-pm cl-white px-5 py-2 border-0 rounded-3"
-                  >
-                    Submit
-                  </button>
+                  <button type="submit"
+                    class="bg-cl-pm cl-white px-5 py-2 border-0 rounded-3">
+                  Submit
+                </button>
                 </div>
               </div>
             </form>

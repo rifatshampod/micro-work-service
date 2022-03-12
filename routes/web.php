@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\careerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// view routes start -----------------------------------------------------
 
 Route::get('/', function () {
     return view('home');
@@ -25,6 +28,7 @@ Route::get('home', function () {
     return redirect('/'); //to redirect to a page
 
 });
+// short route syntax, 1st parameter URL, second parameter page name in blade template
 
 Route::view("about", 'about');
 Route::view("faq", 'faq');
@@ -40,8 +44,9 @@ Route::view("career", 'career');
 Route::view("login", 'signIn');
 Route::view("signup", 'signUp');
 
+//view routes end ----------------------------------------------
 
+// controller routes start--------------------------------------
 
-
-// short route syntax, 1st parameter URL, second parameter page name in blade template
-
+//controller to get html form data in career page
+Route::post("career", [careerController::class, 'getData']); 
