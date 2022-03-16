@@ -52,5 +52,5 @@ Route::view("signup", 'signUp');
 
 //controller to get html form data in career page
 Route::post("career", [careerController::class, 'getData']); 
-Route::get("job", [jobsDetail::class, 'index']);
+Route::get("job", [jobsDetail::class, 'getData']);
 
