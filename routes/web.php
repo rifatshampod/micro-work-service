@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\careerController;
+use App\Http\Controllers\jobsDetail;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +52,5 @@ Route::view("signup", 'signUp');
 
 //controller to get html form data in career page
 Route::post("career", [careerController::class, 'getData']); 
+Route::get("job", [jobsDetail::class, 'index']);
+
