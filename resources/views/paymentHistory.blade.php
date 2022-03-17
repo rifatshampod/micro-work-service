@@ -29,7 +29,7 @@
                     <thead>
                       <tr class="cl-deep-blue fw-bold">
                         <th scope="col">Id</th>
-                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Payment</th>
                         <th scope="col">Method</th>
                         <th scope="col">Status</th>
@@ -37,54 +37,37 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr class="cl-dark-ash2">
-                        <td>001</td>
-                        <td>sha**22@gmail.com</td>
-                        <td>$50.00</td>
-                        <td>DBBL</td>
+                      <!-- one row -->
+
+                      @foreach ($prooflist as $item)
+
+                        <tr class="cl-dark-ash2">
+                        <td>{{$item['id']}}</td>
+                        <td>{{$item['email']}}</td>
+                        <td>${{$item['payment']}}</td>
+                        <td>{{$item['method']}}</td>
                         <td>
-                            <div class="">
-                                <small class="pTablestatus bg-cl-light-green px-4 py-1">Paid</small>
-                            </div>
-                        </td>
-                        <td class="text-end">19 march 2022, 2.00 pm</td>
-                      </tr>
-                      <tr class="cl-dark-ash2">
-                        <td>002</td>
-                        <td>sha**22@gmail.com</td>
-                        <td>$50.00</td>
-                        <td>DBBL</td>
-                        <td>
-                            <div class="">
+                  
+                          @if ($item['status']==0)    
+                              <div class="">
                                 <small class="pTablestatus bg-cl-light-red px-4 py-1">UnPaid</small>
-                            </div>
-                        </td>
-                        <td class="text-end">19 march 2022, 2.00 pm</td>
-                      </tr>
-                      <tr class="cl-dark-ash2">
-                        <td>003</td>
-                        <td>sha**22@gmail.com</td>
-                        <td>$50.00</td>
-                        <td>DBBL</td>
-                        <td>
-                            <div class="">
+                              </div>
+                          @else                         
+                              <div class="">
                                 <small class="pTablestatus bg-cl-light-green px-4 py-1">Paid</small>
-                            </div>
+                              </div>
+                          @endif
+                          
+                            
                         </td>
-                        <td class="text-end">19 march 2022, 2.00 pm</td>
+                        <td class="text-end">{{$item['date']}}</td>
                       </tr>
-                      <tr class="cl-dark-ash2">
-                        <td>004</td>
-                        <td>sha**22@gmail.com</td>
-                        <td>$50.00</td>
-                        <td>DBBL</td>
-                        <td>
-                            <div class="">
-                                <small class="pTablestatus bg-cl-light-red px-4 py-1">UnPaid</small>
-                            </div>
-                        </td>
-                        <td class="text-end">19 march 2022, 2.00 pm</td>
-                      </tr>
+
+                          
+                      @endforeach
+                      
+                      <!-- one row -->
+                      
                     </tbody>
                   </table>
             </div>

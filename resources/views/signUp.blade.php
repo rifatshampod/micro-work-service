@@ -62,7 +62,7 @@
                   </div>
                 </form>
                 <div class="text-center cl-dark-ash2">
-                    <p>Already a Member? <span class="cursor cl-pm fw-bold" onclick="location.href='signIn.html'">Sign In</span></p>
+                    <p>Already a Member? <span class="cursor cl-pm fw-bold" onclick="location.href='/login'">Sign In</span></p>
                 </div>
               </div>
             </div>

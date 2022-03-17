@@ -5,6 +5,8 @@ use App\Http\Controllers\careerController;
 use App\Http\Controllers\jobsDetail;
 use App\Http\Controllers\usersController;
 use App\Http\Controllers\gigsController;
+use App\Http\Controllers\paymentProofController;
+
 
 
 
@@ -38,7 +40,7 @@ Route::get('home', function () {
 
 Route::view("about", 'about');
 //Route::view("faq", 'faq');
-Route::view("payment-proof", 'paymentHistory');
+//Route::view("payment-proof", 'paymentHistory');
 //Route::view("jobs", 'allJob');
 //Route::view("gigs", 'allGig');
 Route::view("help", 'home'); //need to make help page
@@ -49,16 +51,19 @@ Route::view("refund-policy", 'terms'); //need to add condition
 Route::view("career", 'career');
 Route::view("login", 'signIn');
 Route::view("signup", 'signUp');
+Route::view("profile", 'profile');
+
 
 //view routes end ----------------------------------------------
 
 // controller routes start--------------------------------------
 
-//controller to get html form data in career page
-Route::post("career", [careerController::class, 'getData']); 
+
+Route::post("career", [careerController::class, 'getData']);  //controller to get html form data in career page
+
 Route::get("jobs", [jobsDetail::class, 'getData']);
 Route::get("gigs", [gigsController::class, 'getData']);
-
+Route::get("payment-proof", [paymentProofController::class, 'getData']);
 Route::get("client", [usersController::class, 'index']); //api based http client example
 
 
