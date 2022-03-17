@@ -19,7 +19,10 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-xl-8 col-lg-12 col-12">
-            <div class="question px-4">
+
+            <!-- one item start -->
+            @foreach ($collection as $item)
+                            <div class="question px-4">
               <div class="my-3">
                 <!-- question title -->
                 <div
@@ -35,7 +38,7 @@
                     </div>
                     <div class="px-2 py-2 me-2 d-flex align-items-center">
                       <small class="cl-dark-ash2 fs16"
-                        >How Does PTOWORKERS Work?</small
+                        >{{$item['email']}}</small
                       >
                     </div>
                   </div>
@@ -75,6 +78,10 @@
                 </div>
               </div>
             </div>
+            @endforeach
+
+            <!-- one item end -->
+
             <div class="question px-4">
                 <div class="my-3">
                   <!-- question title -->

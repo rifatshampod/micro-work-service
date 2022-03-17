@@ -118,7 +118,8 @@
          Ptoworkers.com copyright &copy; 2021. All rights reserved.
         </div>
         <div class="copyRightContentRight text-white">
-          <small>Powered by <span class="cl-sky-blue cursor">NoboIT</span></small>
+          <small>Powered by <span class="cl-sky-blue cursor">NoboIT,</span></small>
+          <small>developed by <span class="cl-sky-blue cursor">Evocation IT</span></small>
         </div>
       </div>
     </footer>

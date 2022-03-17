@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\careerController;
 use App\Http\Controllers\jobsDetail;
+use App\Http\Controllers\usersController;
+
 
 
 /*
@@ -33,7 +35,7 @@ Route::get('home', function () {
 // short route syntax, 1st parameter URL, second parameter page name in blade template
 
 Route::view("about", 'about');
-Route::view("faq", 'faq');
+//Route::view("faq", 'faq');
 Route::view("payment-proof", 'paymentHistory');
 Route::view("jobs", 'allJob');
 Route::view("gigs", 'allGig');
@@ -53,4 +55,7 @@ Route::view("signup", 'signUp');
 //controller to get html form data in career page
 Route::post("career", [careerController::class, 'getData']); 
 Route::get("job", [jobsDetail::class, 'getData']);
+Route::get("job", [jobsDetail::class, 'getData']);
+Route::get("client", [usersController::class, 'index']); //api based http client example
+
 
