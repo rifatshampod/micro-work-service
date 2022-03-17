@@ -49,9 +49,9 @@ Route::view("terms-of-services", 'terms');
 Route::view("privacy-policy", 'privacy');
 Route::view("refund-policy", 'terms'); //need to add condition
 Route::view("career", 'career');
-Route::view("login", 'signIn');
+//Route::view("login", 'signIn');
 Route::view("signup", 'signUp');
-Route::view("profile", 'profile');
+//Route::view("profile", 'profile');
 
 
 //view routes end ----------------------------------------------
@@ -65,5 +65,29 @@ Route::get("jobs", [jobsDetail::class, 'getData']);
 Route::get("gigs", [gigsController::class, 'getData']);
 Route::get("payment-proof", [paymentProofController::class, 'getData']);
 Route::get("client", [usersController::class, 'index']); //api based http client example
+Route::post("userAuth", [usersController::class, 'signin']); //--
+Route::view("profile", 'profile');
+Route::get('logout', function () {
+    //return view('home');
+    if(session()->has('user')){
+        session()->pull('user');
+    }
+    return redirect('/'); //to redirect to a page
+
+});
+
+Route::get('login', function () {
+    //return view('home');
+    if (session()->has('user')) {
+        return redirect('profile');
+
+    }
+    return view('signIn'); //to redirect to a page
+
+});
+
+
+
+
 
 

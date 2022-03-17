@@ -11,6 +11,12 @@ class usersController extends Controller
     {
         $collection= Http::get('https://reqres.in/api/users?page=1');
         return view('faq',['collection'=>$collection['data']]);
+    }
 
+    function signin(Request $req)
+    {
+        $userData= $req->input();
+        $req->session()->put('user',$userData['email']);
+        return redirect('profile');
     }
 }

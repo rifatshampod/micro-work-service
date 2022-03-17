@@ -17,7 +17,8 @@
                 <h3 class="cl-mat-black fw-bold">Sing In</h3>
               </div>
               <div>
-                <form method="POST" action="/profile">
+                <form method="POST" action="/userAuth">
+                  @csrf 
                   <div class="signInFeildBox">
                     <input class="w-100 mb-3 py-2 px-3 rounded-3 border-0 bg-cl-ash2"  type="email" name="email" placeholder="Email" />
                   </div>
@@ -36,7 +37,7 @@
                       </div>
                   </div>
                   <div class="mb-2">
-                      <button class="w-100 py-2 border-0 rounded-3 bg-cl-pm cl-white">Sign In</button>
+                      <button type="submit" class="w-100 py-2 border-0 rounded-3 bg-cl-pm cl-white">Sign In</button>
                   </div>
                 </form>
                 <div class="text-center cl-dark-ash2">
