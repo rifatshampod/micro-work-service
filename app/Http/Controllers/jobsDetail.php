@@ -10,11 +10,13 @@ class jobsDetail extends Controller
 {
     function index()
     {
-        return DB::select('select * from jobs');
+        $jobList =  DB::select('select * from jobs');
+        return view('allJob',['joblist'=>$joblist]);
     }
 
     function getData()
     {
-        return Job::all();
+        $jobList= Job::all();
+        return view('allJob', ['joblist' => $jobList]);
     }
 }

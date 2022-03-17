@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\careerController;
 use App\Http\Controllers\jobsDetail;
 use App\Http\Controllers\usersController;
+use App\Http\Controllers\gigsController;
+
 
 
 
@@ -37,8 +39,8 @@ Route::get('home', function () {
 Route::view("about", 'about');
 //Route::view("faq", 'faq');
 Route::view("payment-proof", 'paymentHistory');
-Route::view("jobs", 'allJob');
-Route::view("gigs", 'allGig');
+//Route::view("jobs", 'allJob');
+//Route::view("gigs", 'allGig');
 Route::view("help", 'home'); //need to make help page
 Route::view("terms-of-services", 'terms');
 //Route::view("support", 'contact');
@@ -54,8 +56,9 @@ Route::view("signup", 'signUp');
 
 //controller to get html form data in career page
 Route::post("career", [careerController::class, 'getData']); 
-Route::get("job", [jobsDetail::class, 'getData']);
-Route::get("job", [jobsDetail::class, 'getData']);
+Route::get("jobs", [jobsDetail::class, 'getData']);
+Route::get("gigs", [gigsController::class, 'getData']);
+
 Route::get("client", [usersController::class, 'index']); //api based http client example
 
 

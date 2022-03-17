@@ -42,7 +42,9 @@
     <section class="allGig py-5">
       <div class="container">
         <div class="row">
-          <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-4">
+          @foreach ($giglist as $item)
+
+            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-4">
             <div class="card teamCard">
               <div class="teamCardImage">
                 <img
@@ -53,28 +55,25 @@
               </div>
               <div class="card-body gigCardBody bg-cl-ash2">
                 <div class="gigCardBodyTop">
-                  <div
-                    class="d-flex justify-content-between align-items-center mb-3"
-                  >
+                  <div class="d-flex justify-content-between align-items-center mb-3">
                     <div class="d-flex align-items-center">
                       <div class="gigcardBodyTopImg me-2">
                         <img src="assets/image/gigs/gigcard.jfif" alt="" />
                       </div>
                       <div>
-                        <small class="cl-pm fw-bold">Shamitra Dutta</small>
+                        <small class="cl-pm fw-bold">{{$item['user_name']}}</small>
                       </div>
                     </div>
                     <div>
                       <small class="cl-yellow fw-bold"
-                        ><i class="fas fa-star"></i> 4.9
-                        <span class="cl-black fw-lighter">(10)</span></small
+                        ><i class="fas fa-star"></i> {{$item['review']}}
+                        <span class="cl-black fw-lighter">({{$item['review_amount']}})</span></small
                       >
                     </div>
                   </div>
                   <div>
                     <small class="cl-dark-ash2"
-                      >I will do website UI UX design and mobile UI UX
-                      design</small
+                      >{{$item['description']}}</small
                     >
                   </div>
                 </div>
@@ -88,66 +87,15 @@
                   <div>
                     <small class="cl-dark-ash2 fs12"
                       >STARTING AT
-                      <span class="cl-yellow fs16 fw-bold">$10</span></small
+                      <span class="cl-yellow fs16 fw-bold">${{$item['price']}}</span></small
                     >
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-4">
-            <div class="card teamCard">
-              <div class="teamCardImage">
-                <img
-                  src="assets/image/gigs/gig1.png"
-                  class="card-img-top"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body gigCardBody bg-cl-ash2">
-                <div class="gigCardBodyTop">
-                  <div
-                    class="d-flex justify-content-between align-items-center mb-3"
-                  >
-                    <div class="d-flex align-items-center">
-                      <div class="gigcardBodyTopImg me-2">
-                        <img src="assets/image/gigs/gigcard.jfif" alt="" />
-                      </div>
-                      <div>
-                        <small class="cl-pm fw-bold">Shamitra Dutta</small>
-                      </div>
-                    </div>
-                    <div>
-                      <small class="cl-yellow fw-bold"
-                        ><i class="fas fa-star"></i> 4.9
-                        <span class="cl-black fw-lighter">(10)</span></small
-                      >
-                    </div>
-                  </div>
-                  <div>
-                    <small class="cl-dark-ash2"
-                      >I will do website UI UX design and mobile UI UX
-                      design</small
-                    >
-                  </div>
-                </div>
-
-                <div
-                  class="gigCardBodyBottom d-flex justify-content-between align-items-center"
-                >
-                  <div class="gigCardHeartIcon cursor">
-                    <i class="fas fa-heart toggle-box"></i>
-                  </div>
-                  <div>
-                    <small class="cl-dark-ash2 fs12"
-                      >STARTING AT
-                      <span class="cl-yellow fs16 fw-bold">$10</span></small
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+              
+          @endforeach
         </div>
       </div>
     </section>
