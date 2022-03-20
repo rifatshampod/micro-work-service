@@ -2,7 +2,7 @@
 <html lang="en">
   <!-- link and header data --> 
   <x-assets title="All Jobs : "/>
-
+  
   <body>
     <x-header-white/>
 
@@ -65,31 +65,12 @@
               </tbody>
           </table>
       </div>
+<!-- --------------------------------- pagination ------------------------>
       <div class="pagination d-flex justify-content-center align-items-center">
-          <div class="d-flex justify-content-center flex-wrap">
-              <div class="pageIcon d-flex justify-content-center align-items-center cursor bg-white mx-2">
-                  <i class="fas fa-chevron-left"></i>
-              </div>
-              <div class="pageIcon d-flex justify-content-center align-items-center cursor bg-cl-pm cl-white mx-2">
-                  1
-              </div>
-              <div class="pageIcon d-flex justify-content-center align-items-center cursor bg-white mx-2">
-                  2
-              </div>
-              <div class="pageIcon d-flex justify-content-center align-items-center cursor bg-white mx-2">
-                  3
-              </div>
-              <div class="pageIcon d-flex justify-content-center align-items-center cursor bg-white mx-2">
-                  4
-              </div>
-              <div class="pageIcon d-flex justify-content-center align-items-center cursor bg-white mx-2">
-                  5
-              </div>
-              <div class="pageIcon d-flex justify-content-center align-items-center cursor bg-white mx-2">
-                  <i class="fas fa-chevron-right"></i>
-              </div>
-          </div>
+          {{$joblist->links('vendor.pagination.bootstrap-4')}}
       </div>
+<!-- --------------------------------- pagination ------------------------>
+
       </div>
     </section>
     <!----------Job End------------->

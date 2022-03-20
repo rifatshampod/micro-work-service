@@ -16,7 +16,7 @@ class jobsDetail extends Controller
 
     function getData()
     {
-        $jobList= Job::all();
+        $jobList= Job::paginate(10); //pagination and default data to show
         return view('allJob', ['joblist' => $jobList]);
     }
 }

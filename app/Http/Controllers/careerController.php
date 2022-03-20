@@ -11,10 +11,11 @@ class careerController extends Controller
     {
         $req->validate([
             'name'=>'required | min:3',
-            'email'=>'required',
-            'file'=>'required'
+            'email'=>'required'
+         
         ]);
-        return $req->input();
+        //return $req->input();
+        return $req->file('file')->store('cv');
     }
 }
 

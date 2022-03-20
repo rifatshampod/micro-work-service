@@ -11,7 +11,7 @@
         <div class="d-flex justify-content-center">
           <div class="singleJobHeroContent">
             <div class="text-center">
-              <h3 class="cl-white">My Wallet</h3>
+              <h3 class="cl-white">My Profile</h3>
             </div>
             <div class="breadcrumb">
               <nav aria-label="breadcrumb">
@@ -22,7 +22,7 @@
                   >
                     Home
                   </li>
-                  <li class="breadcrumb-item cl-white">My Wallet</li>
+                  <li class="breadcrumb-item cl-white">My Profile</li>
                 </ol>
               </nav>
             </div>

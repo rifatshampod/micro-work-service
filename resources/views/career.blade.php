@@ -180,7 +180,7 @@
             @endforeach
             @endif --}}  <!-- to show all errors together as list -->
 
-            <form action="career" method="post">
+            <form action="career" method="post" enctype="multipart/form-data">
               @csrf
               <div class="row">
                 <div class="col-lg-6">
@@ -227,11 +227,12 @@
                   </select>
                 </div>
                 <div class="col-lg-12">
+                  <input type="file" name="file">
                   <div class="fileUpload bg-cl-ash2">
-                    <!-- We'll transform this input into a pond  -->
+                    <!-- We'll transform this input into a pond  --
                     <input type="file" class="filepond mb-5" name="file"
                         multiple data-max-file-size="1TB" data-max-files="1" />
-                        <!-- to show errors individually -->
+                        !-- to show errors individually -->
                     <span style="color: red;">
                       @error('file'){{$message}}@enderror
                     </span>
