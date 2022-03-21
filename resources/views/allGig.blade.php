@@ -94,9 +94,13 @@
               </div>
             </div>
           </div>
-              
           @endforeach
         </div>
+        <!-- --------------------------------- pagination ------------------------>
+      <div class="pagination d-flex justify-content-center align-items-center">
+          {{$giglist->links('vendor.pagination.bootstrap-4')}}
+      </div>
+<!-- --------------------------------- pagination ------------------------>
       </div>
     </section>
     <!----------All Gigs End------------->

@@ -10,7 +10,7 @@ class paymentProofController extends Controller
 {
     function getData()
     {
-        $proofList = Proof::all();
+        $proofList = Proof::paginate(10);
         return view('paymentHistory', ['prooflist' => $proofList]);
     }
 

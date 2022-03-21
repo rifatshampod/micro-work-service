@@ -9,6 +9,30 @@
     <!----------Career Start------------->
     <section class="career py-5">
       <div class="container">
+        @error('file')
+                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{$message}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+        @enderror
+        @error('name')
+                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{$message}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+        @enderror
+        @error('email')
+                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{$message}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+        @enderror
+        @if (Session::get('status'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  {{Session::get('status')}}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
         <div class="d-flex justify-content-between align-items-center mb-4">
           <div class="text-center">
             <h2 class="cl-mat-black text-center">Career</h2>
@@ -227,6 +251,7 @@
                   </select>
                 </div>
                 <div class="col-lg-12">
+                  <label for="file">CV / Resume</label> : 
                   <input type="file" name="file">
                   <div class="fileUpload bg-cl-ash2">
                     <!-- We'll transform this input into a pond  --
@@ -246,6 +271,7 @@
                 </div>
               </div>
             </form>
+            
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@
     <x-header-white/>
 
     <!----------Job Start------------->
-    <section class="jobs bg-cl-light-pink p-150">
+    <section class="jobs bg-cl-light-pink p-100">
       <div class="container">
         <div class="mb-5">
           <div class="cl-dark-ash2">

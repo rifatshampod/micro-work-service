@@ -11,9 +11,9 @@ use App\Models\Gig;
 class gigsController extends Controller
 {
     function getData()
-{
-    $gigList = Gig::all();
-    return view('allGig', ['giglist' => $gigList]);
-}
+    {
+        $gigList = Gig::paginate(10);
+        return view('allGig', ['giglist' => $gigList]);
+    }
 
 }
