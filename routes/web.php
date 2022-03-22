@@ -6,6 +6,8 @@ use App\Http\Controllers\jobsDetail;
 use App\Http\Controllers\usersController;
 use App\Http\Controllers\gigsController;
 use App\Http\Controllers\paymentProofController;
+use App\Http\Controllers\LogoutController;
+
 
 
 
@@ -50,7 +52,7 @@ Route::view("privacy-policy", 'privacy');
 Route::view("refund-policy", 'terms'); //need to add condition
 Route::view("career", 'career');
 //Route::view("login", 'signIn');
-Route::view("signup", 'signUp');
+//Route::view("signup", 'signUp');
 //Route::view("profile", 'profile');
 
 
@@ -76,18 +78,25 @@ Route::get('logout', function () {
 
 });
 
-Route::get('login', function () {
-    //return view('home');
-    if (session()->has('user')) {
-        return redirect('profile');
+// Route::get('login', function () {
+//     //return view('home');
+//     if (session()->has('user')) {
+//         return redirect('profile');
 
-    }
-    return view('signIn'); //to redirect to a page
+//     }
+//     return view('signIn'); //to redirect to a page
 
+// });
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => ['auth']], function () {
+    /**
+     * Logout Route
+     */
+    Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
 });
-
-
-
-
-
 

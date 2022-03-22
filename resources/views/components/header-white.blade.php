@@ -92,7 +92,7 @@
                     >
                   </li>
                   <li class="nav-item navSignIn mx-1 px-3 mb-2">
-                    <a class="nav-link text-white" href="/signup">Sign Up</a>
+                    <a class="nav-link text-white" href="/register">Sign Up</a>
                   </li>
                 </ul>
               </div>
