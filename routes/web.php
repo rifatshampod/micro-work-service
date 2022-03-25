@@ -53,7 +53,7 @@ Route::view("refund-policy", 'terms'); //need to add condition
 Route::view("career", 'career');
 //Route::view("login", 'signIn');
 //Route::view("signup", 'signUp');
-//Route::view("profile", 'profile');
+Route::view("profile", 'profile');
 
 
 //view routes end ----------------------------------------------
@@ -67,8 +67,23 @@ Route::get("jobs", [jobsDetail::class, 'getData']);
 Route::get("gigs", [gigsController::class, 'getData']);
 Route::get("payment-proof", [paymentProofController::class, 'getData']);
 Route::get("client", [usersController::class, 'index']); //api based http client example
+
+//single job
+Route::view('single-job','singleJob');
+Route::get('single-job={job_slug}', [jobsDetail::class, 'jobView']);
+
+
+
+
+
+
+
+
+
+
+
+
 Route::post("userAuth", [usersController::class, 'signin']); //--
-Route::view("profile", 'profile');
 Route::get('logout', function () {
     //return view('home');
     if(session()->has('user')){
@@ -93,10 +108,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['middleware' => ['auth']], function () {
-    /**
-     * Logout Route
-     */
-    Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
-});
+Route::post('/logout', [LogoutController::class, 'logout_user'])->name('logout');
+
 
