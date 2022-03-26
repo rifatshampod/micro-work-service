@@ -11,4 +11,5 @@ class Job extends Model
 
     // to fetch data from table with different name as the model
     //public $table="jobs"; 
+    public $timestamps = false;
 }

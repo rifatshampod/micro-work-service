@@ -13,12 +13,15 @@
               <div
                 class="topHeadPhone d-flex align-items-center mx-2 bg-cl-green"
               >
-                <small class="fw-lighter"
+                <small class="fw-lighter cursor"
                   ><i class="fas fa-phone-alt me-2"></i>+091-321654987</small
                 >
               </div>
             </div>
             <div class="topSocial d-flex">
+            <div>
+              <small class="me-3 cursor" onclick="location.href='support'">Help & Support</small>
+            </div>
               <div
                 class="topSocialIcon topSocialIcon2 d-flex justify-content-center align-items-center cursor me-3"
               >
@@ -70,19 +73,18 @@
                   </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link text-white" href="/jobs"
-                      >Find a Job</a
-                    >
+                      >Find a Job</a>
                   </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link text-white" href="/gigs"
-                      >Find Gigs</a
-                    >
+                      >Find Gigs</a>
+                  </li>
+                  <li class="nav-item mx-2">
+                    <a class="nav-link text-white" href="/contests"
+                      >Find Contests</a>
                   </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link text-white" href="/login">Post a Job</a>
-                  </li>
-                  <li class="nav-item mx-2 me-5">
-                    <a class="nav-link text-white" href="/about">Help</a> 
                   </li>
                   <li class="nav-item navSignIn mx-1 px-3 mb-2">
                     <a

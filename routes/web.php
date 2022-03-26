@@ -40,51 +40,36 @@ Route::get('home', function () {
 
 Route::view("about", 'about');
 //Route::view("faq", 'faq');
-//Route::view("payment-proof", 'paymentHistory');
-//Route::view("jobs", 'allJob');
-//Route::view("gigs", 'allGig');
 Route::view("help", 'home'); //need to make help page
 Route::view("terms-of-services", 'terms');
 //Route::view("support", 'contact');
 Route::view("privacy-policy", 'privacy');
 Route::view("refund-policy", 'terms'); //need to add condition
 Route::view("career", 'career');
-//Route::view("login", 'signIn');
+Route::view("login", 'signIn');
 Route::view("signup", 'signUp');
-//Route::view("profile", 'profile');
+Route::view("support", 'support');
+Route::view("profile", 'profile');
+Route::view("job-details", 'singleJob');
+Route::view("add-job", 'createJob');
+
 
 
 //view routes end ----------------------------------------------
+
 
 // controller routes start--------------------------------------
 
 
 Route::post("career", [careerController::class, 'getData']);  //controller to get html form data in career page
-
 Route::get("jobs", [jobsDetail::class, 'getData']);
+Route::get("job-details={job_slug}", [jobsDetail::class, 'getSingleData']);
 Route::get("gigs", [gigsController::class, 'getData']);
 Route::get("payment-proof", [paymentProofController::class, 'getData']);
-Route::get("client", [usersController::class, 'index']); //api based http client example
-Route::post("userAuth", [usersController::class, 'signin']); //--
-Route::view("profile", 'profile');
-Route::get('logout', function () {
-    //return view('home');
-    if(session()->has('user')){
-        session()->pull('user');
-    }
-    return redirect('/'); //to redirect to a page
 
-});
 
-Route::get('login', function () {
-    //return view('home');
-    if (session()->has('user')) {
-        return redirect('profile');
 
-    }
-    return view('signIn'); //to redirect to a page
 
-});
 
 
 

@@ -55,7 +55,7 @@
                 <div class="">
                   <div class="">
                     <h3 class="cl-mat-black fw-bold">
-                      Download & install + Sign Up
+                      {{$jobs->title}}
                     </h3>
                   </div>
                   <div class="jobFlexTopDiv d-flex">
@@ -65,7 +65,7 @@
                       </div>
                       <div class="text-center">
                         <p>
-                          Catagory <span class="cl-pm fw-bold">Contest</span>
+                          Catagory: <span class="cl-pm fw-bold">{{$jobs->category_name}}</span>
                         </p>
                       </div>
                     </div>
@@ -74,7 +74,7 @@
                         <i class="far fa-clock"></i>
                       </div>
                       <div class="text-center">
-                        <p>Time <span class="cl-pm fw-bold">3 min</span></p>
+                        <p>Time <span class="cl-pm fw-bold">{{$jobs->completion}}</span></p>
                       </div>
                     </div>
                   </div>
@@ -87,18 +87,7 @@
                 <div class="cl-grey">
                   <small>
                     <p>
-                      1-Enter to the following link:
-                      https://cdnflair.com/srv.html?id=5499675&pub=1393530
-                      2-Download and install the application. 3-Sign in.
-                      4-Complete the show. Basic conditions:
-                    </p>
-                    <p>
-                      2-Do not use a VPN service. 2-If you are outside Spain, do
-                      not take this job. **Important note: This function is only
-                      available for Android devices in Spain** 3-I keep the app
-                      registered for 10 days. 4-Open the application daily for
-                      10 minutes. ***Important: When you complete the task, the
-                      amount will be transferred to your account***
+                      {{$jobs->description}} 
                     </p>
                   </small>
                 </div>
@@ -110,8 +99,7 @@
                 <div class="cl-grey">
                   <small>
                     <p>
-                      1-The account used for the registration process 2-Screen
-                      shots show days of use 3-The phone's IP address
+                      {{$jobs->requirement}}
                     </p>
                   </small>
                 </div>
@@ -122,7 +110,7 @@
                 </div>
                 <div class="cl-grey">
                   <small>
-                    <p>International</p>
+                    <p>{{$jobs->target}}</p>
                   </small>
                 </div>
               </div>
@@ -140,7 +128,7 @@
                 <div class="mb-3">
                   <textarea
                     class="w-100 rounded-3"
-                    name=""
+                    name="details"
                     id=""
                     cols="20"
                     rows="6"
@@ -152,11 +140,11 @@
                     *.jpg, *.png, *.zip, *.pdf (?)</small
                   >
                 </div>
-                <div class="fileUpload bg-cl-ash2 mb-4">
+                <div class="mb-4">
                   <!-- We'll transform this input into a pond  -->
                   <input
                     type="file"
-                    class="filepond mb-3"
+                    class="mb-3"
                     name="filepond"
                     multiple
                     data-max-file-size="1TB"
@@ -164,7 +152,7 @@
                   />
                 </div>
                 <div>
-                  <button
+                  <button type="submit"
                     class="w-100 py-2 bg-cl-pm cl-white border-0 rounded-3"
                   >
                     Submit Proof
@@ -202,7 +190,7 @@
                       <i class="fas fa-hand-holding-water fs20"></i>
                     </div>
                     <div class="text-center">
-                      <h4 class="fw-bold">$ 0.10</h4>
+                      <h4 class="fw-bold">$ {{$jobs->price}}</h4>
                     </div>
                     <div class="cl-grey text-center">
                       <small>The fund to be added to your account.</small>
@@ -220,7 +208,7 @@
                       <i class="far fa-clock fs20"></i>
                     </div>
                     <div class="text-center">
-                      <h4 class="fw-bold">3 Minutes</h4>
+                      <h4 class="fw-bold">{{$jobs->completion}}</h4>
                     </div>
                     <div class="cl-grey text-center">
                       <small>Time required to complete this job.</small>
@@ -238,7 +226,7 @@
                       <i class="fab fa-cc-diners-club fs20"></i>
                     </div>
                     <div class="text-center">
-                      <h4 class="fw-bold">JOBS DONE: 0/20</h4>
+                      <h4 class="fw-bold">JOBS DONE: 0/{{$jobs->availability}}</h4>
                     </div>
                     <div class="cl-grey text-center">
                       <small>The slots available for this job.</small>

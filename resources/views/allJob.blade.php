@@ -22,8 +22,8 @@
               <thead>
                 <tr>
                   <th scope="col">Job Name</th>
-                  <th scope="col">Attachments</th>
-                  <th scope="col">Started</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Competion Time</th>
                   <th scope="col">Availability</th>
                   <th scope="col">Payment</th>
                   <th scope="col"></th>
@@ -47,8 +47,8 @@
                     </div>
                     @endif
                     {{$item['name']}}</td>
-                  <td><i class="fas fa-link cl-pm me-2"></i>{{$item['attachment']}}</td>
-                  <td>{{$item['start']}}</td>
+                  <td><i class="fas fa-link cl-pm me-2"></i>{{$item['category_id']}}</td>
+                  <td>{{$item['completion']}}</td>
                   <td>
                       <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
                           <span class="text-white">{{$item['availability']}}</span>
@@ -57,7 +57,8 @@
                   <td>{{$item['price']}} $</td>
                   <td>
                       <div class="tableRowBtn text-end">
-                          <button class="py-1 px-4 bg-cl-pm border-0 rounded-3 cl-white">Apply Job</button>
+                      <a href="job-details={{$item['id']}}">
+                          <button class="py-1 px-4 bg-cl-pm border-0 rounded-3 cl-white">Apply Job</button></a>
                       </div>
                   </td>
                 </tr>
