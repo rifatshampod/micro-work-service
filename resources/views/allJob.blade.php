@@ -22,7 +22,7 @@
               <thead>
                 <tr>
                   <th scope="col">Job Name</th>
-                  <th scope="col">Category</th>
+                  <th scope="col">Target</th>
                   <th scope="col">Competion Time</th>
                   <th scope="col">Availability</th>
                   <th scope="col">Payment</th>
@@ -47,7 +47,7 @@
                     </div>
                     @endif
                     {{$item['name']}}</td>
-                  <td><i class="fas fa-link cl-pm me-2"></i>{{$item['category_id']}}</td>
+                  <td><i class="fas fa-link cl-pm me-2"></i>{{$item['target']}}</td>
                   <td>{{$item['completion']}}</td>
                   <td>
                       <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
