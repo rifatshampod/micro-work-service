@@ -52,8 +52,13 @@ Route::view("support", 'support');
 Route::view("profile", 'profile');
 Route::view("job-details", 'singleJob');
 Route::view("add-job", 'createJob');
+Route::view("add-gig", 'createGig1');
+//Route::view("gig-details", 'singleGig');
+Route::get('gig-details', function () {
+    //return view('home');
+    return redirect('gigs'); //to redirect to a page
 
-
+});
 
 //view routes end ----------------------------------------------
 
@@ -64,7 +69,11 @@ Route::view("add-job", 'createJob');
 Route::post("career", [careerController::class, 'getData']);  //controller to get html form data in career page
 Route::get("jobs", [jobsDetail::class, 'getData']);
 Route::get("job-details={job_slug}", [jobsDetail::class, 'getSingleData']);
+//gigs
 Route::get("gigs", [gigsController::class, 'getData']);
+Route::get("gig-details={gig_slug}", [gigsController::class, 'getSingleData']);
+
+
 Route::get("payment-proof", [paymentProofController::class, 'getData']);
 
 
