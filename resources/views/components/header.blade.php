@@ -18,6 +18,9 @@
               </div>
             </div>
             <div class="topSocial d-flex">
+            <div>
+              <small class="cl-white me-3 cursor" onclick="location.href='support'">Help & Support</small>
+            </div>
               <div
                 class="topSocialIcon d-flex justify-content-center align-items-center cursor me-3"
               >
@@ -78,11 +81,14 @@
                     >
                   </li>
                   <li class="nav-item mx-2">
+                    <a class="nav-link text-white" href="/contests"
+                      >Find Contests</a
+                    >
+                  </li>
+                  <li class="nav-item mx-2">
                     <a class="nav-link text-white" href="/login">Post a Job</a>
                   </li>
-                  <li class="nav-item mx-2 me-5">
-                    <a class="nav-link text-white" href="/about">Help</a> 
-                  </li>
+                  
                   <li class="nav-item navSignIn mx-1 px-3 mb-2">
                     <a
                       class="btn bg-cl-green border-0 px-3 text-white"

@@ -45,7 +45,8 @@
           @foreach ($giglist as $item)
 
             <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-4">
-            <div class="card teamCard">
+            
+            <div class="card teamCard cursor" onclick="location.href='gig-details={{$item['id']}}'">
               <div class="teamCardImage">
                 <img
                   src="assets/image/gigs/gig2.png"
