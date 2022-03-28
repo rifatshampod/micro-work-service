@@ -6,6 +6,8 @@ use App\Http\Controllers\jobsDetail;
 use App\Http\Controllers\usersController;
 use App\Http\Controllers\gigsController;
 use App\Http\Controllers\paymentProofController;
+use App\Http\Controllers\LogoutController;
+
 
 
 
@@ -57,6 +59,9 @@ Route::view("add-gig", 'createGig1');
 Route::get('gig-details', function () {
     //return view('home');
     return redirect('gigs'); //to redirect to a page
+//Route::view("login", 'signIn');
+//Route::view("signup", 'signUp');
+Route::view("profile", 'profile');
 
 });
 
@@ -80,10 +85,11 @@ Route::get("gig-details={gig_slug}", [gigsController::class, 'getSingleData']);
 
 
 Route::get("payment-proof", [paymentProofController::class, 'getData']);
+Route::get("client", [usersController::class, 'index']); //api based http client example
 
-
-
-
+//single job
+Route::view('single-job','singleJob');
+Route::get('single-job={job_slug}', [jobsDetail::class, 'jobView']);
 
 
 

@@ -56,10 +56,12 @@
                   </td>
                   <td>{{$item['price']}} $</td>
                   <td>
+                    <a href="single-job={{$item['id']}}">
                       <div class="tableRowBtn text-end">
                       <a href="job-details={{$item['id']}}">
                           <button class="py-1 px-4 bg-cl-pm border-0 rounded-3 cl-white">Apply Job</button></a>
                       </div>
+                    </a>
                   </td>
                 </tr>
                 @endforeach

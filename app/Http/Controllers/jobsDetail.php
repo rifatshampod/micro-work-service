@@ -75,4 +75,28 @@ class jobsDetail extends Controller
             return redirect('/')->with('status',"The link is broken");
         }
     }
+        function jobView($job_slug)  //to display single job page
+    {
+        if (Client::where('id', $client_slug)->exists()) {
+            $clients = Client::where('id', $client_slug)->first();
+            $projects = $data = Project::join('clients', 'clients.id', '=', 'projects.client_id')
+            // ->join('city', 'city.state_id', '=', 'state.state_id')
+                ->get(['projects.id as id', 'projects.name as project_name', 'projects.budget', 'projects.advance', 'projects.renewal_charge', 'projects.next_renewal_date', 'projects.client_id as client_id'])
+                ->where('client_id', $client_slug);
+
+            return view('singleClientView', compact('projects'))->with('clients', $clients);
+        } else {
+
+            return redirect('/')->with('status', "The link is broken");
+        }
+
+    }
+
+    function delete($id){
+        $data=Job::find($id);
+        $data->delete();
+        return redirect('/');
+
+    }
 }
+
