@@ -51,7 +51,7 @@ Route::view("signup", 'signUp');
 Route::view("support", 'support');
 Route::view("profile", 'profile');
 Route::view("job-details", 'singleJob');
-Route::view("add-job", 'createJob');
+//Route::view("add-job", 'createJob');
 Route::view("add-gig", 'createGig1');
 //Route::view("gig-details", 'singleGig');
 Route::get('gig-details', function () {
@@ -67,8 +67,13 @@ Route::get('gig-details', function () {
 
 
 Route::post("career", [careerController::class, 'getData']);  //controller to get html form data in career page
-Route::get("jobs", [jobsDetail::class, 'getData']);
-Route::get("job-details={job_slug}", [jobsDetail::class, 'getSingleData']);
+
+//job
+Route::get("add-job", [jobsDetail::class, 'showCategoryData']);  //add job input form
+Route::post("addJob", [jobsDetail::class, 'addData']); //save data in database
+Route::get("jobs", [jobsDetail::class, 'getData']); //retrieve all jobs from database
+Route::get("job-details={job_slug}", [jobsDetail::class, 'getSingleData']);  //retrieve and show single job
+
 //gigs
 Route::get("gigs", [gigsController::class, 'getData']);
 Route::get("gig-details={gig_slug}", [gigsController::class, 'getSingleData']);

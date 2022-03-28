@@ -15,6 +15,41 @@ class jobsDetail extends Controller
         return view('allJob',['joblist'=>$joblist]);
     }
 
+    function showCategoryData(Request $req)
+    {
+        $categoryList = Category::all();
+        return view('createJob', ['categorylist'=> $categoryList]);
+    }
+
+    function addData(Request $req)
+    {
+        $req->validate([
+            'title'=>'required | min:3',
+            'price'=>'required',
+            'availability'=>'required',
+            'agreement'=>'required'  
+        ]);
+        
+        $job = new Job;
+        $job->user_id = 1;
+        $job->name = $req->input('title');
+        $job->category_id=$req->input('category');
+        $job->description=$req->input('description');
+        $job->requirement=$req->input('requirement');
+        $job->target =$req->input('target');
+        $job->completion=$req->input('dueTime');
+        $job->availability =$req->input('availability');
+        $job->price =$req->input('price');
+        $job->campaign_cost =$req->input('cost');
+        $job->total_cost =$req->input('totalCost');
+        $job->save();
+        
+        $req->session()->flash('status','New project added successfully');
+        return redirect('jobs');
+
+    
+    }
+
     function getData()
     {
         $jobList= Job::orderBy('featured', 'DESC')
