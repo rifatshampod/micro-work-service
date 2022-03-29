@@ -44,7 +44,7 @@
         <div class="row">
           <div class="col-xxl-9 col-xl-8 mb-3">
               <div class="createGigImg mb-4">
-                  <img src="assets/image/createGigImg.png" alt="">
+                  <img src="/{{$gigs->gig_image}}" height="100" alt="">
               </div>
             <div class="singleJobMidLeft p-4 rounded-3">
               <div class="d-flex align-items-center mb-4">
