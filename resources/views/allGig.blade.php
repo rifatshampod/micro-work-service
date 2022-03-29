@@ -49,7 +49,7 @@
             <div class="card teamCard cursor" onclick="location.href='gig-details={{$item['id']}}'">
               <div class="teamCardImage">
                 <img
-                  src="assets/image/gigs/gig2.png"
+                  src="/{{$item['feature_image']}}"
                   class="card-img-top"
                   alt="..."
                 />

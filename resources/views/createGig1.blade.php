@@ -35,7 +35,7 @@
     <!----------Create Job Start------------->
     <section class="createGig py-5">
       <div class="container">
-        <form action="addGig" method="POST">
+        <form action="addGig" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="row">
             <div class="col-lg-8">
@@ -161,16 +161,10 @@
             <div class="col-lg-4">
               <div class="row">
                 <div class="col-lg-12 mt-4">
+                  <input type="file" name="file"/>
                   <div class="fileUpload bg-cl-ash2 mb-4">
                     <!-- We'll transform this input into a pond  -->
-                    <input
-                      type="file" name="feature_img"
-                      class="filepond mb-3"
-                      name="filepond"
-                      multiple
-                      data-max-file-size="1TB"
-                      data-max-files="1"
-                    />
+                    
                   </div>
                 </div>
               </div>
