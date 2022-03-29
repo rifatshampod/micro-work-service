@@ -54,7 +54,7 @@ Route::view("support", 'support');
 Route::view("profile", 'profile');
 Route::view("job-details", 'singleJob');
 //Route::view("add-job", 'createJob');
-Route::view("add-gig", 'createGig1');
+// Route::view("add-gig", 'createGig1');
 //Route::view("gig-details", 'singleGig');
 Route::get('gig-details', function () {
     //return view('home');
@@ -80,6 +80,8 @@ Route::get("jobs", [jobsDetail::class, 'getData']); //retrieve all jobs from dat
 Route::get("job-details={job_slug}", [jobsDetail::class, 'getSingleData']);  //retrieve and show single job
 
 //gigs
+Route::get("add-gig", [gigsController::class, 'showCategoryData']);  //add gig input form
+Route::post("addGig", [gigsController::class, 'addData']); //save data in database
 Route::get("gigs", [gigsController::class, 'getData']);
 Route::get("gig-details={gig_slug}", [gigsController::class, 'getSingleData']);
 

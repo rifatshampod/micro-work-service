@@ -35,7 +35,7 @@ input = document.querySelector(".inputTagContent input"),
 tagNumb = document.querySelector(".details span");
 
 // let maxTags = 10,
-tags = ["HTML", "CSS"];
+tags = [];
 
 countTags();
 createTag();

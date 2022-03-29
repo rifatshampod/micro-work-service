@@ -62,7 +62,7 @@
                         <img src="assets/image/gigs/gigcard.jfif" alt="" />
                       </div>
                       <div>
-                        <small class="cl-pm fw-bold">{{$item['user_name']}}</small>
+                        <small class="cl-pm fw-bold">{{$item['title']}}</small>
                       </div>
                     </div>
                     <div>
