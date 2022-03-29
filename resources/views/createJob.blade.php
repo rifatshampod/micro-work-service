@@ -73,19 +73,19 @@
                                             </label>
                                           </div>
                                           <div class="form-check me-2 mb-4">
-                                            <input name="target" class="form-check-input" type="radio" value="Europe West" id="flexCheckDefault2">
+                                            <input name="target" class="form-check-input" type="radio" value="Europe-West" id="flexCheckDefault2">
                                             <label class="form-check-label" for="flexCheckDefault2">
                                                 Europe West
                                             </label>
                                           </div>
                                           <div class="form-check me-2 mb-4">
-                                            <input name="target" class="form-check-input" type="radio" value="Usa Western" id="flexCheckDefault3">
+                                            <input name="target" class="form-check-input" type="radio" value="Usa-Western" id="flexCheckDefault3">
                                             <label class="form-check-label" for="flexCheckDefault3">
                                                 Usa Western
                                             </label>
                                           </div>
                                           <div class="form-check me-2 mb-4">
-                                            <input name="target" class="form-check-input" type="radio" value="Europe East" id="flexCheckDefault4">
+                                            <input name="target" class="form-check-input" type="radio" value="Europe-East" id="flexCheckDefault4">
                                             <label class="form-check-label" for="flexCheckDefault4">
                                                 Europe East
                                             </label>
@@ -153,7 +153,7 @@
                                             <i class="fas fa-dollar-sign cl-green"></i>
                                         </div>
                                         <div>
-                                        <input name="totalCost" class="fs20 fw-bold w-30" style="border:0" type="number" value="390" readonly/>
+                                        <input name="totalCost" class="fs20 fw-bold w-30 bg-cl-sky" style="border:0" type="number" value="390" readonly/>
                                             
                                         </div>
                                     </div>

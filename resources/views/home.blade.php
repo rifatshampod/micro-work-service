@@ -24,10 +24,9 @@
               <button class="cl-white rounded-3">Find Today’s Jobs</button>
             </div>
             <div class="mb-3">
-              <form action="{{route('logout')}}" method="POST">
-          @csrf
-          <button class="cl-white rounded-3">Logout</button>
-          </form><!--
+              
+          <button class="cl-white rounded-3">Sign Up</button>
+          <!--
               <button class="cl-white rounded-3">Signup Now</button> -->
             </div>
           </div>

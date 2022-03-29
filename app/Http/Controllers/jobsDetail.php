@@ -44,7 +44,7 @@ class jobsDetail extends Controller
         $job->total_cost =$req->input('totalCost');
         $job->save();
         
-        $req->session()->flash('status','New project added successfully');
+        $req->session()->flash('status','New job added successfully');
         return redirect('jobs');
 
     
