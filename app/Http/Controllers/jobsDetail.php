@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Job;
 use App\Models\Category;
+use App\Models\Submitted_proof;
 
 class jobsDetail extends Controller
 {
@@ -75,28 +76,64 @@ class jobsDetail extends Controller
             return redirect('/')->with('status',"The link is broken");
         }
     }
-        function jobView($job_slug)  //to display single job page
-    {
-        if (Client::where('id', $client_slug)->exists()) {
-            $clients = Client::where('id', $client_slug)->first();
-            $projects = $data = Project::join('clients', 'clients.id', '=', 'projects.client_id')
-            // ->join('city', 'city.state_id', '=', 'state.state_id')
-                ->get(['projects.id as id', 'projects.name as project_name', 'projects.budget', 'projects.advance', 'projects.renewal_charge', 'projects.next_renewal_date', 'projects.client_id as client_id'])
-                ->where('client_id', $client_slug);
+    //     function jobView($job_slug)  //to display single job page
+    // {
+    //     if (Client::where('id', $client_slug)->exists()) {
+    //         $clients = Client::where('id', $client_slug)->first();
+    //         $projects = $data = Project::join('clients', 'clients.id', '=', 'projects.client_id')
+    //         // ->join('city', 'city.state_id', '=', 'state.state_id')
+    //             ->get(['projects.id as id', 'projects.name as project_name', 'projects.budget', 'projects.advance', 'projects.renewal_charge', 'projects.next_renewal_date', 'projects.client_id as client_id'])
+    //             ->where('client_id', $client_slug);
 
-            return view('singleClientView', compact('projects'))->with('clients', $clients);
-        } else {
+    //         return view('singleClientView', compact('projects'))->with('clients', $clients);
+    //     } else {
 
-            return redirect('/')->with('status', "The link is broken");
-        }
+    //         return redirect('/')->with('status', "The link is broken");
+    //     }
 
-    }
+    // }
 
     function delete($id){
         $data=Job::find($id);
         $data->delete();
         return redirect('/');
 
+    }
+
+    function submitProof(Request $req)
+    {
+        $req->validate([
+            'job_id'=>'required',
+            'user_id'=>'required' 
+        ]);
+
+        $jobID = $req->input('job_id');
+        
+        $proof = new Submitted_proof;
+        $proof->user_id = $req->input('user_id');
+        $proof->job_id = $req->input('job_id');
+        $proof->description=$req->input('description');
+        $proof->save();
+
+        $lastId = $proof->id;
+
+        $pictureInfo = $req->file('file');
+
+        $picName = $pictureInfo->getClientOriginalName();
+
+        $folder = "proofImg";
+
+        $pictureInfo->move($folder, $picName);
+
+        $picUrl = $folder .'/'. $picName;
+
+        $staffPic = Submitted_proof::find($lastId);
+
+        $staffPic->file = $picUrl;
+        $staffPic->save();
+        
+        $req->session()->flash('status','New job added successfully');
+        return redirect('jobs');
     }
 }
 
