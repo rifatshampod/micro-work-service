@@ -77,7 +77,7 @@ Route::post("career", [careerController::class, 'getData']);  //controller to ge
 Route::get("add-job", [jobsDetail::class, 'showCategoryData']);  //add job input form
 Route::post("addJob", [jobsDetail::class, 'addData']); //save data in database
 Route::get("jobs", [jobsDetail::class, 'getData']); //retrieve all jobs from database
-Route::get("job-details={job_slug}", [jobsDetail::class, 'getSingleData']);  //retrieve and show single job
+
 
 //gigs
 Route::get("add-gig", [gigsController::class, 'showCategoryData']);  //add gig input form
@@ -90,8 +90,9 @@ Route::get("payment-proof", [paymentProofController::class, 'getData']);
 Route::get("client", [usersController::class, 'index']); //api based http client example
 
 //single job
-Route::view('single-job','singleJob');
-Route::get('single-job={job_slug}', [jobsDetail::class, 'jobView']);
+Route::get("job-details={job_slug}", [jobsDetail::class, 'getSingleData']);  //retrieve and show single job
+//Route::get('single-job={job_slug}', [jobsDetail::class, 'jobView']);
+Route::post("submit-proof", [jobsDetail::class,'submitProof']);
 
 
 

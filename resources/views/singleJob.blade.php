@@ -121,14 +121,17 @@
               <div class="mb-3">
                 <h4 class="cl-mat-black fw-bold">Submit Proof</h4>
               </div>
-              <form action="">
+              <form action="submit-proof" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="job_id" value="{{$jobs->id}}">
+                <input type="hidden" name="user_id" value="1">
                 <div class="mb-2">
                   <small>Your Proof</small>
                 </div>
                 <div class="mb-3">
                   <textarea
                     class="w-100 rounded-3"
-                    name="details"
+                    name="description"
                     id=""
                     cols="20"
                     rows="6"
@@ -145,7 +148,7 @@
                   <input
                     type="file"
                     class="mb-3"
-                    name="filepond"
+                    name="file"
                     multiple
                     data-max-file-size="1TB"
                     data-max-files="1"
