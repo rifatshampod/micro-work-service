@@ -14,18 +14,18 @@
             <h4 class="cl-white">WELCOME TO</h4>
           </div>
           <div>
-            <h1 class="cl-white">PTO WORKERS</h1>
+            <h1 class="cl-white">KBH WORKERS</h1>
           </div>
           <div class="mb-5">
-            <h3 class="cl-white">The Ultimate Way ToEarn moneyonline.</h3>
+            <h3 class="cl-white">The Ultimate Way To Earn Money Online.</h3>
           </div>
           <div class="heroButton d-flex">
             <div class="me-3 mb-3">
-              <button class="cl-white rounded-3">Find Today’s Jobs</button>
+              <button class="cl-white rounded-3" onclick="location.href='jobs'">Find Jobs</button>
             </div>
             <div class="mb-3">
               
-          <button class="cl-white rounded-3">Sign Up</button>
+          <button class="cl-white rounded-3" onclick="location.href='contests'">Check Ongoing Contest</button>
           <!--
               <button class="cl-white rounded-3">Signup Now</button> -->
             </div>
@@ -287,7 +287,7 @@
         <div class="container">
             <div>
                 <div class="text-center">
-                    <h3>Recent Jobs</h3>
+                    <h3>Featured Jobs</h3>
                     <div class="d-flex justify-content-center">
                       <div class="lines">
                         <div class="daimond"></div>
@@ -301,118 +301,61 @@
                   </div>
             </div>
             <div class="table-responsive-md jobTable">
-                <table class="table table-borderless px-5">
-                    <thead>
-                      <tr>
-                        <th scope="col">Job Name</th>
-                        <th scope="col">Attachments</th>
-                        <th scope="col">Started</th>
-                        <th scope="col">Availability</th>
-                        <th scope="col">Payment</th>
-                        <th scope="col"></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr class="tableRow bg-white rounded-3 cl-grey">
-                        <td scope="row">
-                          <div class="stickeyImg">
-                            <img src="assets/image/stickey2.png" alt="">
-                          </div>
-                          Fix the Login Error</td>
-                        <td><i class="fas fa-link cl-pm me-2"></i>Problems.pdf</td>
-                        <td>July 23, 2021</td>
-                        <td>
-                            <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
-                                <span class="text-white">15</span>
-                            </div>
-                        </td>
-                        <td>0.5</td>
-                        <td>
-                            <div class="tableRowBtn text-end">
-                                <button class="py-1 px-4 bg-cl-pm border-0 rounded-3 cl-white">Apply Job</button>
-                            </div>
-                        </td>
-                      </tr>
-                      <tr class="tableRow bg-white rounded-3 cl-grey">
-                        <td scope="row">
-                          <div class="stickeyImg">
-                            <img src="assets/image/stickey1.png" alt="">
-                          </div>
-                          Fix the Login Error</td>
-                        <td><i class="fas fa-link cl-pm me-2"></i>Problems.pdf</td>
-                        <td>July 23, 2021</td>
-                        <td>
-                            <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
-                                <span class="text-white">15</span>
-                            </div>
-                        </td>
-                        <td>0.5</td>
-                        <td>
-                            <div class="tableRowBtn text-end">
-                                <button class="py-1 px-4 bg-cl-pm border-0 rounded-3 cl-white">Apply Job</button>
-                            </div>
-                        </td>
-                      </tr>
-                      <tr class="tableRow bg-white rounded-3 cl-grey">
-                        <td scope="row">Fix the Login Error</td>
-                        <td><i class="fas fa-link cl-pm me-2"></i>Problems.pdf</td>
-                        <td>July 23, 2021</td>
-                        <td>
-                            <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
-                                <span class="text-white">15</span>
-                            </div>
-                        </td>
-                        <td>0.5</td>
-                        <td>
-                            <div class="tableRowBtn text-end">
-                                <button class="py-1 px-4 bg-cl-pm border-0 rounded-3 cl-white">Apply Job</button>
-                            </div>
-                        </td>
-                      </tr>
-                      <tr class="tableRow bg-white rounded-3 cl-grey">
-                        <td scope="row">Fix the Login Error</td>
-                        <td><i class="fas fa-link cl-pm me-2"></i>Problems.pdf</td>
-                        <td>July 23, 2021</td>
-                        <td>
-                            <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
-                                <span class="text-white">15</span>
-                            </div>
-                        </td>
-                        <td>0.5</td>
-                        <td>
-                            <div class="tableRowBtn text-end">
-                                <button class="py-1 px-4 bg-cl-pm border-0 rounded-3 cl-white">Apply Job</button>
-                            </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="pagination d-flex justify-content-center align-items-center">
-                <div class="d-flex justify-content-center flex-wrap">
-                    <div class="pageIcon d-flex justify-content-center align-items-center cursor bg-white mx-2">
-                        <i class="fas fa-chevron-left"></i>
+          <table class="table table-borderless px-5">
+              <thead>
+                <tr>
+                  <th scope="col">Job Name</th>
+                  <th scope="col">Target</th>
+                  <th scope="col">Competion Time</th>
+                  <th scope="col">Availability</th>
+                  <th scope="col">Payment</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- one row start with feature 1-->
+                @foreach ($joblist as $item)
+                  <tr class="tableRow bg-white rounded-3 cl-grey">
+                  <td scope="row">
+                    <!-- featured priority level 1 -->
+                    @if ($item['featured']==1)
+                    <div class="stickeyImg">
+                      <img src="assets/image/stickey2.png" alt="">
                     </div>
-                    <div class="pageIcon d-flex justify-content-center align-items-center cursor bg-cl-pm cl-white mx-2">
-                        1
+                    @endif
+                    <!-- featured priority level 2 -->
+                    @if ($item['featured']==2)     
+                      <div class="stickeyImg">
+                      <img src="assets/image/stickey1.png" alt="">
                     </div>
-                    <div class="pageIcon d-flex justify-content-center align-items-center cursor bg-white mx-2">
-                        2
-                    </div>
-                    <div class="pageIcon d-flex justify-content-center align-items-center cursor bg-white mx-2">
-                        3
-                    </div>
-                    <div class="pageIcon d-flex justify-content-center align-items-center cursor bg-white mx-2">
-                        4
-                    </div>
-                    <div class="pageIcon d-flex justify-content-center align-items-center cursor bg-white mx-2">
-                        5
-                    </div>
-                    <div class="pageIcon d-flex justify-content-center align-items-center cursor bg-white mx-2">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </div>
-            </div>
+                    @endif
+                    {{$item['name']}}</td>
+                  <td><i class="fas fa-link cl-pm me-2"></i>{{$item['target']}}</td>
+                  <td>{{$item['completion']}}</td>
+                  <td>
+                      <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
+                          <span class="text-white">{{$item['availability']}}</span>
+                      </div>
+                  </td>
+                  <td>{{$item['price']}} $</td>
+                  <td>
+                    <a href="single-job={{$item['id']}}">
+                      <div class="tableRowBtn text-end">
+                      <a href="job-details={{$item['id']}}">
+                          <button class="py-1 px-4 bg-cl-pm border-0 rounded-3 cl-white">Apply Job</button></a>
+                      </div>
+                    </a>
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+          </table>
+        </div>
+<!-- --------------------------------- pagination ------------------------>
+      <div class="pagination d-flex justify-content-center align-items-center">
+          {{$joblist->links('vendor.pagination.bootstrap-4')}}
+      </div>
+<!-- --------------------------------- pagination ------------------------>
         </div>
     </section>
     <!----------Job End------------->

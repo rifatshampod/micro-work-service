@@ -76,8 +76,10 @@
                     ></textarea>
                   </div>
                 </div>
+
+                <!--
                 <div class="col-lg-6">
-                  <!--
+                  
                   <div class="inputTag">
                     <label class="mb-2 fw-bold">Special Skills</label>
                     <div class="inputTagContent">
@@ -85,8 +87,8 @@
                         <input type="text" name="speciality" />
                       </ul>
                     </div>
-                  </div>   -->
-                </div>
+                  </div>   
+                </div>  -->
                 <div class="col-lg-6">
                   <div class="">
                     <label class="mb-2 fw-bold">Catagory</label>
@@ -100,7 +102,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-lg-12 mb-4">
+                <div class="col-lg-6 mb-4">
                   <div class="">
                     <label class="mb-2 fw-bold">Duration</label>
                     <select name="duration"
@@ -190,7 +192,7 @@
             </div>
             <div>
               <button
-                type="submit"
+                type="button"
                 class="bg-cl-pm border-0 rounded-3 px-4 py-2 cl-white"
               >
                 Create Gig

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\careerController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\jobsDetail;
 use App\Http\Controllers\usersController;
 use App\Http\Controllers\gigsController;
@@ -26,11 +27,11 @@ use App\Http\Controllers\LogoutController;
 
 // view routes start -----------------------------------------------------
 
-Route::get('/', function () {
-    return view('home');
-    //return redirect('welcome'); //to redirect to a page
+// Route::get('/', function () {
+//     //return view('home');
+//     return redirect('home'); //to redirect to a page
 
-});
+// });
 
 //Route::view("index",'home');
 Route::get('home', function () {
@@ -70,6 +71,8 @@ Route::view("profile", 'profile');
 
 // controller routes start--------------------------------------
 
+
+Route::get("/", [HomeController::class, 'getData']); //retrieve all jobs from database
 
 Route::post("career", [careerController::class, 'getData']);  //controller to get html form data in career page
 

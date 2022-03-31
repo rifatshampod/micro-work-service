@@ -73,7 +73,7 @@
                     </div>
                   </div>
                   <div>
-                    <small class="cl-dark-ash2"
+                    <small class="cardText cl-dark-ash2"
                       >{{$item['description']}}</small
                     >
                   </div>

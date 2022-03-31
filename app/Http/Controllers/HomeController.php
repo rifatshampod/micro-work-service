@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Job;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        
     }
 
     /**
@@ -23,6 +24,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         return view('home');
+    }
+
+    function getData()
+    {
+        $jobList= Job::orderBy('featured', 'DESC')
+        ->where('featured', '>=' , 1)
+        ->paginate(5); //pagination and default data to show
+        return view('home', ['joblist' => $jobList]);
     }
 }
