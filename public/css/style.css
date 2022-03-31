@@ -984,7 +984,9 @@ input[type="number"] {
 .createGig a.filepond--credits {
     color: #fff;
 }
-
+.createGigImg{
+    height: 400px;
+}
 .createGigImg img {
     width: 100%;
     height: 100%;
@@ -1200,6 +1202,14 @@ input[type="number"] {
     .missionCards {
         margin-top: 10%;
     }
+}
+
+.cardText{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 
