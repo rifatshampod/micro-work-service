@@ -67,7 +67,7 @@
                 @endforeach
               </tbody>
           </table>
-      </div>
+        </div>
 <!-- --------------------------------- pagination ------------------------>
       <div class="pagination d-flex justify-content-center align-items-center">
           {{$joblist->links('vendor.pagination.bootstrap-4')}}
