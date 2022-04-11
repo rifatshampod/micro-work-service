@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <x-assets title="All Gigs : "/>
+  <x-assets title="All Contests : "/>
 
   <body>
     <!-- Hero start -->
@@ -11,14 +11,14 @@
         <div class="d-flex justify-content-center">
           <div class="singleJobHeroContent">
             <div class="text-center">
-              <h3 class="cl-white">All Gigs</h3>
+              <h3 class="cl-white">All Contests</h3>
             </div>
             <div class="breadcrumb">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li
                     class="breadcrumb-item cl-white cursor"
-                    onclick="location.href='index.html'"
+                    onclick="location.href='/'"
                   >
                     Home
                   </li>
@@ -26,7 +26,7 @@
                     class="breadcrumb-item cursor cl-white"
                     onclick="location.href=''"
                   >
-                    Gig
+                    Find Contests
                   </li>
                   <li class="breadcrumb-item cl-white">All</li>
                 </ol>
@@ -48,11 +48,11 @@
                 </div>
             @endif
         <div class="row">
-          @foreach ($giglist as $item)
+          @foreach ($contestlist as $item)
 
             <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-4">
             
-            <div class="card teamCard cursor" onclick="location.href='gig-details={{$item['id']}}'">
+            <div class="card teamCard cursor" onclick="location.href='contest-details={{$item['id']}}'">
               <div class="teamCardImage">
                 <img
                   src="/{{$item['feature_image']}}"
@@ -64,19 +64,11 @@
                 <div class="gigCardBodyTop">
                   <div class="d-flex justify-content-between align-items-center mb-3">
                     <div class="d-flex align-items-center">
-                      <div class="gigcardBodyTopImg me-2">
-                        <img src="assets/image/gigs/gigcard.jfif" alt="" />
-                      </div>
                       <div>
-                        <small class="cl-pm fw-bold">{{$item['title']}}</small>
+                        <small class="cl-pm fw-bold">{{$item['contest_name']}}</small>
                       </div>
                     </div>
-                    <div>
-                      <small class="cl-yellow fw-bold"
-                        ><i class="fas fa-star"></i> {{$item['review']}}
-                        <span class="cl-black fw-lighter">({{$item['review_amount']}})</span></small
-                      >
-                    </div>
+                    
                   </div>
                   <div>
                     <small class="cardText cl-dark-ash2"
@@ -88,13 +80,16 @@
                 <div
                   class="gigCardBodyBottom d-flex justify-content-between align-items-center"
                 >
-                  <div class="gigCardHeartIcon cursor">
-                    <i class="fas fa-heart toggle-box"></i>
-                  </div>
+                  <div>
+                      <small class="cl-yellow fw-bold"
+                        ><i class="fas fa-calendar-check"></i> {{$item['due_date']}}
+                        </small
+                      >
+                    </div>
                   <div>
                     <small class="cl-dark-ash2 fs12"
-                      >STARTING AT
-                      <span class="cl-yellow fs16 fw-bold">${{$item['price']}}</span></small
+                      >Prize
+                      <span class="cl-yellow fs16 fw-bold">${{$item['prize_money']}}</span></small
                     >
                   </div>
                 </div>
@@ -105,7 +100,7 @@
         </div>
         <!-- --------------------------------- pagination ------------------------>
       <div class="pagination d-flex justify-content-center align-items-center">
-          {{$giglist->links('vendor.pagination.bootstrap-4')}}
+          {{$contestlist->links('vendor.pagination.bootstrap-4')}}
       </div>
 <!-- --------------------------------- pagination ------------------------>
       </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <!-- link and header data --> 
-  <x-assets title="Create gig : "/>
+  <x-assets title="Create contest : "/>
 
   <body>
     <!-- Hero start -->
@@ -11,18 +11,18 @@
         <div class="d-flex justify-content-center">
           <div class="singleJobHeroContent">
             <div class="text-center">
-              <h3 class="cl-white">Create a New Gig</h3>
+              <h3 class="cl-white">Create a New Contest</h3>
             </div>
             <div class="breadcrumb">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li
                     class="breadcrumb-item cl-white cursor"
-                    onclick="location.href='index.html'"
+                    onclick="location.href='/'"
                   >
                     Home
                   </li>
-                  <li class="breadcrumb-item cl-white">Create a New Gig</li>
+                  <li class="breadcrumb-item cl-white">Create a New Contest</li>
                 </ol>
               </nav>
             </div>
@@ -35,18 +35,18 @@
     <!----------Create Job Start------------->
     <section class="createGig py-5">
       <div class="container">
-        <form action="addGig" method="POST" enctype="multipart/form-data">
+        <form action="addContest" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="row">
             <div class="col-lg-8">
               <div class="row">
                 <div class="col-lg-12 mb-4">
                   <div class="">
-                    <label class="mb-2 fw-bold">Gig Title</label>
+                    <label class="mb-2 fw-bold">Contest Title</label>
                     <input
                       type="text" name="title"
                       class="form-control w-100 bg-cl-ash2"
-                      placeholder="Enter Gig Title"
+                      placeholder="Enter Contest Title"
                     />
                   </div>
                   @error('title')
@@ -58,7 +58,7 @@
                 </div>
                 <div class="col-lg-12 mb-4">
                   <div class="">
-                    <label class="fw-bold mb-2">Gig Description</label>
+                    <label class="fw-bold mb-2">Contest Description</label>
                     <textarea
                       class="form-control" name="description"
                       rows="7"
@@ -66,16 +66,7 @@
                     ></textarea>
                   </div>
                 </div>
-                <div class="col-lg-12 mb-4">
-                  <div class="">
-                    <label class="fw-bold mb-2">Gig Features</label>
-                    <textarea name="feature"
-                      class="form-control"
-                      rows="7"
-                      placeholder="Enter Gig Features"
-                    ></textarea>
-                  </div>
-                </div>
+                
 
                 <!--
                 <div class="col-lg-6">
@@ -104,23 +95,21 @@
                 </div>
                 <div class="col-lg-6 mb-4">
                   <div class="">
-                    <label class="mb-2 fw-bold">Duration</label>
-                    <select name="duration"
-                      class="form-select bg-cl-ash2"
-                      aria-label="Default select example"
-                    >
-                      <option selected>Select Duration</option>
-                      <option value="1">One Month</option>
-                      <option value="2">Three Months</option>
-                      <option value="3">Six Months</option>
-                    </select>
+                    <label class="mb-2 fw-bold">Due Date</label>
+                    <input type="date" name="dueDate" class="form-control">
                   </div>
                 </div>
                 <div class="col-lg-6 mb-4">
                   <div class="">
-                    <label class="mb-2 fw-bold">Starting Price</label>
+                    <label class="mb-2 fw-bold">Result Date</label>
+                    <input type="date" name="resultDate" class="form-control">
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="">
+                    <label class="mb-2 fw-bold">Prize Money</label>
                     <input
-                      type="number" name="price"
+                      type="number" name="prize"
                       class="form-control w-100 bg-cl-ash2"
                       placeholder="Enter Amount"
                     />
@@ -195,7 +184,7 @@
                 type="submit"
                 class="bg-cl-pm border-0 rounded-3 px-4 py-2 cl-white"
               >
-                Create Gig
+                Create Contest
               </button>
             </div>
           </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <!-- link and header data --> 
-  <x-assets title="All Jobs : "/>
+  <x-assets title="All Contests : "/>
   
   <body>
     <x-header-white/>
@@ -9,25 +9,19 @@
     <!----------Job Start------------->
     <section class="jobs bg-cl-light-pink p-100">
       <div class="container">
-        @if (Session::get('status'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                  {{Session::get('status')}}
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
         <div class="mb-5">
           <div class="cl-dark-ash2">
-            <h4>Finds Jobs</h4>
+            <h4>Finds Contests</h4>
           </div>
           <div class="cl-mat-black">
-            <h2>All Jobs</h2>
+            <h2>All Contests</h2>
           </div>
         </div>
         <div class="table-responsive-md jobTable">
           <table class="table table-borderless px-5">
               <thead>
                 <tr>
-                  <th scope="col">Job Name</th>
+                  <th scope="col">Contest Name</th>
                   <th scope="col">Target</th>
                   <th scope="col">Competion Time</th>
                   <th scope="col">Availability</th>
