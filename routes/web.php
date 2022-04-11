@@ -69,3 +69,6 @@ Route::post("submit-proof", [jobsDetail::class,'submitProof']);
 //gigs
 Route::get("add-gig", [gigsController::class, 'showCategoryData']);  //add gig input form
 Route::post("addGig", [gigsController::class, 'addData']); //save data in database
+//contests
+Route::get("add-contest", [contestController::class, 'showCategoryData']);  //add gig input form
+Route::post("addContest", [contestController::class, 'addData']); //save data in database

@@ -9,6 +9,12 @@
     <!----------Job Start------------->
     <section class="jobs bg-cl-light-pink p-100">
       <div class="container">
+        @if (Session::get('status'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  {{Session::get('status')}}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
         <div class="mb-5">
           <div class="cl-dark-ash2">
             <h4>Finds Jobs</h4>
