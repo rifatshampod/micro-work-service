@@ -34,6 +34,9 @@ Route::get('job-details', function () {
 Route::get('gig-details', function () {
     return redirect('gigs'); //to redirect to all gig page
 });
+Route::get('contest-details', function () {
+    return redirect('contests'); //to redirect to all gig page
+});
 
 //view routes end ----------------------------------------------
 
@@ -49,6 +52,7 @@ Route::get("job-details={job_slug}", [jobsDetail::class, 'getSingleData']);  //r
 Route::get("gigs", [gigsController::class, 'getData']);
 Route::get("gig-details={gig_slug}", [gigsController::class, 'getSingleData']);
 Route::get("contests", [contestController::class, 'getData']);
+Route::get("contest-details={contest_slug}", [contestController::class, 'getSingleData']);  //retrieve and show single job
 Route::get("payment-proof", [paymentProofController::class, 'getData']);
 // Route::view('contests','allContests');
 

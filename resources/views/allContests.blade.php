@@ -46,7 +46,7 @@
 
             <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-4">
             
-            <div class="card teamCard cursor" onclick="location.href='gig-details={{$item['id']}}'">
+            <div class="card teamCard cursor" onclick="location.href='contest-details={{$item['id']}}'">
               <div class="teamCardImage">
                 <img
                   src="/{{$item['feature_image']}}"
