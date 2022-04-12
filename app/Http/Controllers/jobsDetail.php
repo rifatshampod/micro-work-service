@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Job;
 use App\Models\Category;
+use App\Models\Campaign; 
 use App\Models\Submitted_proof;
 
 class jobsDetail extends Controller
@@ -135,5 +136,41 @@ class jobsDetail extends Controller
         $req->session()->flash('status','New job added successfully');
         return redirect('jobs');
     }
-}
 
+    function showCampaignData(Request $req)
+    {
+        $user_id = 1;
+        
+        $jobList = Job::where('user_id',$user_id)
+                        ->where('featured',0)
+                        ->get();
+        return view('createCampaign', ['joblist'=> $jobList]);
+    }
+
+    function addCampaignData(Request $req)
+    {
+        $req->validate([
+            'job_id'=>'required',
+            'priority'=>'required' 
+        ]);
+
+        $jobID = $req->input('job_id');
+        $userid = 1; //add user id here
+        $priority = $req->input('priority');
+        
+        $campaign = new Campaign; 
+        $campaign->user_id = $userid;
+        $campaign->job_id = $req->input('job_id');
+        $campaign->priority=$req->input('priority');
+        $campaign->cost=$req->input('totalCost');
+        $campaign->save();
+
+
+        $job = Job::where('id',$jobID);
+        $job ->update(['featured' => $priority]);
+
+        $req->session()->flash('status','New campaign added successfully');
+        return redirect('jobs');
+            
+    }
+}
