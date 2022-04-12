@@ -72,3 +72,6 @@ Route::post("addGig", [gigsController::class, 'addData']); //save data in databa
 //contests
 Route::get("add-contest", [contestController::class, 'showCategoryData']);  //add gig input form
 Route::post("addContest", [contestController::class, 'addData']); //save data in database
+//campaign
+Route::get("add-campaign", [jobsDetail::class, 'showCampaignData']);  //add job input form
+Route::post("addCampaign", [jobsDetail::class, 'addCampaignData']); //save data in database
