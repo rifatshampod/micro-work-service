@@ -75,3 +75,12 @@ Route::post("addContest", [contestController::class, 'addData']); //save data in
 //campaign
 Route::get("add-campaign", [jobsDetail::class, 'showCampaignData']);  //add job input form
 Route::post("addCampaign", [jobsDetail::class, 'addCampaignData']); //save data in database
+
+//user navigations
+Route::view('my-jobs','usernav/myCreateJob');
+Route::view('my-contests','usernav/myCreateContest');
+Route::view('applied-jobs','usernav/myAppliedJob');
+Route::view('applied-contests','usernav/myAppliedContest');
+Route::view('my-campaigns','usernav/myCampaigns');
+Route::view('my-gigs','usernav/myGigs');
+Route::view('my-single-job','usernav/mySingleJob');

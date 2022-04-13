@@ -169,7 +169,7 @@ class jobsDetail extends Controller
         $job = Job::where('id',$jobID);
         $job ->update(['featured' => $priority]);
 
-        $req->session()->flash('status','New campaign added successfully');
+        $req->session()->flash('status','Job Priority changed successfully into featured jobs.');
         return redirect('jobs');
             
     }
