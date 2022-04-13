@@ -1086,6 +1086,13 @@ input[type="number"] {
     line-height: 8px;
 }
 
+.submissionIcon{
+    height: 30px;
+    width: 30px;
+    border: 0.5px solid rgb(179, 177, 177);
+    border-radius: 5px;
+}
+
 
 /************Footer End**************/
 

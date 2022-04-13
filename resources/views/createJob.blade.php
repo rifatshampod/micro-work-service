@@ -108,7 +108,7 @@
                             <div class="col-lg-6 mb-4">
                                 <div class="">
                                     <label class="mb-2 fw-bold">Available Amount</label>
-                                    <input type="number" name="availability" class="form-control w-100 bg-cl-ash2" placeholder="Enter Amount">
+                                    <input type="number" id="availableAmount" onblur="countSum()" name="availability" class="form-control w-100 bg-cl-ash2" placeholder="Enter Amount">
                                     @error('availability')
                                       <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                           {{$message}}
@@ -120,7 +120,7 @@
                             <div class="col-lg-6 mb-4">
                                 <div class="">
                                     <label class="mb-2 fw-bold">Price Per Job</label>
-                                    <input type="number" step=".01" name="price" class="form-control w-100 bg-cl-ash2" placeholder="Enter Amount">
+                                    <input type="number" id="pricePerJob" onblur="countSum()" step=".01" name="price" class="form-control w-100 bg-cl-ash2" placeholder="Enter Amount">
                                     @error('price')
                                       <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                           {{$message}}
@@ -137,7 +137,7 @@
                                             <i class="fas fa-dollar-sign cl-pm"></i>
                                         </div>
                                         <div class="d-flex align-items-center px-4">
-                                            <input name="cost" class="fs16 cl-pm" style="border:0" type="number" value="390" readonly/>
+                                            <input name="cost" class="fs16 cl-pm" id="cost" onblur="countSum()" style="border:0" type="number" value="10" readonly/>
                                             
                                         </div>
                                     </div>
@@ -153,7 +153,7 @@
                                             <i class="fas fa-dollar-sign cl-green"></i>
                                         </div>
                                         <div>
-                                        <input name="totalCost" class="fs20 fw-bold w-30 bg-cl-sky" style="border:0" type="number" value="390" readonly/>
+                                        <input name="totalCost" id="totalCost" onblur="countSum()" class="fs20 fw-bold w-30 bg-cl-sky" style="border:0" type="number" readonly/>
                                             
                                         </div>
                                     </div>

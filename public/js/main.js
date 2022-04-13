@@ -77,3 +77,21 @@ function addTag(e){
 }
 
 input.addEventListener("keyup", addTag);
+
+
+
+//Price Multiply
+function countSum(){
+  var availableAmount = parseInt(document.getElementById("availableAmount").value);
+  var pricePerJob = parseInt(document.getElementById("pricePerJob").value);
+  var cost = parseInt(document.getElementById("cost").value)
+  var multifly = availableAmount * pricePerJob;
+  var totalCost = multifly + cost;
+  document.getElementById("totalCost").value = totalCost;
+}
+function countCampaign(){
+  var a1 = parseInt(document.getElementById("1").value);
+  var a2 = parseInt(document.getElementById("2").value)
+  console.log(a1);
+  document.getElementById("totalCost").value = a1;
+}

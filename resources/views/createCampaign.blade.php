@@ -65,9 +65,9 @@
                             <div class="col-lg-6 mb-4">
                                 <div class="">
                                     <label class="mb-2 fw-bold">Select Campaign Priority</label>
-                                    <select name="priority" class="form-select bg-cl-ash2"
+                                    <select name="priority" id="priority" class="form-select bg-cl-ash2"
                                         aria-label="Default select example">
-                                        
+                                        <option value="" selected disabled hidden>Select search category</option>
                                         <option value="1">Standard Priority</option>
                                         <option value="2">High Priority</option>
                                         
@@ -83,10 +83,16 @@
                                             class="createJobCampaignIcon d-flex justify-content-center align-items-center">
                                             <i class="fas fa-dollar-sign cl-pm"></i>
                                         </div>
+                                        
                                         <div class="d-flex align-items-center px-4">
-                                            <input name="cost" class="fs16 cl-pm bg-cl-ash2" style="border:0"
-                                                type="number" value="390" readonly />
+                                        <div id="1" style="display: none;"> 
+                                            <input type="number" class="bg-cl-ash2" style="border:0" value="10" readonly/>
                                         </div>
+                                        <div id="2" style="display: none;"> 
+                                            <input type="number" class="bg-cl-ash2" style="border:0" value="20" readonly/>
+                                        </div>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +107,7 @@
                                             <i class="fas fa-dollar-sign cl-green"></i>
                                         </div>
                                         <div>
-                                            <input name="totalCost" class="fs20 fw-bold w-30 bg-cl-sky" style="border:0"
+                                            <input name="totalCost" id="totalCost" onblur="countCampaign()" class="fs20 fw-bold w-30 bg-cl-sky" style="border:0"
                                                 type="number" value="390" readonly />
                                         </div>
                                     </div>
@@ -140,6 +146,24 @@
     <!-- Bottom Section -->
     <x-footer />
 
+    <script>
+                $(document).ready(function() {
+					
+        	$("#priority").change(function(e) {
+       			hideAll();
+						$(e.target.options).removeClass();
+						var $selectedOption = $(e.target.options[e.target.options.selectedIndex]);
+						$selectedOption.addClass('selected');
+       			$('#' + $selectedOption.val()).show();
+        	});
+        });
+
+        function hideAll() {
+        	$("#1").hide();
+        	$("#2").hide();
+					
+        }
+    </script>
     <!-- Load FilePond library -->
     <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
     <script src="js/main.js"></script>
