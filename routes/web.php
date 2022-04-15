@@ -76,12 +76,21 @@ Route::post("addContest", [contestController::class, 'addData']); //save data in
 Route::get("add-campaign", [jobsDetail::class, 'showCampaignData']);  //add job input form
 Route::post("addCampaign", [jobsDetail::class, 'addCampaignData']); //save data in database
 
-//user navigations
+//user 
+
+//job
 Route::get("my-jobs", [jobsDetail::class, 'userJobs']);
-Route::view('my-contests','usernav/myCreateContest');
-Route::get('applied-jobs',[jobsDetail::class, 'userAppliedJobs']);
-Route::view('applied-contests','usernav/myAppliedContest');
-Route::view('my-campaigns','usernav/myCampaigns');
-Route::view('my-gigs','usernav/myGigs');
 Route::view('my-single-job','usernav/mySingleJob'); //user single job model
 Route::get("my-single-job={job_slug}", [jobsDetail::class, 'userJobSingle']);
+Route::get('applied-jobs',[jobsDetail::class, 'userAppliedJobs']);
+
+//contest
+Route::get('my-contests',[contestController::class, 'userContests']);
+Route::get('applied-contests',[contestController::class, 'userAppliedContests']);
+Route::get("my-contest={contest_slug}", [contestController::class, 'userSingleData']);  //retrieve and show single job
+
+//campaign
+Route::view('my-campaigns','usernav/myCampaigns');
+
+//gigs
+Route::view('my-gigs','usernav/myGigs');

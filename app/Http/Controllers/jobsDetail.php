@@ -197,7 +197,8 @@ class jobsDetail extends Controller
             ->get(['submitted_proofs.id as id','submitted_proofs.job_id',
             'usertables.name as username','submitted_proofs.file as attachment',
             'submitted_proofs.status as approval'])
-            ->where('job_id',$job_slug);
+            ->where('job_id',$job_slug)
+            ->where('type',1);
 
 
             return view('usernav/mySingleJob',compact('submission'))->with('jobs',$jobs);
