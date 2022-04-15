@@ -209,7 +209,17 @@ class jobsDetail extends Controller
     }
 
     function userAppliedJobs(Request $req){
+        $user_id=1; //change user id here
 
+        $submission = Submitted_proof::join('jobs','jobs.id','=','submitted_proofs.job_id')
+            ->get(['submitted_proofs.id as id','submitted_proofs.job_id',
+            'jobs.name as jobTitle','submitted_proofs.file as attachment',
+            'jobs.completion as deadline','jobs.price as payment', 'submitted_proofs.status',
+            'submitted_proofs.user_id as submitted_user','jobs.id as job_id','submitted_proofs.type'])
+            ->where('submitted_user',$user_id)
+            ->where('type',1);
+
+        return view('usernav/myAppliedJob', ['submission' => $submission]);
     }
 
 

@@ -79,7 +79,7 @@ Route::post("addCampaign", [jobsDetail::class, 'addCampaignData']); //save data 
 //user navigations
 Route::get("my-jobs", [jobsDetail::class, 'userJobs']);
 Route::view('my-contests','usernav/myCreateContest');
-Route::view('applied-jobs','usernav/myAppliedJob');
+Route::get('applied-jobs',[jobsDetail::class, 'userAppliedJobs']);
 Route::view('applied-contests','usernav/myAppliedContest');
 Route::view('my-campaigns','usernav/myCampaigns');
 Route::view('my-gigs','usernav/myGigs');
