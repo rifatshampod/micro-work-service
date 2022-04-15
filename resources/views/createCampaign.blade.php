@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                             
-                            <div class="col-lg-6 mb-4">
+                            <div class="col-lg-12 mb-4">
                                 <div class="">
                                     <label class="mb-2 fw-bold"> Posting Cost</label>
                                     <div class="createJobCampaign d-flex rounded-3 bg-cl-ash2">
@@ -93,23 +93,6 @@
                                         </div>
                                         </div>
                                         
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 my-4">
-                                <div
-                                    class="createJobTotalCost bg-cl-sky d-flex justify-content-between align-items-center px-4 py-2">
-                                    <div>
-                                        <small class="fs20 fw-bold">Total Cost</small>
-                                    </div>
-                                    <div class="d-flex align-items-center">
-                                        <div class="me-2">
-                                            <i class="fas fa-dollar-sign cl-green"></i>
-                                        </div>
-                                        <div>
-                                            <input name="totalCost" id="totalCost" onblur="countCampaign()" class="fs20 fw-bold w-30 bg-cl-sky" style="border:0"
-                                                type="number" value="390" readonly />
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -163,6 +146,7 @@
         	$("#2").hide();
 					
         }
+
     </script>
     <!-- Load FilePond library -->
     <script src="https://unpkg.com/filepond/dist/filepond.js"></script>

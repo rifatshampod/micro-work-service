@@ -173,4 +173,18 @@ class jobsDetail extends Controller
         return redirect('jobs');
             
     }
+
+    function userJobs(Request $req){
+
+    }
+
+    function userJobSingle(Request $req){
+
+    }
+
+    function userAppliedJobs(Request $req){
+
+    }
+
+
 }
