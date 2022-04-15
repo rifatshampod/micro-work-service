@@ -127,7 +127,10 @@
             <div class="mt-5">
               <h4>Submissions</h4>
             </div>
-          <table class="table table-borderless px-5">
+            @if ($submission->isEmpty())
+                <div class="text-center">No submission yet</div>
+            @else
+              <table class="table table-borderless px-5">
               <thead>
                 <tr>
                   <th scope="col">Submitted By</th>
@@ -136,10 +139,12 @@
                 </tr>
               </thead>
               <tbody>
-
-                <tr class="tableRow bg-white rounded-3 cl-grey">
-                  <td scope="row">Bipu</td>
-                  <td><i class="fas fa-link cl-pm me-2"></i>Problems.pdf</td>
+                @foreach ($submission as $item)
+                    <tr class="tableRow bg-white rounded-3 cl-grey">
+                  <td scope="row">{{$item['username']}}</td>
+                  <td><a href="/{{$item['attachment']}}" download>
+                    <i class="fas fa-link cl-pm me-2"></i>{{$item['attachment']}}
+                  </a></td>
                   <td>
                       <div class="d-flex justify-content-end">
                           <div class="submissionIcon d-flex justify-content-center align-items-center mx-1 cursor">
@@ -151,8 +156,16 @@
                       </div>
                   </td>
                 </tr>
+                @endforeach
+
+                
               </tbody>
           </table>
+            @endif
+            
+
+            
+          
       </div>
               </div>
             </div>

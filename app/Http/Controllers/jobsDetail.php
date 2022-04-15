@@ -8,6 +8,7 @@ use App\Models\Job;
 use App\Models\Category;
 use App\Models\Campaign; 
 use App\Models\Submitted_proof;
+use App\Models\Usertable;
 
 class jobsDetail extends Controller
 {
@@ -191,7 +192,15 @@ class jobsDetail extends Controller
             'jobs.availability', 'jobs.price'])
             ->where('id',$job_slug)->first();
 
-            return view('usernav/mySingleJob')->with('jobs',$jobs);
+            $submission = Submitted_proof::join('jobs','jobs.id','=','submitted_proofs.job_id')
+            ->join('usertables','usertables.id','=','submitted_proofs.user_id')
+            ->get(['submitted_proofs.id as id','submitted_proofs.job_id',
+            'usertables.name as username','submitted_proofs.file as attachment',
+            'submitted_proofs.status as approval'])
+            ->where('job_id',$job_slug);
+
+
+            return view('usernav/mySingleJob',compact('submission'))->with('jobs',$jobs);
         }
         else{
 
