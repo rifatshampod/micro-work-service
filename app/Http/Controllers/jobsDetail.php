@@ -8,6 +8,7 @@ use App\Models\Job;
 use App\Models\Category;
 use App\Models\Campaign; 
 use App\Models\Submitted_proof;
+use App\Models\Usertable;
 
 class jobsDetail extends Controller
 {
@@ -175,15 +176,51 @@ class jobsDetail extends Controller
     }
 
     function userJobs(Request $req){
-
+        $userid = 1; //change user id here
+        $jobList= Job::where('user_id', $userid)
+        ->paginate(20); //pagination and default data to show
+        return view('usernav/myCreateJob', ['joblist' => $jobList]);
     }
 
-    function userJobSingle(Request $req){
+    function userJobSingle($job_slug){
+        if(Job::where('id',$job_slug)->exists())
+        {
+            //$clients = Client::where('id',$client_slug)->first();
+            $jobs = Job::join('categories', 'categories.id', '=', 'jobs.category_id')
+            ->get(['jobs.id as id','jobs.name as title', 'categories.name as category_name',
+            'jobs.description','jobs.requirement','jobs.target','jobs.completion',
+            'jobs.availability', 'jobs.price'])
+            ->where('id',$job_slug)->first();
 
+            $submission = Submitted_proof::join('jobs','jobs.id','=','submitted_proofs.job_id')
+            ->join('usertables','usertables.id','=','submitted_proofs.user_id')
+            ->get(['submitted_proofs.id as id','submitted_proofs.job_id',
+            'usertables.name as username','submitted_proofs.file as attachment',
+            'submitted_proofs.status as approval'])
+            ->where('job_id',$job_slug)
+            ->where('type',1);
+
+
+            return view('usernav/mySingleJob',compact('submission'))->with('jobs',$jobs);
+        }
+        else{
+
+            return redirect('/')->with('status',"The link is broken");
+        }
     }
 
     function userAppliedJobs(Request $req){
+        $user_id=1; //change user id here
 
+        $submission = Submitted_proof::join('jobs','jobs.id','=','submitted_proofs.job_id')
+            ->get(['submitted_proofs.id as id','submitted_proofs.job_id',
+            'jobs.name as jobTitle','submitted_proofs.file as attachment',
+            'jobs.completion as deadline','jobs.price as payment', 'submitted_proofs.status',
+            'submitted_proofs.user_id as submitted_user','jobs.id as job_id','submitted_proofs.type'])
+            ->where('submitted_user',$user_id)
+            ->where('type',1);
+
+        return view('usernav/myAppliedJob', ['submission' => $submission]);
     }
 
 

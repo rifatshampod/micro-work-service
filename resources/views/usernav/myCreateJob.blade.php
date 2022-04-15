@@ -19,13 +19,14 @@
         <div class="mb-2">
           <div class="d-flex justify-content-end">
             <div>
-                <button class="px-4 py-2 bg-primary border-0 rounded-3 text-white">
+                <button class="px-4 py-2 bg-primary border-0 rounded-3 text-white" 
+                onclick="location.href='add-job'">
                     Post a New Job
                 </button>
             </div>
           </div>
           <div class="cl-mat-black">
-            <h4>Create Jobs</h4>
+            <h4>Created Jobs</h4>
           </div>
         </div>
         <div class="table-responsive-md jobTable">
@@ -33,115 +34,47 @@
               <thead>
                 <tr>
                   <th scope="col">Job Name</th>
-                  <th scope="col">Attachments</th>
-                  <th scope="col">Started</th>
+                  <th scope="col">Target</th>
+                  <th scope="col">Completion Time</th>
                   <th scope="col">Availability</th>
                   <th scope="col">Payment</th>
                   <th class="text-end" scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="tableRow bg-white rounded-3 cl-grey">
+                @foreach ($joblist as $item)
+                    <tr class="tableRow bg-white rounded-3 cl-grey">
                   <td scope="row">
-                    Fix the Login Error</td>
-                  <td><i class="fas fa-link cl-pm me-2"></i>Problems.pdf</td>
-                  <td>July 23, 2021</td>
+                  {{$item['name']}}</td>
+                  <td><i class="fas fa-link cl-pm me-2"></i>{{$item['target']}}</td>
+                  <td>{{$item['completion']}}</td>
                   <td>
                       <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
-                          <span class="text-white">15</span>
+                          <span class="text-white">{{$item['availability']}}</span>
                       </div>
                   </td>
-                  <td>0.5</td>
+                  <td>{{$item['price']}}</td>
                   <td>
                       <div class="tableRowBtn d-flex justify-content-end">
+                        <a href="my-single-job={{$item['id']}}">
                         <div class="tableIcon d-flex justify-content-center align-items-center me-2">
                             <i class="fa fa-eye cl-pm"></i>
                         </div>
-                        <div class="tableIcon d-flex justify-content-center align-items-center me-2">
-                            <i class="fa fa-edit cl-yellow"></i>
-                        </div>
-                        <div class="tableIcon d-flex justify-content-center align-items-center">
-                            <i class="fa fa-trash cl-pink"></i>
-                        </div>
+                      </a>
                       </div>
                   </td>
                 </tr>
-                <tr class="tableRow bg-white rounded-3 cl-grey">
-                  <td scope="row">
-                    Fix the Login Error</td>
-                  <td><i class="fas fa-link cl-pm me-2"></i>Problems.pdf</td>
-                  <td>July 23, 2021</td>
-                  <td>
-                      <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
-                          <span class="text-white">15</span>
-                      </div>
-                  </td>
-                  <td>0.5</td>
-                  <td>
-                      <div class="tableRowBtn d-flex justify-content-end">
-                        <div class="tableIcon d-flex justify-content-center align-items-center me-2">
-                            <i class="fa fa-eye cl-pm"></i>
-                        </div>
-                        <div class="tableIcon d-flex justify-content-center align-items-center me-2">
-                            <i class="fa fa-edit cl-yellow"></i>
-                        </div>
-                        <div class="tableIcon d-flex justify-content-center align-items-center">
-                            <i class="fa fa-trash cl-pink"></i>
-                        </div>
-                      </div>
-                  </td>
-                </tr>
-                <tr class="tableRow bg-white rounded-3 cl-grey">
-                  <td scope="row">Fix the Login Error</td>
-                  <td><i class="fas fa-link cl-pm me-2"></i>Problems.pdf</td>
-                  <td>July 23, 2021</td>
-                  <td>
-                      <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
-                          <span class="text-white">15</span>
-                      </div>
-                  </td>
-                  <td>0.5</td>
-                  <td>
-                      <div class="tableRowBtn d-flex justify-content-end">
-                        <div class="tableIcon d-flex justify-content-center align-items-center me-2">
-                            <i class="fa fa-eye cl-pm"></i>
-                        </div>
-                        <div class="tableIcon d-flex justify-content-center align-items-center me-2">
-                            <i class="fa fa-edit cl-yellow"></i>
-                        </div>
-                        <div class="tableIcon d-flex justify-content-center align-items-center">
-                            <i class="fa fa-trash cl-pink"></i>
-                        </div>
-                      </div>
-                  </td>
-                </tr>
-                <tr class="tableRow bg-white rounded-3 cl-grey">
-                  <td scope="row">Fix the Login Error</td>
-                  <td><i class="fas fa-link cl-pm me-2"></i>Problems.pdf</td>
-                  <td>July 23, 2021</td>
-                  <td>
-                      <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
-                          <span class="text-white">15</span>
-                      </div>
-                  </td>
-                  <td>0.5</td>
-                  <td>
-                      <div class="tableRowBtn d-flex justify-content-end">
-                        <div class="tableIcon d-flex justify-content-center align-items-center me-2">
-                            <i class="fa fa-eye cl-pm"></i>
-                        </div>
-                        <div class="tableIcon d-flex justify-content-center align-items-center me-2">
-                            <i class="fa fa-edit cl-yellow"></i>
-                        </div>
-                        <div class="tableIcon d-flex justify-content-center align-items-center">
-                            <i class="fa fa-trash cl-pink"></i>
-                        </div>
-                      </div>
-                  </td>
-                </tr>
+                @endforeach
+                
+                
               </tbody>
           </table>
       </div>
+      <!-- --------------------------------- pagination ------------------------>
+      <div class="pagination d-flex justify-content-center align-items-center">
+          {{$joblist->links('vendor.pagination.bootstrap-4')}}
+      </div>
+<!-- --------------------------------- pagination ------------------------>
       </div>
     </div>
     </div>

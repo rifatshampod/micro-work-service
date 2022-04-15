@@ -25,123 +25,75 @@
             </div>
           </div>
           <div class="cl-mat-black">
-            <h4>Create Contest</h4>
+            <h4>My Contest</h4>
           </div>
         </div>
-        <div class="table-responsive-md jobTable">
-          <table class="table table-borderless">
-              <thead>
-                <tr>
-                  <th scope="col">Contest Name</th>
-                  <th scope="col">Attachments</th>
-                  <th scope="col">Started</th>
-                  <th scope="col">Availability</th>
-                  <th scope="col">Payment</th>
-                  <th class="text-end" scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="tableRow bg-white rounded-3 cl-grey">
-                  <td scope="row">
-                    Fix the Login Error</td>
-                  <td><i class="fas fa-link cl-pm me-2"></i>Problems.pdf</td>
-                  <td>July 23, 2021</td>
-                  <td>
-                      <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
-                          <span class="text-white">15</span>
+                <div class="row">
+          @foreach($contestlist as $item)
+
+            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-4">
+            
+            <div class="card teamCard cursor" 
+            onclick="location.href='my-contest={{$item['id']}}'"
+            >
+              <div class="teamCardImage">
+                <img
+                  src="
+                  /{{$item['feature_image']}}
+                  "
+                  class="card-img-top"
+                  alt="..."
+                />
+              </div>
+              <div class="card-body gigCardBody bg-cl-ash2">
+                <div class="gigCardBodyTop">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <small class="cl-pm fw-bold">
+                          {{$item['contest_name']}}
+                        </small>
                       </div>
-                  </td>
-                  <td>0.5</td>
-                  <td>
-                      <div class="tableRowBtn d-flex justify-content-end">
-                        <div class="tableIcon d-flex justify-content-center align-items-center me-2">
-                            <i class="fa fa-eye cl-pm"></i>
-                        </div>
-                        <div class="tableIcon d-flex justify-content-center align-items-center me-2">
-                            <i class="fa fa-edit cl-yellow"></i>
-                        </div>
-                        <div class="tableIcon d-flex justify-content-center align-items-center">
-                            <i class="fa fa-trash cl-pink"></i>
-                        </div>
-                      </div>
-                  </td>
-                </tr>
-                <tr class="tableRow bg-white rounded-3 cl-grey">
-                  <td scope="row">
-                    Fix the Login Error</td>
-                  <td><i class="fas fa-link cl-pm me-2"></i>Problems.pdf</td>
-                  <td>July 23, 2021</td>
-                  <td>
-                      <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
-                          <span class="text-white">15</span>
-                      </div>
-                  </td>
-                  <td>0.5</td>
-                  <td>
-                      <div class="tableRowBtn d-flex justify-content-end">
-                        <div class="tableIcon d-flex justify-content-center align-items-center me-2">
-                            <i class="fa fa-eye cl-pm"></i>
-                        </div>
-                        <div class="tableIcon d-flex justify-content-center align-items-center me-2">
-                            <i class="fa fa-edit cl-yellow"></i>
-                        </div>
-                        <div class="tableIcon d-flex justify-content-center align-items-center">
-                            <i class="fa fa-trash cl-pink"></i>
-                        </div>
-                      </div>
-                  </td>
-                </tr>
-                <tr class="tableRow bg-white rounded-3 cl-grey">
-                  <td scope="row">Fix the Login Error</td>
-                  <td><i class="fas fa-link cl-pm me-2"></i>Problems.pdf</td>
-                  <td>July 23, 2021</td>
-                  <td>
-                      <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
-                          <span class="text-white">15</span>
-                      </div>
-                  </td>
-                  <td>0.5</td>
-                  <td>
-                      <div class="tableRowBtn d-flex justify-content-end">
-                        <div class="tableIcon d-flex justify-content-center align-items-center me-2">
-                            <i class="fa fa-eye cl-pm"></i>
-                        </div>
-                        <div class="tableIcon d-flex justify-content-center align-items-center me-2">
-                            <i class="fa fa-edit cl-yellow"></i>
-                        </div>
-                        <div class="tableIcon d-flex justify-content-center align-items-center">
-                            <i class="fa fa-trash cl-pink"></i>
-                        </div>
-                      </div>
-                  </td>
-                </tr>
-                <tr class="tableRow bg-white rounded-3 cl-grey">
-                  <td scope="row">Fix the Login Error</td>
-                  <td><i class="fas fa-link cl-pm me-2"></i>Problems.pdf</td>
-                  <td>July 23, 2021</td>
-                  <td>
-                      <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
-                          <span class="text-white">15</span>
-                      </div>
-                  </td>
-                  <td>0.5</td>
-                  <td>
-                      <div class="tableRowBtn d-flex justify-content-end">
-                        <div class="tableIcon d-flex justify-content-center align-items-center me-2">
-                            <i class="fa fa-eye cl-pm"></i>
-                        </div>
-                        <div class="tableIcon d-flex justify-content-center align-items-center me-2">
-                            <i class="fa fa-edit cl-yellow"></i>
-                        </div>
-                        <div class="tableIcon d-flex justify-content-center align-items-center">
-                            <i class="fa fa-trash cl-pink"></i>
-                        </div>
-                      </div>
-                  </td>
-                </tr>
-              </tbody>
-          </table>
+                    </div>
+                    
+                  </div>
+                  <div>
+                    <small class="cardText cl-dark-ash2">
+                      {{$item['description']}}
+                      </small
+                    >
+                  </div>
+                </div>
+
+                <div
+                  class="gigCardBodyBottom d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                      <small class="cl-yellow fw-bold"
+                        ><i class="fas fa-calendar-check"></i> 
+                        {{$item['due_date']}}
+                        </small
+                      >
+                    </div>
+                  <div>
+                    <small class="cl-dark-ash2 fs12"
+                      >Prize
+                      <span class="cl-yellow fs16 fw-bold">
+                        ${{$item['prize_money']}}
+                      </span></small
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+        <!-- --------------------------------- pagination ------------------------>
+      <div class="pagination d-flex justify-content-center align-items-center">
+          {{$contestlist->links('vendor.pagination.bootstrap-4')}}
       </div>
+<!-- --------------------------------- pagination ------------------------>
       </div>
     </div>
     </div>

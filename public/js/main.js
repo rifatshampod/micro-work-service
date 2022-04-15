@@ -89,13 +89,3 @@ function countSum(){
   var totalCost = multifly + cost;
   document.getElementById("totalCost").value = totalCost;
 }
-// function countCampaign(){
-//   var a1 = parseInt(document.getElementById("1").value);
-//   var a2 = parseInt(document.getElementById("2").value)
-//   console.log(a1);
-//   document.getElementById("totalCost").value = a1;
-// }
-function test(){
-  var s = document.getElementById("postingCost").innerText;
-  console.log(s);
-}
