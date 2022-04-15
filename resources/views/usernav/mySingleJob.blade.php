@@ -57,7 +57,7 @@
                 <div class="">
                   <div class="">
                     <h3 class="cl-mat-black fw-bold">
-                      {{-- {{$jobs->title}} --}}
+                      {{$jobs->title}}
                     </h3>
                   </div>
                   <div class="jobFlexTopDiv d-flex">
@@ -68,7 +68,7 @@
                       <div class="text-center">
                         <p>
                           Catagory: <span class="cl-pm fw-bold">
-                            {{-- {{$jobs->category_name}} --}}
+                            {{$jobs->category_name}}
                           </span>
                         </p>
                       </div>
@@ -79,7 +79,7 @@
                       </div>
                       <div class="text-center">
                         <p>Time <span class="cl-pm fw-bold">
-                          {{-- {{$jobs->completion}} --}}
+                          {{$jobs->completion}}
                         </span></p>
                       </div>
                     </div>
@@ -93,7 +93,7 @@
                 <div class="cl-grey">
                   <small>
                     <p>
-                      {{-- {{$jobs->description}}  --}}
+                      {{$jobs->description}} 
                     </p>
                   </small>
                 </div>
@@ -105,7 +105,7 @@
                 <div class="cl-grey">
                   <small>
                     <p>
-                      {{-- {{$jobs->requirement}} --}}
+                      {{$jobs->requirement}}
                     </p>
                   </small>
                 </div>
@@ -116,7 +116,7 @@
                 </div>
                 <div class="cl-grey">
                   <small>
-                    {{-- <p>{{$jobs->target}}</p> --}}
+                    <p>{{$jobs->target}}</p>
                   </small>
                 </div>
               </div>

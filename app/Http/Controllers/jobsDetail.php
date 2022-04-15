@@ -175,11 +175,28 @@ class jobsDetail extends Controller
     }
 
     function userJobs(Request $req){
-
+        $userid = 1; //change user id here
+        $jobList= Job::where('user_id', $userid)
+        ->paginate(20); //pagination and default data to show
+        return view('usernav/myCreateJob', ['joblist' => $jobList]);
     }
 
-    function userJobSingle(Request $req){
+    function userJobSingle($job_slug){
+        if(Job::where('id',$job_slug)->exists())
+        {
+            //$clients = Client::where('id',$client_slug)->first();
+            $jobs = Job::join('categories', 'categories.id', '=', 'jobs.category_id')
+            ->get(['jobs.id as id','jobs.name as title', 'categories.name as category_name',
+            'jobs.description','jobs.requirement','jobs.target','jobs.completion',
+            'jobs.availability', 'jobs.price'])
+            ->where('id',$job_slug)->first();
 
+            return view('usernav/mySingleJob')->with('jobs',$jobs);
+        }
+        else{
+
+            return redirect('/')->with('status',"The link is broken");
+        }
     }
 
     function userAppliedJobs(Request $req){

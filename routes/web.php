@@ -77,10 +77,11 @@ Route::get("add-campaign", [jobsDetail::class, 'showCampaignData']);  //add job 
 Route::post("addCampaign", [jobsDetail::class, 'addCampaignData']); //save data in database
 
 //user navigations
-Route::view('my-jobs','usernav/myCreateJob');
+Route::get("my-jobs", [jobsDetail::class, 'userJobs']);
 Route::view('my-contests','usernav/myCreateContest');
 Route::view('applied-jobs','usernav/myAppliedJob');
 Route::view('applied-contests','usernav/myAppliedContest');
 Route::view('my-campaigns','usernav/myCampaigns');
 Route::view('my-gigs','usernav/myGigs');
-Route::view('my-single-job','usernav/mySingleJob');
+Route::view('my-single-job','usernav/mySingleJob'); //user single job model
+Route::get("my-single-job={job_slug}", [jobsDetail::class, 'userJobSingle']);
