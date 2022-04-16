@@ -90,7 +90,7 @@ Route::get('applied-contests',[contestController::class, 'userAppliedContests'])
 Route::get("my-contest={contest_slug}", [contestController::class, 'userSingleData']);  //retrieve and show single job
 
 //campaign
-Route::view('my-campaigns','usernav/myCampaigns');
+Route::get('my-campaigns',[jobsDetail::class, 'userCampaign']);
 
 //gigs
-Route::view('my-gigs','usernav/myGigs');
+Route::get('my-gigs',[gigsController::class,'getUserData']);

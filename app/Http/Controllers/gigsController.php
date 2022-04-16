@@ -23,7 +23,8 @@ class gigsController extends Controller
         {
             //$clients = Client::where('id',$client_slug)->first();
             $gigs = Gig::join('categories', 'categories.id', '=', 'gigs.category_id')
-            ->get(['gigs.id as id','gigs.title','gigs.user_name', 'categories.name as category_name',
+            ->get(['gigs.id as id','gigs.title','gigs.user_name','gigs.user_id as gigcreator'
+            , 'categories.name as category_name',
             'gigs.description','gigs.features','gigs.speciality','gigs.price','gigs.feature_image as gig_image'])
             ->where('id',$gig_slug)->first();
 
@@ -85,5 +86,15 @@ class gigsController extends Controller
 
     
     }
+
+    function getUserData()
+    {
+        $user_id = 1; //change user id here
+        $gigList = Gig::where('user_id',$user_id)
+        ->paginate(10);
+        return view('allGig', ['giglist' => $gigList]);
+    }
+
+
 
 }
