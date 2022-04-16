@@ -93,4 +93,4 @@ Route::get("my-contest={contest_slug}", [contestController::class, 'userSingleDa
 Route::view('my-campaigns','usernav/myCampaigns');
 
 //gigs
-Route::view('my-gigs','usernav/myGigs');
+Route::get('my-gigs',[gigsController::class,'getUserData']);

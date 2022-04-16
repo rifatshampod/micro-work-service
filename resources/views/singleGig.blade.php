@@ -119,6 +119,8 @@
           </div>
           <div class="col-xxl-3 col-xl-4">
             <div class="singleJobMidRight p-4">
+              {{-- change user id with logged in user id  --}}
+              @if($gigs->gigcreator==1) 
                 <div class="mb-4 d-flex justify-content-between">
                     <div class="me-2">
                         <button class="px-3 py-2 rounded-3 border-0 bg-danger cl-white">Remove Gig</button>
@@ -127,6 +129,7 @@
                         <button class="px-4 py-2 rounded-3 border-0 bg-cl-pm cl-white">Edit Gig</button>
                     </div>
                 </div>
+              @endif
                 <div class="mb-3">
                     <h4 class="cl-mat-black fw-bold">
                         Creator’s Profile
