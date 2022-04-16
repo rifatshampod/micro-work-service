@@ -223,5 +223,16 @@ class jobsDetail extends Controller
         return view('usernav/myAppliedJob', ['submission' => $submission]);
     }
 
+    function userCampaign(Request $req){
+        $user_id = 1;
+
+        $jobList = Campaign::join('jobs','jobs.id','=','campaigns.job_id')
+        ->get(['jobs.name as name','jobs.availability','campaigns.priority','campaigns.user_id',
+        'campaigns.created_at','jobs.id as jobId'])
+        ->where('user_id',$user_id);
+
+        return view('usernav/myCampaigns', ['joblist' => $jobList]);
+    }
+
 
 }

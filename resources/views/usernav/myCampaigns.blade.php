@@ -15,8 +15,72 @@
     <div class="py-5 mb-3">
     <div class="row">
     <div class="col-lg-12">
-        <div>
-            
+      <div>
+        <div class="mb-2">
+          <div class="d-flex justify-content-end">
+            <div>
+                <button class="px-4 py-2 bg-primary border-0 rounded-3 text-white" 
+                onclick="location.href='add-campaign'">
+                    Start a new Campaign 
+                </button>
+            </div>
+          </div>
+          <div class="cl-mat-black">
+            <h4>Created Jobs</h4>
+          </div>
+        </div>
+        <div class="table-responsive-md jobTable">
+          <table class="table table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">Job Name</th>
+                  <th scope="col">Availability</th>
+                  <th scope="col">Priority</th>
+                  <th scope="col">Campaign From</th>
+                  <th class="text-end" scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($joblist as $item)
+                    <tr class="tableRow bg-white rounded-3 cl-grey">
+                  <td scope="row">
+                  {{$item['name']}}</td>
+                  
+                  <td>
+                      <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
+                          <span class="text-white">{{$item['availability']}}</span>
+                      </div>
+                  </td>
+                  <td>
+                    @if($item['priority']==1)
+                      Standard Priority
+                      @else
+                      High Priority
+                    @endif
+                    
+                  </td>
+                  <td>{{$item['created_at']}}</td>
+                  <td>
+                      <div class="tableRowBtn d-flex justify-content-end">
+                        <a href="my-single-job={{$item['jobId']}}">
+                        <div class="tableIcon d-flex justify-content-center align-items-center me-2">
+                            <i class="fa fa-eye cl-pm"></i>
+                        </div>
+                      </a>
+                      </div>
+                  </td>
+                </tr>
+                @endforeach
+                
+                
+              </tbody>
+          </table>
+      </div>
+      <!-- --------------------------------- pagination ------------------------>
+      {{-- <div class="pagination d-flex justify-content-center align-items-center">
+          {{$joblist->links('vendor.pagination.bootstrap-4')}}
+      </div> --}}
+<!-- --------------------------------- pagination ------------------------>
       </div>
     </div>
     </div>
