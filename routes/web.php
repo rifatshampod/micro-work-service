@@ -94,3 +94,5 @@ Route::get('my-campaigns',[jobsDetail::class, 'userCampaign']);
 
 //gigs
 Route::get('my-gigs',[gigsController::class,'getUserData']);
+Route::get('edit-gig={gig_slug}',[gigsController::class,'editUserData']);
+Route::post('updateGig',[gigsController::class,'updateUserData']);

@@ -121,12 +121,13 @@
             <div class="singleJobMidRight p-4">
               {{-- change user id with logged in user id  --}}
               @if($gigs->gigcreator==1) 
-                <div class="mb-4 d-flex justify-content-between">
-                    <div class="me-2">
+                <div class="mb-4 d-flex justify-content-end">
+                    {{-- <div class="me-2">
                         <button class="px-3 py-2 rounded-3 border-0 bg-danger cl-white">Remove Gig</button>
-                    </div>
+                    </div> --}}
                     <div>
-                        <button class="px-4 py-2 rounded-3 border-0 bg-cl-pm cl-white">Edit Gig</button>
+                        <button class="px-4 py-2 rounded-3 border-0 bg-cl-pm cl-white"
+                         onclick="location.href='edit-gig={{$gigs->id}}'">Edit Gig</button>
                     </div>
                 </div>
               @endif
