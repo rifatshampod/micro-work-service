@@ -57,7 +57,7 @@
                   <td>{{$item['completion']}}</td>
                   <td>
                       <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
-                          <span class="text-white">{{$item['availability']}}</span>
+                          <span class="text-white">{{$item['due_availability']}}</span>
                       </div>
                   </td>
                   <td>{{$item['price']}} $</td>

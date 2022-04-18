@@ -229,7 +229,7 @@
                       <i class="fab fa-cc-diners-club fs20"></i>
                     </div>
                     <div class="text-center">
-                      <h4 class="fw-bold">JOBS DONE: 0/{{$jobs->availability}}</h4>
+                      <h4 class="fw-bold">JOBS DONE: {{$proofs->count()}}/{{$jobs->availability}}</h4>
                     </div>
                     <div class="cl-grey text-center">
                       <small>The slots available for this job.</small>

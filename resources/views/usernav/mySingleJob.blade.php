@@ -135,7 +135,7 @@
                 <tr>
                   <th scope="col">Submitted By</th>
                   <th scope="col">Attachment</th>
-                  <th class="text-end" scope="col">Action</th>
+                  <th class="text-end" scope="col">Action / Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -145,16 +145,28 @@
                   <td><a href="/{{$item['attachment']}}" download>
                     <i class="fas fa-link cl-pm me-2"></i>{{$item['attachment']}}
                   </a></td>
-                  <td>
+                  @if($item['approval']==0)
+                    <td>
                       <div class="d-flex justify-content-end">
+                        <a href="approve-job={{$item['id']}}">
                           <div class="submissionIcon d-flex justify-content-center align-items-center mx-1 cursor">
                             <i class="fa fa-check cl-pm"></i>
                           </div>
+                        </a>
+                        <a href="reject-job={{$item['id']}}">
                           <div class="submissionIcon d-flex justify-content-center align-items-center mx-1 cursor">
                             <i class="fa fa-times text-danger"></i>
                           </div>
+                        </a>
                       </div>
                   </td>
+                  @elseif($item['approval']==1)
+                  <td class="d-flex justify-content-end">Approved</td>
+                  @else
+                  <td class="d-flex justify-content-end">Rejected</td>
+                  @endif
+                  
+                  
                 </tr>
                 @endforeach
 
