@@ -42,6 +42,7 @@ class jobsDetail extends Controller
         $job->target =$req->input('target');
         $job->completion=$req->input('dueTime');
         $job->availability =$req->input('availability');
+        $job->due_availability =$req->input('availability');
         $job->price =$req->input('price');
         $job->campaign_cost =$req->input('cost');
         $job->total_cost =$req->input('totalCost');
@@ -57,6 +58,8 @@ class jobsDetail extends Controller
     {
         $jobList= Job::orderBy('featured', 'DESC')
         ->paginate(20); //pagination and default data to show
+        
+
         return view('allJob', ['joblist' => $jobList]);
     }
 
@@ -71,7 +74,11 @@ class jobsDetail extends Controller
             'jobs.availability', 'jobs.price'])
             ->where('id',$job_slug)->first();
 
-            return view('singleJob')->with('jobs',$jobs);
+            $proofs = Submitted_proof::where('job_id',$job_slug)
+                    ->where('status',1)
+                    ->get();
+
+            return view('singleJob',compact('proofs'))->with('jobs',$jobs);
         }
         else{
 
@@ -134,7 +141,7 @@ class jobsDetail extends Controller
         $staffPic->file = $picUrl;
         $staffPic->save();
         
-        $req->session()->flash('status','New job added successfully');
+        $req->session()->flash('status','Proof submitted Successfully. Try other jobs');
         return redirect('jobs');
     }
 
@@ -195,6 +202,7 @@ class jobsDetail extends Controller
             $submission = Submitted_proof::join('jobs','jobs.id','=','submitted_proofs.job_id')
             ->join('usertables','usertables.id','=','submitted_proofs.user_id')
             ->get(['submitted_proofs.id as id','submitted_proofs.job_id',
+            'submitted_proofs.type',
             'usertables.name as username','submitted_proofs.file as attachment',
             'submitted_proofs.status as approval'])
             ->where('job_id',$job_slug)
@@ -232,6 +240,33 @@ class jobsDetail extends Controller
         ->where('user_id',$user_id);
 
         return view('usernav/myCampaigns', ['joblist' => $jobList]);
+    }
+
+    function approveJob($proof_slug)
+    {
+        $approve=Submitted_proof::where('id', $proof_slug)
+        ->update([
+           'status' => 1
+        ]);
+
+        $jobAvailability = Submitted_proof::where('id', $proof_slug)
+                        ->get(['job_id'])->first();
+        $jobUpdate = Job::where('id',$jobAvailability['job_id'])
+        ->decrement('due_availability', 1);
+
+        // $req = new Request;
+        // $req->session()->flash('status','Job approved successfully');
+        return back();
+    }
+    function rejectJob($proof_slug)
+    {
+        $approve=Submitted_proof::where('id', $proof_slug)
+        ->update([
+           'status' => 2
+        ]);
+        // $req = new Request;
+        // $req->session()->flash('status','Job approved successfully');
+        return back();
     }
 
 
