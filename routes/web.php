@@ -16,6 +16,8 @@ Route::get('home', function () {
 
 });
 
+Auth::routes(); 
+
 Route::view("about", 'about');
 //Route::view("faq", 'faq');
 Route::view("help", 'home'); //need to make help page
@@ -23,7 +25,7 @@ Route::view("terms-of-services", 'terms');
 Route::view("privacy-policy", 'privacy');
 Route::view("refund-policy", 'terms'); //need to add condition
 Route::view("career", 'career');
-Route::view("login", 'signIn');
+// Route::view("login", 'signIn');
 Route::view("signup", 'signUp');
 Route::view("support", 'support');
 Route::view("profile", 'profile');
@@ -61,8 +63,7 @@ Route::get("payment-proof", [paymentProofController::class, 'getData']);
 
 
 //Logged in route list -----------------------------------------------------------
-
-
+Route::group(['middleware' => ['web', 'auth']], function(){
 //job
 Route::get("add-job", [jobsDetail::class, 'showCategoryData']);  //add job input form
 Route::post("addJob", [jobsDetail::class, 'addData']); //save data in database
@@ -99,3 +100,10 @@ Route::get('my-campaigns',[jobsDetail::class, 'userCampaign']);
 Route::get('my-gigs',[gigsController::class,'getUserData']);
 Route::get('edit-gig={gig_slug}',[gigsController::class,'editUserData']);
 Route::post('updateGig',[gigsController::class,'updateUserData']);
+
+});
+
+
+
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
