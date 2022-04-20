@@ -122,6 +122,8 @@ class jobsDetail extends Controller
         $proof->user_id = $req->input('user_id');
         $proof->job_id = $req->input('job_id');
         $proof->description=$req->input('description');
+        $proof->status=0;
+        $proof->type=$req->input('post_type');
         $proof->save();
 
         $lastId = $proof->id;
@@ -141,8 +143,15 @@ class jobsDetail extends Controller
         $staffPic->file = $picUrl;
         $staffPic->save();
         
-        $req->session()->flash('status','Proof submitted Successfully. Try other jobs');
+        if($req->input('post_type')==1){
+            $req->session()->flash('status','Proof submitted Successfully. Try other jobs');
         return redirect('jobs');
+        }
+        else{
+            $req->session()->flash('status','Proof submitted Successfully. Try other jobs');
+            return redirect('contests');
+        }
+        
     }
 
     function showCampaignData(Request $req)

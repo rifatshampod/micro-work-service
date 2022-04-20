@@ -27,6 +27,7 @@ Route::view("login", 'signIn');
 Route::view("signup", 'signUp');
 Route::view("support", 'support');
 Route::view("profile", 'profile');
+Route::view('summernote', 'summernote');
 
 Route::get('job-details', function () {
     return redirect('jobs'); //to redirect to all job page
