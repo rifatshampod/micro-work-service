@@ -2,6 +2,7 @@
 <html lang="en">
   <!-- link and header data --> 
   <x-assets title="Create job : "/>
+   
 
   <body>
     <!-- Hero start -->
@@ -180,13 +181,13 @@
                         <div class="col-lg-12 mb-4">
                             <div class="">
                                 <label class="fw-bold mb-2">Job Description</label>
-                                <textarea name="description" class="form-control"  rows="6" placeholder="Enter job Description"></textarea>
+                                <textarea name="description" id="summernote"></textarea>
                               </div>
                         </div>
                         <div class="col-lg-12 mb-4">
                             <div class="">
                                 <label class="fw-bold mb-2">Completion Requirements</label>
-                                <textarea name="requirement" class="form-control"  rows="6" placeholder="Enter job Completion Requirements"></textarea>
+                                <textarea name="requirement" id="summernote2"></textarea>
                               </div>
                         </div>
                         
@@ -203,6 +204,39 @@
 
     <!-- Bottom Section -->
     <x-footer/>
+    
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+      $('#summernote').summernote({
+        placeholder: 'Job Descriptions',
+        tabsize: 2,
+        height: 150,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+
+      $('#summernote2').summernote({
+        placeholder: 'Job Completion requirements',
+        tabsize: 2,
+        height: 150,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+    </script>
 
     <script src="js/main.js"></script>
   </body>

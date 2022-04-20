@@ -128,8 +128,9 @@
               </div>
               <form action="submit-proof" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="contest_id" value="{{$contests->id}}">
+                <input type="hidden" name="job_id" value="{{$contests->id}}">
                 <input type="hidden" name="user_id" value="1">
+                <input type="hidden" name="post_type" value="2">
                 <div class="mb-2">
                   <small>Your Proof</small>
                 </div>

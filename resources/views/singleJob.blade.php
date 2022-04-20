@@ -84,24 +84,19 @@
                 <div class="mb-4">
                   <h4 class="cl-deep-blue">Job Description:</h4>
                 </div>
-                <div class="cl-grey">
-                  <small>
-                    <p>
-                      {{$jobs->description}} 
-                    </p>
-                  </small>
+                <div>
+                  {!!$jobs->description!!} 
+                  
                 </div>
               </div>
               <div class="mb-4">
                 <div class="mb-4">
                   <h4 class="cl-deep-blue">How to prove you done it:</h4>
                 </div>
-                <div class="cl-grey">
-                  <small>
-                    <p>
-                      {{$jobs->requirement}}
-                    </p>
-                  </small>
+                <div>
+                  
+                      {!!$jobs->requirement!!}
+                  
                 </div>
               </div>
               <div>
@@ -125,6 +120,7 @@
                 @csrf
                 <input type="hidden" name="job_id" value="{{$jobs->id}}">
                 <input type="hidden" name="user_id" value="1">
+                <input type="hidden" name="post_type" value="1">
                 <div class="mb-2">
                   <small>Your Proof</small>
                 </div>
