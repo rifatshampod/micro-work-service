@@ -27,7 +27,7 @@
                     value="{{ old('email') }}" required autocomplete="email" autofocus 
                     placeholder="Email" />
                     @error('email')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="invalid-feedback mb-3" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror

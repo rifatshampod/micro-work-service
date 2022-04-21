@@ -89,19 +89,52 @@
                     <a class="nav-link text-white" href="/login">Post a Job</a>
                   </li>
                   
-                  <li class="nav-item navSignIn mx-1 px-3 mb-2">
-                    <a
-                      class="btn bg-cl-green border-0 px-3 text-white"
-                      href="/login"
-                      role="button">Sign In</a
-                    >
-                  </li>
-                  <li class="nav-item navSignIn mx-1 px-3 mb-2">
-                    <a class="nav-link text-white" href="/register">Sign Up</a>
-                  </li>
+                                            @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item navSignIn mx-1 px-3 mb-2">
+                                  <a class="btn bg-cl-green border-0 px-3 text-white"
+                                    href="{{ route('login') }}"
+                                    role="button">Sign In</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item navSignIn mx-1 px-3 mb-2">
+                                  <a class="nav-link text-white" href="{{ route('register') }}">Sign Up</a>
+                                </li> 
+                            @endif
+                            @else
+                              <li class="nav-item dropdown">
+                                  <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                      {{ Auth::user()->name }}
+                                  </a>
+
+                                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <ul class="">
+                                      <li><button class="dropdown-item" type="button" onclick="location.href='my-jobs'">My Create Job</button></li>
+                                      <li><button class="dropdown-item" type="button" onclick="location.href='applied-jobs'">My Applied Job</button></li>
+                                      <li><button class="dropdown-item" type="button" onclick="location.href='my-gigs'">My Gigs</button></li>
+                                      <li><button class="dropdown-item" type="button" onclick="location.href='my-campaigns'">My Campaigns</button></li>
+                                      <li><button class="dropdown-item" type="button" onclick="location.href='my-contests'">My Create Contest</button></li>
+                                      <li><button class="dropdown-item" type="button" onclick="location.href='applied-contests'">My Applied Contest</button></li>
+                                      
+                                    </ul>
+                                      <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                      document.getElementById('logout-form').submit();">
+                                          {{ __('Logout') }}
+                                      </a>
+
+                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                          @csrf
+                                      </form>
+                                  </div>
+                              </li>
+                          @endguest
                 </ul>
               </div>
             </div>
           </nav>
         </div>
       </div>
+
