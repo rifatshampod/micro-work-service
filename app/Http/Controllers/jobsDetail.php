@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Campaign; 
 use App\Models\Submitted_proof;
 use App\Models\Usertable;
+use App\Models\User;
 
 class jobsDetail extends Controller
 {
@@ -34,7 +35,7 @@ class jobsDetail extends Controller
         ]);
         
         $job = new Job;
-        $job->user_id = 1;
+        $job->user_id = $req->user()->id;
         $job->name = $req->input('title');
         $job->category_id=$req->input('category');
         $job->description=$req->input('description');
@@ -112,14 +113,13 @@ class jobsDetail extends Controller
     function submitProof(Request $req)
     {
         $req->validate([
-            'job_id'=>'required',
-            'user_id'=>'required' 
+            'job_id'=>'required'
         ]);
 
         $jobID = $req->input('job_id');
         
         $proof = new Submitted_proof;
-        $proof->user_id = $req->input('user_id');
+        $proof->user_id = $req->user()->id;
         $proof->job_id = $req->input('job_id');
         $proof->description=$req->input('description');
         $proof->status=0;
@@ -156,7 +156,7 @@ class jobsDetail extends Controller
 
     function showCampaignData(Request $req)
     {
-        $user_id = 1;
+        $user_id = $req->user()->id;
         
         $jobList = Job::where('user_id',$user_id)
                         ->where('featured',0)
@@ -172,7 +172,7 @@ class jobsDetail extends Controller
         ]);
 
         $jobID = $req->input('job_id');
-        $userid = 1; //add user id here
+        $userid = $req->user()->id; //add user id here
         $priority = $req->input('priority');
         
         $campaign = new Campaign; 
@@ -192,7 +192,7 @@ class jobsDetail extends Controller
     }
 
     function userJobs(Request $req){
-        $userid = 1; //change user id here
+        $userid = $req->user()->id; //change user id here
         $jobList= Job::where('user_id', $userid)
         ->paginate(20); //pagination and default data to show
         return view('usernav/myCreateJob', ['joblist' => $jobList]);
@@ -209,10 +209,10 @@ class jobsDetail extends Controller
             ->where('id',$job_slug)->first();
 
             $submission = Submitted_proof::join('jobs','jobs.id','=','submitted_proofs.job_id')
-            ->join('usertables','usertables.id','=','submitted_proofs.user_id')
+            ->join('users','users.id','=','submitted_proofs.user_id')
             ->get(['submitted_proofs.id as id','submitted_proofs.job_id',
             'submitted_proofs.type',
-            'usertables.name as username','submitted_proofs.file as attachment',
+            'users.name as username','submitted_proofs.file as attachment',
             'submitted_proofs.status as approval'])
             ->where('job_id',$job_slug)
             ->where('type',1);
@@ -227,7 +227,7 @@ class jobsDetail extends Controller
     }
 
     function userAppliedJobs(Request $req){
-        $user_id=1; //change user id here
+        $user_id=$req->user()->id; //change user id here
 
         $submission = Submitted_proof::join('jobs','jobs.id','=','submitted_proofs.job_id')
             ->get(['submitted_proofs.id as id','submitted_proofs.job_id',
@@ -241,7 +241,7 @@ class jobsDetail extends Controller
     }
 
     function userCampaign(Request $req){
-        $user_id = 1;
+        $user_id = $req->user()->id;
 
         $jobList = Campaign::join('jobs','jobs.id','=','campaigns.job_id')
         ->get(['jobs.name as name','jobs.availability','campaigns.priority','campaigns.user_id',
