@@ -72,7 +72,7 @@
                   </div>
                   <div>
                     <small class="cardText cl-dark-ash2"
-                      >{{$item['description']}}</small
+                      >{!!$item['description']!!}</small
                     >
                   </div>
                 </div>
