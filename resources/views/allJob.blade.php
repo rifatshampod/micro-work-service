@@ -15,6 +15,14 @@
                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
+            <div class="d-flex justify-content-end mb-4">
+            <div>
+                <button class="px-4 py-2 bg-primary border-0 rounded-3 text-white" 
+                onclick="location.href='add-job'">
+                    Post a New Job
+                </button>
+            </div>
+          </div>
         <div class="mb-5">
           <div class="cl-dark-ash2">
             <h4>Finds Jobs</h4>

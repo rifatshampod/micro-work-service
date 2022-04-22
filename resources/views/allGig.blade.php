@@ -47,6 +47,16 @@
                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
+      
+          <div class="d-flex justify-content-end mb-4">
+            <div>
+                <button class="px-4 py-2 bg-primary border-0 rounded-3 text-white" 
+                onclick="location.href='add-gig'">
+                    Post a New Gig
+                </button>
+            </div>
+          </div>
+        
         <div class="row">
           @foreach ($giglist as $item)
 
@@ -103,6 +113,12 @@
           </div>
           @endforeach
         </div>
+        @if($giglist->isEmpty())
+        <div style="height: 200px;">
+          No gig available.
+        </div>
+          
+        @endif
         <!-- --------------------------------- pagination ------------------------>
       <div class="pagination d-flex justify-content-center align-items-center">
           {{$giglist->links('vendor.pagination.bootstrap-4')}}
