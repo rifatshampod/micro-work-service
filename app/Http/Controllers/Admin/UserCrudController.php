@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Hash;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -14,10 +15,11 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 class UserCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
+    // use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation { store as traitStore; }
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -63,8 +65,8 @@ class UserCrudController extends CrudController
 
         CRUD::field('name');
         CRUD::field('email');
-        CRUD::field('password');
-        CRUD::column('is_admin');
+        CRUD::field('password')->type('password');
+        CRUD::field('is_admin')->type('boolean');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -82,5 +84,25 @@ class UserCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+     public function store()
+    {
+        $this->crud->setRequest($this->crud->validateRequest());
+
+        /** @var \Illuminate\Http\Request $request */
+        $request = $this->crud->getRequest();
+
+        // Encrypt password if specified.
+        if ($request->input('password')) {
+            $request->request->set('password', Hash::make($request->input('password')));
+        } else {
+            $request->request->remove('password');
+        }
+
+        $this->crud->setRequest($request);
+        $this->crud->unsetValidation(); // Validation has already been run
+
+        return $this->traitStore();
     }
 }

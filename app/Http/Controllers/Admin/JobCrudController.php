@@ -18,6 +18,7 @@ class JobCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    // use \Backpack\CRUD\app\Http\Controllers\Operations\ExportOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -54,6 +55,8 @@ class JobCrudController extends CrudController
         CRUD::column('total_cost');
         CRUD::column('featured');
 
+
+
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -75,8 +78,8 @@ class JobCrudController extends CrudController
         CRUD::field('user_id');
         CRUD::field('name');
         CRUD::field('category_id');
-        CRUD::field('description');
-        CRUD::field('requirement');
+        CRUD::field('description')->type('summernote');
+        CRUD::field('requirement')->type('summernote');
         CRUD::field('target');
         CRUD::field('completion');
         CRUD::field('availability');
