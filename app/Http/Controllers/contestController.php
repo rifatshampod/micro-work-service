@@ -50,7 +50,7 @@ class contestController extends Controller
         ]);
         
         $contest = new Contest;
-        $contest->user_id = 1;
+        $contest->user_id = $req->user()->id; //change user id here
         $contest->contest_name = $req->input('title');
         //$contest->feature_image = $req->input('feature_img');
         $contest->category_id=$req->input('category');
@@ -84,7 +84,7 @@ class contestController extends Controller
     }
 
     function userContests(Request $req){
-        $userid = 1; //change user id here
+        $userid = $req->user()->id; //change user id here
         $contestList = Contest::where('user_id', $userid)
         ->paginate(10);
         return view('usernav/myCreateContest', ['contestlist' => $contestList]);
@@ -102,9 +102,9 @@ class contestController extends Controller
             ->where('id',$contest_slug)->first();
 
             $submission = Submitted_proof::join('contests','contests.id','=','submitted_proofs.job_id')
-            ->join('usertables','usertables.id','=','submitted_proofs.user_id')
+            ->join('users','users.id','=','submitted_proofs.user_id')
             ->get(['submitted_proofs.id as id','submitted_proofs.job_id', 
-            'usertables.name as username','submitted_proofs.file as attachment',
+            'users.name as username','submitted_proofs.file as attachment',
             'submitted_proofs.status as approval','submitted_proofs.type'])
             ->where('job_id',$contest_slug)
             ->where('type',2);
@@ -118,7 +118,7 @@ class contestController extends Controller
     }
 
     function userAppliedContests(Request $req){
-        $user_id=1; //change user id here
+        $user_id=$req->user()->id; //change user id here
 
         $submission = Submitted_proof::join('contests','contests.id','=','submitted_proofs.job_id')
             ->get(['submitted_proofs.id as id','submitted_proofs.job_id',

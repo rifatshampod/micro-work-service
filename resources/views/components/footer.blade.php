@@ -44,12 +44,8 @@
                   <div class="text-white cursor" onclick="location.href='/terms-of-services'">
                     <small>Terms of Services</small>
                   </div>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button type="submit">Logout</button>
-                  </form>
                   <div class="text-white cursor" onclick="">
-                    <small>FAQs Logout</small>
+                    <small>FAQs</small>
                   </div>
                   <div class="text-white cursor" onclick="location.href='#'">
                     <small>Support</small>

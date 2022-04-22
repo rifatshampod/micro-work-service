@@ -112,14 +112,15 @@
             </div>
           </div>
           <div class="col-xl-3 col-lg-4">
-            <div class="singleJobMidRight p-4 rounded-3">
+            @if(Auth::check())
+              <div class="singleJobMidRight p-4 rounded-3">
               <div class="mb-3">
                 <h4 class="cl-mat-black fw-bold">Submit Proof</h4>
               </div>
               <form action="submit-proof" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="job_id" value="{{$jobs->id}}">
-                <input type="hidden" name="user_id" value="1">
+                
                 <input type="hidden" name="post_type" value="1">
                 <div class="mb-2">
                   <small>Your Proof</small>
@@ -159,6 +160,11 @@
                 </div>
               </form>
             </div>
+            @else
+            <a href="login">Log in</a>
+             to submit proof
+            @endif
+            
           </div>
         </div>
         <div class="row align-items-center p-150">

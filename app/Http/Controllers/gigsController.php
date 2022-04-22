@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Gig;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -51,7 +52,7 @@ class gigsController extends Controller
         ]);
         
         $gig = new Gig;
-        $gig->user_id = 1;
+        $gig->user_id = $req->user()->id;
         $gig->title = $req->input('title');
         //$gig->feature_image = $req->input('feature_img');
         $gig->category_id=$req->input('category');
@@ -87,9 +88,9 @@ class gigsController extends Controller
     
     }
 
-    function getUserData()
+    function getUserData(Request $req)
     {
-        $user_id = 1; //change user id here
+        $user_id = $req->user()->id; //change user id here
         $gigList = Gig::where('user_id',$user_id)
         ->paginate(10);
         return view('allGig', ['giglist' => $gigList]);
@@ -97,7 +98,8 @@ class gigsController extends Controller
 
     function editUserData($gig_slug)
     {
-        if(Gig::where('id',$gig_slug)->exists())
+        $user_id = Auth::id(); //change user id here
+        if(Gig::where('id',$gig_slug)->where('user_id',$user_id)->exists())
         {
             //$clients = Client::where('id',$client_slug)->first();
             $gigs = Gig::join('categories', 'categories.id', '=', 'gigs.category_id')
@@ -112,7 +114,7 @@ class gigsController extends Controller
         }
         else{
 
-            return redirect('/')->with('status',"The link is broken");
+            return redirect('my-gigs')->with('status',"The link you have given doesn't have permission");
         }
     }
 
@@ -164,9 +166,6 @@ class gigsController extends Controller
         $staffPic->feature_image = $picUrl;
         $staffPic->save();
         }
-
-        
-        
         $req->session()->flash('status','Gig edited successfully');
         return redirect('gigs');
 

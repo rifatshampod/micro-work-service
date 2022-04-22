@@ -89,7 +89,7 @@
                     <a class="nav-link text-white" href="/login">Post a Job</a>
                   </li>
                   
-                                            @guest
+                          @guest
                             @if (Route::has('login'))
                                 <li class="nav-item navSignIn mx-1 px-3 mb-2">
                                   <a class="btn bg-cl-green border-0 px-3 text-white"
