@@ -112,7 +112,8 @@
             </div>
           </div>
           <div class="col-xl-3 col-lg-4">
-            <div class="singleJobMidRight p-4 rounded-3">
+            @if(Auth::check())
+              <div class="singleJobMidRight p-4 rounded-3">
               <div class="mb-3">
                 <h4 class="cl-mat-black fw-bold">Submit Proof</h4>
               </div>
@@ -159,6 +160,11 @@
                 </div>
               </form>
             </div>
+            @else
+            <a href="login">Log in</a>
+             to submit proof
+            @endif
+            
           </div>
         </div>
         <div class="row align-items-center p-150">
