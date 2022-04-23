@@ -8,3 +8,4 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('category') }}'><i class='nav-icon la la-question'></i> Categories</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('career') }}'><i class='nav-icon la la-question'></i> Careers</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('submitted-proof') }}'><i class='nav-icon la la-question'></i> Submitted proofs</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('charge') }}'><i class='nav-icon la la-question'></i> Charges</a></li>

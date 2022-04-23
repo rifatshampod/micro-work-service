@@ -24,4 +24,5 @@ Route::group([
     Route::crud('category', 'CategoryCrudController');
     Route::crud('career', 'CareerCrudController');
     Route::crud('submitted-proof', 'SubmittedProofCrudController');
+    Route::crud('charge', 'ChargeCrudController');
 }); // this should be the absolute last line of this file
