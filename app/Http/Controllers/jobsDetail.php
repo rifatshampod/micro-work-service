@@ -10,6 +10,7 @@ use App\Models\Campaign;
 use App\Models\Submitted_proof;
 use App\Models\Usertable;
 use App\Models\User;
+use App\Models\Charge;
 
 class jobsDetail extends Controller
 {
@@ -22,7 +23,8 @@ class jobsDetail extends Controller
     function showCategoryData(Request $req)
     {
         $categoryList = Category::all();
-        return view('createJob', ['categorylist'=> $categoryList]);
+        $costing = Charge::where('id',1)->first();
+        return view('createJob', ['categorylist'=> $categoryList])->with('costing',$costing);
     }
 
     function addData(Request $req)

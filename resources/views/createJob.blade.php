@@ -138,7 +138,7 @@
                                             <i class="fas fa-dollar-sign cl-pm"></i>
                                         </div>
                                         <div class="d-flex align-items-center px-4">
-                                            <input name="cost" class="fs16 cl-pm" id="cost" onblur="countSum()" style="border:0" type="number" value="10" readonly/>
+                                            <input name="cost" class="fs16 cl-pm" id="cost" onblur="countSum()" style="border:0" type="number" value="{{$costing->charge}}" readonly/>
                                             
                                         </div>
                                     </div>
