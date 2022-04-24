@@ -88,7 +88,7 @@
                 <div class="cl-grey">
                   <small>
                     <p>
-                      {{$contests->description}} 
+                      {!!$contests->description!!} 
                     </p>
                   </small>
                 </div>

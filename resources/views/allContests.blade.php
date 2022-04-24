@@ -47,6 +47,15 @@
                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
+
+        <div class="d-flex justify-content-end mb-4">
+            <div>
+                <button class="px-4 py-2 bg-primary border-0 rounded-3 text-white" 
+                onclick="location.href='add-contest'">
+                    Post a New Contest
+                </button>
+            </div>
+          </div>
         <div class="row">
           @foreach ($contestlist as $item)
 
@@ -72,7 +81,7 @@
                   </div>
                   <div>
                     <small class="cardText cl-dark-ash2"
-                      >{{$item['description']}}</small
+                      >{!!$item['description']!!}</small
                     >
                   </div>
                 </div>

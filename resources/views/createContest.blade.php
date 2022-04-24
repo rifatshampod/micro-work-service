@@ -60,6 +60,7 @@
                   <div class="">
                     <label class="fw-bold mb-2">Contest Description</label>
                     <textarea
+                    id="summernote"
                       class="form-control" name="description"
                       rows="7"
                       placeholder="Enter Gig Description"
@@ -195,6 +196,23 @@
 
     <!-- Bottom Section -->
     <x-footer/>
+      <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+      $('#summernote').summernote({
+        placeholder: 'Job Descriptions',
+        tabsize: 2,
+        height: 150,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+    </script>
 
     <!-- Load FilePond library -->
     <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
