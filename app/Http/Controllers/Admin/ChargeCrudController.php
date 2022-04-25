@@ -14,9 +14,9 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 class ChargeCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
+    //use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+    //use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
     /**
@@ -39,7 +39,7 @@ class ChargeCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('id');
+        // CRUD::column('id');
         CRUD::column('name');
         CRUD::column('charge');
         CRUD::column('created_at');
@@ -62,7 +62,7 @@ class ChargeCrudController extends CrudController
     {
         CRUD::setValidation(ChargeRequest::class);
 
-        CRUD::field('id');
+        // CRUD::field('id');
         CRUD::field('name');
         CRUD::field('charge');
         CRUD::field('created_at');

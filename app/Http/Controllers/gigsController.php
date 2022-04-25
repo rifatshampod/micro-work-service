@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Gig;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Charge;
 
 
 
@@ -40,7 +41,8 @@ class gigsController extends Controller
     function showCategoryData(Request $req)
     {
         $categoryList = Category::all();
-        return view('createGig1', ['categorylist'=> $categoryList]);
+        $costing = Charge::where('id',4)->first();
+        return view('createGig1', ['categorylist'=> $categoryList])->with('costing',$costing);
     }
 
     function addData(Request $req)
