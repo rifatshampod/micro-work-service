@@ -163,7 +163,10 @@ class jobsDetail extends Controller
         $jobList = Job::where('user_id',$user_id)
                         ->where('featured',0)
                         ->get();
-        return view('createCampaign', ['joblist'=> $jobList]);
+        $costinghigh = Charge::where('id',2)->first();
+        $costingstandard = Charge::where('id',3)->first();
+        return view('createCampaign', ['joblist'=> $jobList])
+        ->with('costinghigh',$costinghigh)->with('costingstandard',$costingstandard);
     }
 
     function addCampaignData(Request $req)

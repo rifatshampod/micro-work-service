@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Contest;
 use App\Models\Category;
 use App\Models\Submitted_proof;
+use App\Models\Charge;
 
 class contestController extends Controller
 {
@@ -38,7 +39,8 @@ class contestController extends Controller
     function showCategoryData(Request $req)
     {
         $categoryList = Category::all();
-        return view('createContest', ['categorylist'=> $categoryList]);
+        $costing = Charge::where('id',5)->first();
+        return view('createContest', ['categorylist'=> $categoryList])->with('costing',$costing);
     }
 
     function addData(Request $req)

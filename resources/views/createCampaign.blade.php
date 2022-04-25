@@ -86,10 +86,10 @@
                                         
                                         <div class="d-flex align-items-center px-4">
                                         <div id="1" style="display: none;"> 
-                                            <input type="number" class="bg-cl-ash2" style="border:0" value="10" readonly/>
+                                            <input type="number" class="bg-cl-ash2" style="border:0" value="{{$costingstandard->charge}}" readonly/>
                                         </div>
                                         <div id="2" style="display: none;"> 
-                                            <input type="number" class="bg-cl-ash2" style="border:0" value="20" readonly/>
+                                            <input type="number" class="bg-cl-ash2" style="border:0" value="{{$costinghigh->charge}}" readonly/>
                                         </div>
                                         </div>
                                         
