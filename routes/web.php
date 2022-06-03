@@ -80,6 +80,9 @@ Route::post("addCampaign", [jobsDetail::class, 'addCampaignData']); //save data 
 
 //user 
 
+Route::view('profile','profile');
+Route::view('edit-profile','profileEdit');
+
 //job
 Route::get("my-jobs", [jobsDetail::class, 'userJobs']);
 Route::view('my-single-job','usernav/mySingleJob'); //user single job model

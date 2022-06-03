@@ -30,6 +30,23 @@
                 </div>
               </div>
             </div>
+            <div class="d-flex mt-2">
+            <div
+                class="topSocialIcon d-flex justify-content-center align-items-center cursor mx-1"
+              >
+                <i class="fab fa-facebook-f cl-white"></i>
+              </div>
+              <div
+                class="topSocialIcon d-flex justify-content-center align-items-center cursor mx-1"
+              >
+                <i class="fab fa-twitter cl-white"></i>
+              </div>
+              <div
+                class="topSocialIcon d-flex justify-content-center align-items-center cursor mx-1"
+              >
+                <i class="fab fa-youtube cl-white"></i>
+              </div>
+            </div>
           </div>
           <div class="col-lg-3 mb-4">
             <div>
@@ -58,9 +75,9 @@
                   <div class="text-white cursor" onclick="location.href='/privacy-policy'">
                     <small>Privacy Policy</small>
                   </div>
-                  <div class="text-white cursor" onclick="location.href='/refund-policy'">
+                  <!-- <div class="text-white cursor" onclick="location.href='/refund-policy'">
                     <small>Refund Policy</small>
-                  </div>
+                  </div> -->
                   <div class="text-white cursor" onclick="location.href='/career'">
                     <small>Career</small>
                   </div>
@@ -78,13 +95,13 @@
               </div>
               <div class="d-flex">
                 <div class="footerPmImg cursor">
-                  <img src="assets/image/paypal.png" alt="">
+                  <img src="assets/image/payeer.png" alt="">
                 </div>
                 <div class="footerPmImg mx-2 cursor">
-                  <img src="assets/image/neteller.png" alt="">
+                  <img src="assets/image/bkash.png" alt="">
                 </div>
                 <div class="footerPmImg cursor">
-                  <img src="assets/image/skrill.png" alt="">
+                  <img src="assets/image/nagad.png" alt="">
                 </div>
               </div>
             </div>
@@ -113,13 +130,11 @@
     </footer>
     <!----------Copy Right------------------->
     <footer class="CopyRight bg-cl-navy-blue py-3">
-      <div class="container d-flex justify-content-between align-items-center">
-        <div class="copyRightContentLeft text-white w-50">
-         Ptoworkers.com copyright &copy; 2021. All rights reserved.
-        </div>
-        <div class="copyRightContentRight text-white">
-          <small>Powered by <span class="cl-sky-blue cursor">NoboIT,</span></small>
-          <small>developed by <span class="cl-sky-blue cursor">Evocation IT</span></small>
+      <div class="container d-flex justify-content-center align-items-center">
+        <div class="copyRightContentLeft text-white">
+         copyright &copy; 2022. All rights reserved By Kbhworkers.com LTD.
         </div>
       </div>
     </footer>
+
+    <script src="js/main.js"></script>

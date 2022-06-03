@@ -3,7 +3,6 @@
     padding: 0;
 }
 
-
 /**************************************
   ===== h1,h2,h3,h4,h5,h6 font size  ====
   **************************************/
@@ -108,13 +107,11 @@ small {
     width: 10%;
 }
 
-
 /***Cursor******/
 
 .cursor {
     cursor: pointer;
 }
-
 
 /***Padding 150***/
 
@@ -133,7 +130,6 @@ small {
 .p-50 {
     padding: 50px 0;
 }
-
 
 /***Color Code***/
 
@@ -186,9 +182,8 @@ small {
 }
 
 .cl-green {
-    color: #80DF53;
+    color: #80df53;
 }
-
 
 /*******Bg color code********/
 
@@ -237,7 +232,7 @@ small {
 }
 
 .bg-cl-sky {
-    background-color: #EDF2FA;
+    background-color: #edf2fa;
 }
 
 .bg-cl-light-green {
@@ -251,7 +246,6 @@ small {
 .bg-cl-red {
     background-color: #ff0000;
 }
-
 
 /***********All Input***********/
 
@@ -277,7 +271,6 @@ input[type="number"] {
     -moz-appearance: textfield;
     /* Firefox */
 }
-
 
 /**************Sign Up Start***********/
 
@@ -311,10 +304,13 @@ input[type="number"] {
     border-radius: 20px;
     padding: 60px 120px;
 }
-
-
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+.mobileNavSocial {
+    display: none !important;
+}
 /**************Sign Up End***********/
-
 
 /**************Hero Section Start***********/
 
@@ -324,8 +320,14 @@ input[type="number"] {
     background-size: cover;
 }
 
-
 /*****Top Header Start*****/
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #0c1752;
+    z-index: 9999999;
+}
 
 .topHeader {
     /* height: 54px; */
@@ -338,14 +340,18 @@ input[type="number"] {
     border: 1px solid #fff;
     border-radius: 50%;
 }
+.topSocialIcon:hover {
+    background-color: #017bfd;
+    transition: 0.5s ease-in-out;
+    border: 1px solid #017bfd !important;
+    color: whitesmoke !important;
+}
 
 .topSocialIcon2 {
     border: 1px solid #000 !important;
 }
 
-
 /*****Top Header End*****/
-
 
 /*****Bottom Header Start*****/
 
@@ -357,6 +363,11 @@ input[type="number"] {
 .bottomHeader-img img {
     width: 100%;
     height: 100%;
+}
+
+.nav-link:hover {
+    color: #0881f3 !important;
+    transition: 0.5s ease-in-out;
 }
 
 .navSignIn {
@@ -371,9 +382,7 @@ input[type="number"] {
     border: 1px solid #017bfd;
 }
 
-
 /*****Bottom Header End*****/
-
 
 /************Hero Content Start*******/
 
@@ -395,9 +404,7 @@ input[type="number"] {
     transition: 0.5s ease-in-out;
 }
 
-
 /************Hero Content End*******/
-
 
 /************Worker Step Start*******/
 
@@ -459,9 +466,7 @@ input[type="number"] {
     top: -12%;
 }
 
-
 /************Worker Step Start*******/
-
 
 /************Job Start*******/
 
@@ -508,13 +513,11 @@ input[type="number"] {
     width: 100%;
 }
 
-.jobTable .table> :not(caption)>*>* {
+.jobTable .table > :not(caption) > * > * {
     padding-left: 1.5rem;
 }
 
-
 /************Job End********/
-
 
 /************About Start********/
 
@@ -584,9 +587,7 @@ input[type="number"] {
     font-size: 30px;
 }
 
-
 /************About End********/
-
 
 /*************Terms And Services Start**********/
 
@@ -598,9 +599,7 @@ input[type="number"] {
     border: 0.5px solid #017bfd;
 }
 
-
 /*************Terms And Services End**********/
-
 
 /*************Support & Contact Start**********/
 
@@ -617,9 +616,7 @@ input[type="number"] {
     font-size: 25px;
 }
 
-
 /*************Support & Contact End**********/
-
 
 /*************Faq Start**********/
 
@@ -644,12 +641,9 @@ input[type="number"] {
     display: none;
 }
 
-
 /*************Faq End**********/
 
-
 /**********Career Start**********/
-
 
 /* Bookmark Toggle */
 
@@ -692,9 +686,7 @@ input[type="number"] {
     color: #fff;
 }
 
-
 /*********Career End************/
-
 
 /**********Payment History Start*******/
 
@@ -721,9 +713,7 @@ input[type="number"] {
     border: 0.5px solid #d8dff7;
 }
 
-
 /**********Payment History End*******/
-
 
 /**********Single Job Start*******/
 
@@ -731,7 +721,7 @@ input[type="number"] {
     padding: 120px 0;
 }
 
-.singleJobHeroContent .breadcrumb-item+.breadcrumb-item::before {
+.singleJobHeroContent .breadcrumb-item + .breadcrumb-item::before {
     color: whitesmoke;
 }
 
@@ -787,9 +777,7 @@ input[type="number"] {
     border-radius: 100px;
 }
 
-
 /**********Single Job End*******/
-
 
 /*********All Gigs Start*************/
 
@@ -821,9 +809,7 @@ input[type="number"] {
     color: #98a6c0;
 }
 
-
 /*********All Gigs End*************/
-
 
 /*********My Wallet Start*************/
 
@@ -849,7 +835,6 @@ input[type="number"] {
     width: 100%;
 }
 
-
 /*my Wallet Edit*/
 
 .reachargeWalletImg img {
@@ -857,12 +842,10 @@ input[type="number"] {
 }
 
 .reachargeWallet input {
-    border: 1px solid #293E55;
+    border: 1px solid #293e55;
 }
 
-
 /*********My Wallet End*************/
-
 
 /********Profile start********************/
 
@@ -881,7 +864,6 @@ input[type="number"] {
     border: 1px solid #017bfd;
 }
 
-
 /*Profile Edit*/
 
 .profileEditContent .filepond--drop-label {
@@ -893,9 +875,7 @@ input[type="number"] {
     color: #fff;
 }
 
-
 /*********Profile End*********************/
-
 
 /*********Create Job Start*********************/
 
@@ -910,7 +890,7 @@ input[type="number"] {
 }
 
 .createJobTotalCost {
-    border: 0.5px solid #97C3F8;
+    border: 0.5px solid #97c3f8;
     border-radius: 10px;
 }
 
@@ -926,7 +906,6 @@ input[type="number"] {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
 }
-
 
 /*Job Detail*/
 
@@ -949,7 +928,7 @@ input[type="number"] {
 }
 
 .singleJobRightTop2nd {
-    box-shadow: 0px 3px 7px 5px #F1F1F1;
+    box-shadow: 0px 3px 7px 5px #f1f1f1;
     border-radius: 10px;
 }
 
@@ -963,28 +942,25 @@ input[type="number"] {
     width: 100%;
 }
 
-
 /*Create Contest*/
 
 .singleContestRightTop2ndImg img {
     border-radius: 10px;
 }
 
-
 /*********Create Job End*********************/
-
 
 /*********Create Gig Start*********************/
 
 .createGig .filepond--drop-label {
-    background-color: #D4D4D4;
+    background-color: #d4d4d4;
     padding: 100px 0;
 }
 
 .createGig a.filepond--credits {
     color: #fff;
 }
-.createGigImg{
+.createGigImg {
     height: 400px;
 }
 .createGigImg img {
@@ -1007,7 +983,7 @@ input[type="number"] {
     margin: 4px 3px;
     list-style: none;
     border-radius: 5px;
-    background: #F2F2F2;
+    background: #f2f2f2;
     padding: 5px;
     border: 1px solid #e3e1e1;
 }
@@ -1021,7 +997,7 @@ input[type="number"] {
     cursor: pointer;
     border-radius: 50%;
     background: #dfdfdf;
-    justify-Content: center;
+    justify-content: center;
 }
 
 .inputTagContent ul input {
@@ -1032,9 +1008,7 @@ input[type="number"] {
     font-size: 16px;
 }
 
-
 /*********Create Gig End*********************/
-
 
 /************Bottom Banner Start********/
 
@@ -1047,10 +1021,11 @@ input[type="number"] {
 .bottomBannerContent {
     padding: 200px 0;
 }
-
+.bottomBannerImg {
+    display: none;
+}
 
 /************Bottom Banner End********/
-
 
 /************Footer Start**************/
 
@@ -1076,6 +1051,7 @@ input[type="number"] {
 .footerPmImg img {
     height: 100%;
     width: 100%;
+    border-radius: 10px;
 }
 
 .footerApp {
@@ -1086,29 +1062,23 @@ input[type="number"] {
     line-height: 8px;
 }
 
-.submissionIcon{
+.submissionIcon {
     height: 30px;
     width: 30px;
     border: 0.5px solid rgb(179, 177, 177);
     border-radius: 5px;
 }
 
-
 /************Footer End**************/
-
 
 /**************Media Start****************/
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
     /*Sign In*/
     .signUpFeild {
         padding: 50px 50px;
     }
     .signInRemember {
-        flex-direction: column;
-    }
-    /*Home*/
-    .heroButton {
         flex-direction: column;
     }
     .heroContent {
@@ -1120,10 +1090,6 @@ input[type="number"] {
     }
     .lines {
         width: 25% !important;
-    }
-    .bottomBannerContent {
-        color: #182431;
-        font-weight: bold;
     }
     /*About Us*/
     .aboutHeroContent {
@@ -1172,7 +1138,11 @@ input[type="number"] {
     }
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
+    /*top header*/
+    .topHeader {
+        display: none;
+    }
     /*Employee Walet*/
     .myWalletTop {
         flex-direction: column;
@@ -1188,9 +1158,40 @@ input[type="number"] {
         margin-bottom: 20px;
         padding: 20px 0;
     }
+    /*Home*/
+    .heroButton {
+        flex-direction: column;
+    }
+    .topSocial {
+        flex-direction: column;
+    }
+    .topSocialHelp {
+        margin-right: 0 !important;
+    }
+    /*bottom banner*/
+    .bottomBanner {
+        background-color: #017bfd !important;
+        background-image: none !important;
+    }
+    .bottomBannerImg {
+        display: block !important;
+    }
+    .bottomBannerContent {
+        padding: 20px 0 100px 0;
+        text-align: center;
+    }
 }
 
-@media(max-width: 1199px) {
+@media (max-width: 1199px) {
+    /*Nav*/
+    .bottomHeader {
+        background-color: #0c1752 !important;
+    }
+    .mobileNavSocial {
+        display: flex !important;
+        justify-content: center;
+        margin: 10px 0;
+    }
     /*Home*/
     .stepsCardNone {
         display: none;
@@ -1211,7 +1212,7 @@ input[type="number"] {
     }
 }
 
-.cardText{
+.cardText {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -1219,5 +1220,25 @@ input[type="number"] {
     -webkit-box-orient: vertical;
 }
 
-
 /**************Media End****************/
+
+/**************News Start****************/
+
+.news {
+    width: 160px;
+}
+.news-scroll a {
+    text-decoration: none;
+}
+.dot {
+    height: 6px;
+    width: 6px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 2px !important;
+    background-color: rgb(207, 23, 23);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/**************News End****************/
