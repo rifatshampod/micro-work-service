@@ -137,7 +137,8 @@
                         <i class="fas fa-dollar-sign cl-pm"></i>
                       </div>
                       <div class="d-flex align-items-center px-4">
-                        <input name="cost" class="fs16 cl-pm bg-cl-ash2" style="border:0" type="number" value="10" id="postingCost" readonly/>
+
+                        <input name="cost" class="fs16 cl-pm bg-cl-ash2" style="border:0" type="number" value="{{$costing->charge}}" readonly/>
                       </div>
                     </div>
                   </div>
@@ -154,7 +155,8 @@
                         <i class="fas fa-dollar-sign cl-green"></i>
                       </div>
                       <div>
-                        <input name="totalCost" class="fs20 fw-bold w-30 bg-cl-sky" style="border:0" type="number" value="" id="totalCost" readonly/>
+
+                        <input name="totalCost" class="fs20 fw-bold w-30 bg-cl-sky" style="border:0" type="number" value="{{$costing->charge}}" readonly/>
                       </div>
                     </div>
                   </div>
