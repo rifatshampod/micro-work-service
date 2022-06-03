@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Job;
+use App\Models\News_scroll;
 
 class HomeController extends Controller
 {
@@ -32,6 +33,8 @@ class HomeController extends Controller
         $jobList= Job::orderBy('featured', 'DESC')
         ->where('featured', '>=' , 1)
         ->paginate(5); //pagination and default data to show
-        return view('home', ['joblist' => $jobList]);
+        
+        $news = News_scroll::all();
+        return view('home', ['joblist' => $jobList])->with('news',$news);
     }
 }
