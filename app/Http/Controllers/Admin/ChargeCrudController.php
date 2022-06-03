@@ -2,23 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\JobRequest;
+use App\Http\Requests\ChargeRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class JobCrudController
+ * Class ChargeCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class JobCrudController extends CrudController
+class ChargeCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
+    //use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+    //use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
-    // use \Backpack\CRUD\app\Http\Controllers\Operations\ExportOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -27,9 +26,9 @@ class JobCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Job::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/job');
-        CRUD::setEntityNameStrings('job', 'jobs');
+        CRUD::setModel(\App\Models\Charge::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/charge');
+        CRUD::setEntityNameStrings('charge', 'charges');
     }
 
     /**
@@ -40,22 +39,11 @@ class JobCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        //CRUD::column('id');
-        CRUD::column('user_id');
+        // CRUD::column('id');
         CRUD::column('name');
-        CRUD::column('category_id');
-        CRUD::column('description');
-        CRUD::column('requirement');
-        CRUD::column('target');
-        CRUD::column('completion');
-        CRUD::column('availability');
-        CRUD::column('due_availability');
-        CRUD::column('price');
-        CRUD::column('campaign_cost');
-        CRUD::column('total_cost');
-        CRUD::column('featured');
-
-
+        CRUD::column('charge');
+        CRUD::column('created_at');
+        CRUD::column('updated_at');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -72,22 +60,13 @@ class JobCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(JobRequest::class);
+        CRUD::setValidation(ChargeRequest::class);
 
-        //CRUD::field('id');
-        CRUD::field('user_id');
+        // CRUD::field('id');
         CRUD::field('name');
-        CRUD::field('category_id');
-        CRUD::field('description')->type('summernote');
-        CRUD::field('requirement')->type('summernote');
-        CRUD::field('target');
-        CRUD::field('completion');
-        CRUD::field('availability');
-        CRUD::field('due_availability');
-        CRUD::field('price');
-        CRUD::field('campaign_cost');
-        CRUD::field('total_cost');
-        CRUD::field('featured');
+        CRUD::field('charge');
+        CRUD::field('created_at');
+        CRUD::field('updated_at');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

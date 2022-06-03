@@ -32,6 +32,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Payment</th>
                         <th scope="col">Method</th>
+                        <th scope="col">Country</th>
                         <th scope="col">Status</th>
                         <th class="text-end" scope="col">Date</th>
                       </tr>
@@ -46,6 +47,7 @@
                         <td>{{$item['email']}}</td>
                         <td>${{$item['payment']}}</td>
                         <td>{{$item['method']}}</td>
+                        <td>{{$item['country']}}</td>
                         <td>
                   
                           @if ($item['status']==0)    

@@ -23,6 +23,9 @@
             <div class="me-3 mb-3">
               <button class="cl-white rounded-3" onclick="location.href='jobs'">Find Jobs</button>
             </div>
+            <div class="me-3 mb-3">
+              <button class="cl-white rounded-3" onclick="location.href='gigs'">Find Gigs</button>
+            </div>
             <div class="mb-3">
               
           <button class="cl-white rounded-3" onclick="location.href='contests'">Check Ongoing Contest</button>
@@ -32,6 +35,39 @@
           </div>
         </div>
       </div>
+        <div class="">
+          <div
+            class="d-flex justify-content-between align-items-center breaking-news bg-white"
+          >
+            <div
+              class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-2 text-white px-1 news"
+            >
+              <span class="d-flex align-items-center">&nbsp;KBH News</span>
+            </div>
+            <marquee
+              class="news-scroll"
+              behavior="scroll"
+              direction="left"
+              onmouseover="this.stop();"
+              onmouseout="this.start();"
+            >
+              <a href="#"
+                >Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                qui officia deserunt mollit anim id est laborum.
+              </a>
+              <span class="dot"></span>
+              <a href="#"
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut
+              </a>
+              <span class="dot"></span>
+              <a href="#"
+                >Duis aute irure dolor in reprehenderit in voluptate velit esse
+              </a>
+              <span class="dot"></span>
+            </marquee>
+          </div>
+        </div>
     </section>
     <!-- Hero end -->
 
@@ -123,7 +159,6 @@
                     </div>
                   </div>
                 </div>
-                <div class="stepsCardNone col-xl-4 col-lg-6 col-md-4 col-sm-6 col-12"></div>
                 <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 col-12 d-flex justify-content-center align-items-center">
                     <div
                     class="stepsCard d-flex flex-column justify-content-center align-items-center bg-white cursor mb-5"
@@ -131,10 +166,10 @@
                     <div
                       class="stepCardIcon d-flex justify-content-center align-items-center bg-cl-ash mb-2"
                     >
-                    <i class="fas fa-align-justify cl-pm"></i>
+                    <i class="fas fa-search cl-pm"></i>
                     </div>
                     <div class="stepCardText cl-dark-ash">
-                      <h5>Submit Your Proof</h5>
+                      <h5>Find Contest</h5>
                     </div>
                     <div class="stepCardSpan d-flex justify-content-center align-items-center bg-cl-pm">
                       <small class="cl-white">04</small>
@@ -148,13 +183,47 @@
                     <div
                       class="stepCardIcon d-flex justify-content-center align-items-center bg-cl-ash mb-2"
                     >
+                    <i class="fas fas fa-align-justify cl-pm"></i>
+                    </div>
+                    <div class="stepCardText cl-dark-ash">
+                      <h5>Submit Your Prof</h5>
+                    </div>
+                    <div class="stepCardSpan d-flex justify-content-center align-items-center bg-cl-pm">
+                      <small class="cl-white">05</small>
+                    </div>
+                  </div>
+                </div>
+                 <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 col-12 d-flex justify-content-center align-items-center">
+                    <div
+                    class="stepsCard d-flex flex-column justify-content-center align-items-center bg-white cursor mb-5"
+                  >
+                    <div
+                      class="stepCardIcon d-flex justify-content-center align-items-center bg-cl-ash mb-2"
+                    >
                     <i class="fas fa-hand-holding-usd cl-pm"></i>
                     </div>
                     <div class="stepCardText cl-dark-ash">
                       <h5>Receive Funds</h5>
                     </div>
                     <div class="stepCardSpan d-flex justify-content-center align-items-center bg-cl-pm">
-                      <small class="cl-white">05</small>
+                      <small class="cl-white">06</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 col-12 d-flex justify-content-center align-items-center">
+                    <div
+                    class="stepsCard d-flex flex-column justify-content-center align-items-center bg-white cursor mb-5"
+                  >
+                    <div
+                      class="stepCardIcon d-flex justify-content-center align-items-center bg-cl-ash mb-2"
+                    >
+                    <i class="fas fa-file cl-pm"></i>
+                    </div>
+                    <div class="stepCardText cl-dark-ash">
+                      <h5>Gigs</h5>
+                    </div>
+                    <div class="stepCardSpan d-flex justify-content-center align-items-center bg-cl-pm">
+                      <small class="cl-white">07</small>
                     </div>
                   </div>
                 </div>
@@ -214,10 +283,10 @@
                           <div
                             class="stepCardIcon d-flex justify-content-center align-items-center bg-cl-ash mb-2"
                           >
-                          <i class="fas fa-search cl-mat-black"></i>
+                          <i class="fas fa-briefcase cl-mat-black"></i>
                           </div>
                           <div class="stepCardText cl-dark-ash">
-                            <h5>Find Job</h5>
+                            <h5>Post a Job</h5>
                           </div>
                           <div class="stepCardSpan d-flex justify-content-center align-items-center bg-cl-mat-black">
                             <small class="cl-white">03</small>
@@ -231,10 +300,10 @@
                           <div
                             class="stepCardIcon d-flex justify-content-center align-items-center bg-cl-ash mb-2"
                           >
-                          <i class="fas fa-align-justify cl-mat-black"></i>
+                          <i class="fas fa-network-wired cl-mat-black"></i>
                           </div>
                           <div class="stepCardText cl-dark-ash">
-                            <h5>Submit Your Proof</h5>
+                            <h5>Post A contest</h5>
                           </div>
                           <div class="stepCardSpan d-flex justify-content-center align-items-center bg-cl-mat-black">
                             <small class="cl-white">04</small>
@@ -248,17 +317,33 @@
                           <div
                             class="stepCardIcon d-flex justify-content-center align-items-center bg-cl-ash mb-2"
                           >
-                          <i class="fas fa-hand-holding-usd cl-mat-black"></i>
+                          <i class="fas fa-file-archive cl-mat-black"></i>
                           </div>
                           <div class="stepCardText cl-dark-ash">
-                            <h5>Receive Funds</h5>
+                            <h5>Gigs</h5>
                           </div>
                           <div class="stepCardSpan d-flex justify-content-center align-items-center bg-cl-mat-black">
                             <small class="cl-white">05</small>
                           </div>
                         </div>
                       </div>
-                      <div class="stepsCardNone col-xl-4 col-lg-6 col-md-4 col-sm-6 col-12"></div>
+                      <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 col-12 d-flex justify-content-center align-items-center">
+                          <div
+                          class="stepsCard d-flex flex-column justify-content-center align-items-center bg-cl-ash2 cursor mb-5"
+                        >
+                          <div
+                            class="stepCardIcon d-flex justify-content-center align-items-center bg-cl-ash mb-2"
+                          >
+                          <i class="fas fa-hand-holding-usd cl-mat-black"></i>
+                          </div>
+                          <div class="stepCardText cl-dark-ash">
+                            <h5>Pay Charge</h5>
+                          </div>
+                          <div class="stepCardSpan d-flex justify-content-center align-items-center bg-cl-mat-black">
+                            <small class="cl-white">06</small>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="col-lg-5 col-12 d-flex flex-column justify-content-center text-end">
@@ -363,6 +448,11 @@
     <!----------Bottom Banner Start------------->
     <section class="bottomBanner">
       <div class="container">
+        <div class="bottomBannerImg">
+          <div class="d-flex justify-content-center align-items center py-4">
+          <img src="assets/image/hand.png" alt="">
+          </div>
+        </div>
         <div class="bottomBannerContent cl-white fw-bold">
           <h2>The Ultimate Way To <br> Earn money online.</h2>
         </div>

@@ -1,3 +1,18 @@
+  //Navbar
+
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+      
       //Faq
 
       //using selectors inside the element
@@ -82,10 +97,11 @@ input.addEventListener("keyup", addTag);
 
 //Price Multiply
 function countSum(){
-  var availableAmount = parseInt(document.getElementById("availableAmount").value);
-  var pricePerJob = parseInt(document.getElementById("pricePerJob").value);
-  var cost = parseInt(document.getElementById("cost").value)
+  var availableAmount = parseFloat(document.getElementById("availableAmount").value);
+  var pricePerJob = parseFloat(document.getElementById("pricePerJob").value);
+  var cost = parseFloat(document.getElementById("cost").value)
   var multifly = availableAmount * pricePerJob;
-  var totalCost = multifly + cost;
+  var costPercent = (multifly / 100) * cost;
+  var totalCost = multifly + costPercent;
   document.getElementById("totalCost").value = totalCost;
 }

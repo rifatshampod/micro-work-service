@@ -110,7 +110,7 @@
                   <div class="">
                     <label class="mb-2 fw-bold">Prize Money</label>
                     <input
-                      type="number" name="prize" id="prizeMoney" onblur="contestCountSum()"
+                      type="number" name="prize" id="prizeMoney" onblur="pricePercentage()"
                       class="form-control w-100 bg-cl-ash2"
                       placeholder="Enter Amount"
                     />
@@ -126,7 +126,7 @@
                         <i class="fas fa-dollar-sign cl-pm"></i>
                       </div>
                       <div class="d-flex align-items-center px-4">
-                        <input name="cost" id="postingCost" onblur="contestCountSum()" class="fs16 cl-pm bg-cl-ash2" style="border:0" type="number" value="390" readonly/>
+                        <input name="cost" id="postingCost" class="fs16 cl-pm bg-cl-ash2" style="border:0" type="number" value="10" readonly/>
                       </div>
                     </div>
                   </div>
@@ -143,7 +143,7 @@
                         <i class="fas fa-dollar-sign cl-green"></i>
                       </div>
                       <div>
-                        <input name="totalCost" id="totalCost" onblur="contestCountSum()" class="fs20 fw-bold w-30 bg-cl-sky" style="border:0" type="number" value="390" readonly/>
+                        <input name="totalCost" id="totalCost" class="fs20 fw-bold w-30 bg-cl-sky" style="border:0" type="number" value="" readonly/>
                       </div>
                     </div>
                   </div>
@@ -212,6 +212,15 @@
           ['view', ['fullscreen', 'codeview', 'help']]
         ]
       });
+
+      //Price percentage
+        function pricePercentage(){
+          var prizeMoney = parseFloat(document.getElementById("prizeMoney").value);
+          var postingCost = parseFloat(document.getElementById("postingCost").value);
+          var costPercent = (prizeMoney / 100) * postingCost;
+          var totalCost = prizeMoney + costPercent;
+          document.getElementById("totalCost").value = totalCost;
+        }
     </script>
 
     <!-- Load FilePond library -->

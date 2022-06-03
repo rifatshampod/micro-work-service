@@ -10,6 +10,7 @@ use App\Models\Campaign;
 use App\Models\Submitted_proof;
 use App\Models\Usertable;
 use App\Models\User;
+use App\Models\Charge;
 
 class jobsDetail extends Controller
 {
@@ -22,7 +23,8 @@ class jobsDetail extends Controller
     function showCategoryData(Request $req)
     {
         $categoryList = Category::all();
-        return view('createJob', ['categorylist'=> $categoryList]);
+        $costing = Charge::where('id',1)->first();
+        return view('createJob', ['categorylist'=> $categoryList])->with('costing',$costing);
     }
 
     function addData(Request $req)
@@ -161,7 +163,10 @@ class jobsDetail extends Controller
         $jobList = Job::where('user_id',$user_id)
                         ->where('featured',0)
                         ->get();
-        return view('createCampaign', ['joblist'=> $jobList]);
+        $costinghigh = Charge::where('id',2)->first();
+        $costingstandard = Charge::where('id',3)->first();
+        return view('createCampaign', ['joblist'=> $jobList])
+        ->with('costinghigh',$costinghigh)->with('costingstandard',$costingstandard);
     }
 
     function addCampaignData(Request $req)

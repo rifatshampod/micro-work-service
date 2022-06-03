@@ -16,7 +16,7 @@
             </div>
             <div class="signUpFeild bg-white">
               <div class="mb-3">
-                <h3 class="cl-mat-black fw-bold">Sing In</h3>
+                <h3 class="cl-mat-black fw-bold">Sign In</h3>
               </div>
               <div>
                 <form method="POST" action="{{ route('login') }}">

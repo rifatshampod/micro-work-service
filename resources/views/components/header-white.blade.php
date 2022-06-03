@@ -5,7 +5,7 @@
           <div class="d-flex justify-content-between align-items-center py-3">
             <div class="d-flex flex-wrap align-items-center">
               <div class="mx-2">
-                <small class="fw-lighter"
+                <small class="fw-lighter cursor"
                   ><i class="far fa-envelope me-2"></i
                   >ptoworkers@gmail.com</small
                 >
@@ -19,18 +19,25 @@
               </div>
             </div>
             <div class="topSocial d-flex">
-            <div>
-              <small class="me-3 cursor" onclick="location.href='support'">Help & Support</small>
+            <div class="mb-2">
+              <small class="me-3 topSocialHelp cursor" onclick="location.href='support'">Help & Support</small>
             </div>
+            <div class="d-flex">
               <div
-                class="topSocialIcon topSocialIcon2 d-flex justify-content-center align-items-center cursor me-3"
+                class="topSocialIcon topSocialIcon2 d-flex justify-content-center align-items-center cursor mx-1"
               >
                 <i class="fab fa-facebook-f"></i>
               </div>
               <div
-                class="topSocialIcon topSocialIcon2 d-flex justify-content-center align-items-center cursor"
+                class="topSocialIcon topSocialIcon2 d-flex justify-content-center align-items-center cursor mx-1"
               >
                 <i class="fab fa-twitter"></i>
+              </div>
+              <div
+                class="topSocialIcon topSocialIcon2 d-flex justify-content-center align-items-center cursor mx-1"
+              >
+                <i class="fab fa-youtube"></i>
+              </div>
               </div>
             </div>
           </div>
@@ -49,7 +56,7 @@
                 />
               </div>
               <button
-                class="navbar-toggler"
+                class="navbar-toggler border-o"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarNav"
@@ -57,7 +64,7 @@
                 aria-expanded="false"
                 aria-label="Toggle navigation"
               >
-                <span class="navbar-toggler-icon"></span>
+                <i class="fa fa-align-center text-white"></i>
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -103,11 +110,15 @@
                             @else
                               <li class="nav-item dropdown">
                                   <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                      {{ Auth::user()->name }}
+                                      User Menu
                                   </a>
 
                                   <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <button class="dropdown-item" type="button" onclick="location.href='profile'">
+                                      {{ Auth::user()->name }} <span class="bg-cl-pm ms-4 cl-white px-3 py-1 rounded-3">Profile</span>
+                                    </button>
                                     <ul class="">
+                                    
                                       <li><button class="dropdown-item" type="button" onclick="location.href='my-jobs'">My Create Job</button></li>
                                       <li><button class="dropdown-item" type="button" onclick="location.href='applied-jobs'">My Applied Job</button></li>
                                       <li><button class="dropdown-item" type="button" onclick="location.href='my-gigs'">My Gigs</button></li>
@@ -128,6 +139,25 @@
                                   </div>
                               </li>
                           @endguest
+
+                          
+                        <li>
+                        <div class="d-flex mobileNavSocial">
+                        <div
+                        class="topSocialIcon d-flex justify-content-center align-items-center cursor mx-1">
+                        <i class="fab fa-facebook-f cl-white"></i>
+                       </div>
+                       <div
+                         class="topSocialIcon d-flex justify-content-center align-items-center cursor mx-1">
+                        <i class="fab fa-twitter cl-white"></i>
+                        </div>
+                       <div
+                        class="topSocialIcon d-flex justify-content-center align-items-center cursor mx-1"
+                        >
+                        <i class="fab fa-youtube cl-white"></i>
+                        </div>
+                        </div>
+                          </li>
                 </ul>
               </div>
             </div>
@@ -135,4 +165,4 @@
         </div>
       </div>
     </section>
-    <!-- Hero end -->
+    <!-- Hero end -->  
