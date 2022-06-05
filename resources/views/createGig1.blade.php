@@ -134,10 +134,10 @@
                       <div
                         class="createJobCampaignIcon d-flex justify-content-center align-items-center"
                       >
-                        <i class="fas fa-dollar-sign cl-pm"></i>
+                        {{$costing->charge}}%
                       </div>
                       <div class="d-flex align-items-center px-4">
-                        <input name="cost" class="fs16 cl-pm bg-cl-ash2" style="border:0" type="number" value="10" id="postingCost" readonly/>
+                        <input name="cost" class="fs16 cl-pm bg-cl-ash2" style="border:0" type="number" value="" id="postingCost" readonly/>
                       </div>
                     </div>
                   </div>
