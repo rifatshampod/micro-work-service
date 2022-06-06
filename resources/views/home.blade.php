@@ -51,20 +51,14 @@
               onmouseover="this.stop();"
               onmouseout="this.start();"
             >
-              <a href="#"
-                >Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                qui officia deserunt mollit anim id est laborum.
+            @foreach ($news as $item)
+                <a href="#"
+                >{{$item['news']}}
               </a>
               <span class="dot"></span>
-              <a href="#"
-                >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut
-              </a>
-              <span class="dot"></span>
-              <a href="#"
-                >Duis aute irure dolor in reprehenderit in voluptate velit esse
-              </a>
-              <span class="dot"></span>
+            @endforeach
+              
+              
             </marquee>
           </div>
         </div>

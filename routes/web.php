@@ -16,7 +16,7 @@ Route::get('home', function () {
 
 });
 
-Auth::routes(); 
+Auth::routes(['verify'=>true]); 
 
 Route::view("about", 'about');
 //Route::view("faq", 'faq');
@@ -63,7 +63,7 @@ Route::get("payment-proof", [paymentProofController::class, 'getData']);
 
 
 //Logged in route list -----------------------------------------------------------
-Route::group(['middleware' => ['web', 'auth']], function(){
+Route::group(['middleware' => ['web', 'auth','verified']], function(){
 //job
 Route::get("add-job", [jobsDetail::class, 'showCategoryData']);  //add job input form
 Route::post("addJob", [jobsDetail::class, 'addData']); //save data in database
