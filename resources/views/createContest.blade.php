@@ -126,7 +126,9 @@
                         {{$costing->charge}}%
                       </div>
                       <div class="d-flex align-items-center px-4">
+
                         <input name="cost" id="postingCost" class="fs16 cl-pm bg-cl-ash2" style="border:0" type="number" value="" readonly/>
+
                       </div>
                     </div>
                   </div>
@@ -143,7 +145,8 @@
                         <i class="fas fa-dollar-sign cl-green"></i>
                       </div>
                       <div>
-                        <input name="totalCost" id="totalCost" class="fs20 fw-bold w-30 bg-cl-sky" style="border:0" type="number" value="" readonly/>
+
+                        <input name="totalCost" id="totalCost" onblur="contestCountSum()" class="fs20 fw-bold w-30 bg-cl-sky" style="border:0" type="number" value="{{$costing->charge}}" readonly/>
                       </div>
                     </div>
                   </div>
