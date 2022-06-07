@@ -5,61 +5,230 @@
 
   <body>
     <!-- Hero start -->
-    <section class="hero SingleJobHero">
-      <x-header/>
-      <div class="container">
-        <div class="d-flex justify-content-center">
-          <div class="singleJobHeroContent">
-            <div class="text-center">
-              <h3 class="cl-white">My Wallet</h3>
-            </div>
-            <div class="breadcrumb">
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li
-                    class="breadcrumb-item cl-white cursor"
-                    onclick="location.href='index.html'"
-                  >
-                    Home
-                  </li>
-                  <li class="breadcrumb-item cl-white">My Wallet</li>
-                </ol>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      <x-header2/>
     <!-- Hero end -->
 
     <!----------My Wallet Edit Start------------->
     <section class="reachargeWallet p-100">
         <div class="container">
             <div class="row justify-content-center align-items-center">
-                <div class="col-lg-6 col-12">
-                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                      <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" 
-                        data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" 
-                        aria-selected="true">
-                        <img width="50px" src="https://www.tbsnews.net/sites/default/files/styles/big_2/public/images/2019/07/11/bkash_logo_0.jpg?itok=70lkuu3X&timestamp=1562856146" alt="">
-                      </button>
-                      </li>
-                      <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" 
-                        data-bs-target="#pills-profile" type="button" role="tab" 
-                        aria-controls="pills-profile" aria-selected="false">
-                        <img width="50px" src="https://www.tbsnews.net/sites/default/files/styles/big_2/public/images/2019/07/11/bkash_logo_0.jpg?itok=70lkuu3X&timestamp=1562856146" alt="">
+<div class="col-lg-6 col-12">
+                  <div class="mb-4 text-center">
+                    <h4 class="fw-bold">Select A Payment Method</h4>
+                  </div>
+                    <div class="walletNavTab d-flex justify-content-center">
+                      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item mx-2" role="presentation">
+                          <button class="nav-link" id="pills-bkash-tab" data-bs-toggle="pill" 
+                          data-bs-target="#pills-bkash" type="button" role="tab" aria-controls="pills-bkash" 
+                          aria-selected="true">
+                          <div class="walletTabImg">
+                            <img src="assets/image/bkash.png" alt="">
+                          </div>
                         </button>
-                      </li>
-                      <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
-                      </li>
-                    </ul>
+                        </li>
+                        <li class="nav-item mx-2" role="presentation">
+                          <button class="nav-link" id="pills-nagad-tab" data-bs-toggle="pill" 
+                          data-bs-target="#pills-nagad" type="button" role="tab" 
+                          aria-controls="pills-nagad" aria-selected="false">
+                          <div class="walletTabImg">
+                            <img src="assets/image/nagad.png" alt="">
+                          </div>
+                          </button>
+                        </li>
+                        <li class="nav-item mx-2" role="presentation">
+                          <button class="nav-link" id="pills-payeer-tab" data-bs-toggle="pill" data-bs-target="#pills-payeer" type="button" role="tab" aria-controls="pills-payeer" aria-selected="false">
+                          <div class="walletTabImg">
+                            <img src="assets/image/payeer.png" alt="">
+                          </div>
+                          </button>
+                        </li>
+                        <li class="nav-item mx-2" role="presentation">
+                          <button class="nav-link" id="pills-perfect-tab" data-bs-toggle="pill" data-bs-target="#pills-perfect" type="button" role="tab" aria-controls="pills-perfect" aria-selected="false">
+                          <div class="walletTabImg">
+                            <img src="assets/image/nagad.png" alt="">
+                          </div>
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
                     <div class="tab-content" id="pills-tabContent">
-                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
-                      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-                      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+                      <div class="tab-pane fade show  my-5" id="pills-bkash" role="tabpanel" aria-labelledby="pills-bkash-tab">
+                        <div class="PamentInsruction d-flex justify-content-center cl-grey mb-5">
+                            <ul>
+                              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                            </ul>
+                        </div>
+                        <div>
+                          <form action="">
+                            <div class="row justify-content-center">
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label for="exampleFormControlInput1" class="form-label fw-bold">Recharge Method</label>
+                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" value="Bkash" readonly>
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label for="exampleFormControlInput1" class="form-label fw-bold">Account</label>
+                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Enter Account No">
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label for="exampleFormControlInput1" class="form-label fw-bold">Amount</label>
+                                  <input type="number" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Enter Amount">
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label for="exampleFormControlInput1" class="form-label fw-bold">Transaction ID</label>
+                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Transaction ID">
+                                </div>
+                              </div>
+                              <div class="col-lg-3">
+                                <div class="my-2">
+                                  <button type="submit" class="px-4 py-2 border-0 rounded-3 bg-cl-pm text-white">Submit</button>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade my-5" id="pills-nagad" role="tabpanel" aria-labelledby="pills-nagad-tab">
+                      <div class="PamentInsruction d-flex justify-content-center cl-grey mb-5">
+                            <ul>
+                              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                            </ul>
+                        </div>
+                        <div>
+                          <form action="">
+                            <div class="row justify-content-center">
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label for="exampleFormControlInput1" class="form-label fw-bold">Recharge Method</label>
+                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" value="Nagad" readonly>
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label for="exampleFormControlInput1" class="form-label fw-bold">Account</label>
+                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Enter Account No">
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label for="exampleFormControlInput1" class="form-label fw-bold">Amount</label>
+                                  <input type="number" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Enter Amount">
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label for="exampleFormControlInput1" class="form-label fw-bold">Transaction ID</label>
+                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Transaction ID">
+                                </div>
+                              </div>
+                              <div class="col-lg-3">
+                                <div class="my-2">
+                                  <button type="submit" class="px-4 py-2 border-0 rounded-3 bg-cl-pm text-white">Submit</button>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade my-5" id="pills-payeer" role="tabpanel" aria-labelledby="pills-payeer-tab">
+                      <div class="PamentInsruction d-flex justify-content-center cl-grey mb-5">
+                            <ul>
+                              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                            </ul>
+                        </div>
+                        <div>
+                          <form action="">
+                            <div class="row justify-content-center">
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label for="exampleFormControlInput1" class="form-label fw-bold">Recharge Method</label>
+                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" value="Payeer" readonly>
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label for="exampleFormControlInput1" class="form-label fw-bold">Account</label>
+                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Enter Account No">
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label for="exampleFormControlInput1" class="form-label fw-bold">Amount</label>
+                                  <input type="number" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Enter Amount">
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label for="exampleFormControlInput1" class="form-label fw-bold">Transaction ID</label>
+                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Transaction ID">
+                                </div>
+                              </div>
+                              <div class="col-lg-3">
+                                <div class="my-2">
+                                  <button type="submit" class="px-4 py-2 border-0 rounded-3 bg-cl-pm text-white">Submit</button>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade my-5" id="pills-perfect" role="tabpanel" aria-labelledby="pills-perfect-tab">
+                      <div class="PamentInsruction d-flex justify-content-center cl-grey mb-5">
+                            <ul>
+                              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                            </ul>
+                        </div>
+                        <div>
+                          <form action="">
+                            <div class="row justify-content-center">
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label for="exampleFormControlInput1" class="form-label fw-bold">Recharge Method</label>
+                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" value="Perfect Money" readonly>
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label for="exampleFormControlInput1" class="form-label fw-bold">Account</label>
+                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Enter Account No">
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label for="exampleFormControlInput1" class="form-label fw-bold">Amount</label>
+                                  <input type="number" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Enter Amount">
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label for="exampleFormControlInput1" class="form-label fw-bold">Transaction ID</label>
+                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Transaction ID">
+                                </div>
+                              </div>
+                              <div class="col-lg-3">
+                                <div class="my-2">
+                                  <button type="submit" class="px-4 py-2 border-0 rounded-3 bg-cl-pm text-white">Submit</button>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>

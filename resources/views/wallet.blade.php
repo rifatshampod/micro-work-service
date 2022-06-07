@@ -4,33 +4,7 @@
   <x-assets title="Wallet : "/>
 
   <body>
-    <!-- Hero start -->
-    <section class="hero SingleJobHero">
-      <x-header/>
-      <div class="container">
-        <div class="d-flex justify-content-center">
-          <div class="singleJobHeroContent">
-            <div class="text-center">
-              <h3 class="cl-white">My Wallet</h3>
-            </div>
-            <div class="breadcrumb">
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li
-                    class="breadcrumb-item cl-white cursor"
-                    onclick="location.href='index.html'"
-                  >
-                    Home
-                  </li>
-                  <li class="breadcrumb-item cl-white">My Wallet</li>
-                </ol>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Hero end -->
+    <x-header2/>
 
     <!----------My Wallet Start------------->
     <section class="myWallet py-5">
@@ -50,7 +24,7 @@
                                         <h4 class="fs18">Available Amount</h4>
                                     </div>
                                     <div>
-                                        <p class="fs36 cl-pm fw-bold">$220.00</p>
+                                        <p class="fs36 cl-pm fw-bold">$200.50</p>
                                     </div>
                                 </div>
                             </div>

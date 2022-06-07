@@ -813,6 +813,28 @@ input[type="number"] {
 /*********All Gigs End*************/
 
 /*********My Wallet Start*************/
+.walletTabImg {
+    height: 40px;
+    width: 60px;
+}
+
+.walletTabImg img {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.walletNavTab .nav-link {
+    border: 1px solid rgb(228, 222, 222);
+}
+
+.walletNavTab .nav-link.active {
+    background-color: rgba(14, 90, 190, 0.7) !important;
+}
+
+.PamentInsruction {
+    line-height: 2;
+}
 
 .myWalletTopLeft {
     border-radius: 20px 0 0 20px;
@@ -842,9 +864,9 @@ input[type="number"] {
     width: 100%;
 }
 
-.reachargeWallet input {
+/* .reachargeWallet input {
     border: 1px solid #293e55;
-}
+} */
 
 /*********My Wallet End*************/
 

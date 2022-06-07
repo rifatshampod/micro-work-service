@@ -10,6 +10,7 @@ use App\Http\Controllers\paymentProofController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\contestController;
 use App\Http\Controllers\users;
+use App\Http\Controllers\walletController;
 
 Route::get('home', function () {
     //return view('home');
@@ -89,7 +90,8 @@ Route::post('edit-data',[users::class, 'editProfile']);
 Route::post('edit-password',[users::class, 'editPassword']);
 
 //wallet
-Route::view('my-wallet','wallet');
+Route::get('my-wallet',[walletController::class, 'getData']);
+Route::get('deposite-wallet',[walletController::class, 'depositeData']);
 Route::view('recharge-wallet','rechargeWallet');
 
 //job
