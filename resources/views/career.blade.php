@@ -4,7 +4,7 @@
   <x-assets title="Career : "/>
 
   <body>
-    <x-header-white/>
+    <x-header2/>
 
     <!----------Career Start------------->
     <section class="career py-5">

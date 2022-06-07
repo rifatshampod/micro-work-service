@@ -339,6 +339,7 @@ input[type="number"] {
     width: 28px;
     border: 1px solid #fff;
     border-radius: 50%;
+    text-decoration: none;
 }
 .topSocialIcon:hover {
     background-color: #017bfd;

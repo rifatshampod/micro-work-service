@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use App\Models\Contact;
 
 class header extends Component
 {
@@ -23,6 +24,18 @@ class header extends Component
      */
     public function render()
     {
-        return view('components.header');
+        $email =  Contact::where('name','Email')->first();
+        $phone =  Contact::where('name','Phone')->first();
+        $facebook =  Contact::where('name','Facebook')->first();
+        $twitter =  Contact::where('name','Twitter')->first();
+        $youtube =  Contact::where('name','Youtube')->first();
+        $googlePlay =  Contact::where('name','Google Play')->first();
+        
+        return view('components.header', ['email' => $email])
+        ->with('phone', $phone)
+        ->with('facebook', $facebook)
+        ->with('twitter', $twitter)
+        ->with('youtube', $youtube)
+        ->with('googlePlay', $googlePlay);
     }
 }

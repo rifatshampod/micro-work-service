@@ -5,7 +5,7 @@
 
   <body>
     
-    <x-header-white/>
+    <x-header2/>
 
     <!----------Terms And Services Start------------->
     <section class="terms p-150">

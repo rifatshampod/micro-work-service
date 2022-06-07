@@ -5,7 +5,7 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 use App\Models\Contact;
 
-class footer extends Component
+class header2 extends Component
 {
     /**
      * Create a new component instance.
@@ -24,7 +24,6 @@ class footer extends Component
      */
     public function render()
     {
-
         $email =  Contact::where('name','Email')->first();
         $phone =  Contact::where('name','Phone')->first();
         $facebook =  Contact::where('name','Facebook')->first();
@@ -32,7 +31,7 @@ class footer extends Component
         $youtube =  Contact::where('name','Youtube')->first();
         $googlePlay =  Contact::where('name','Google Play')->first();
         
-        return view('components.footer', ['email' => $email])
+        return view('components.header2', ['email' => $email])
         ->with('phone', $phone)
         ->with('facebook', $facebook)
         ->with('twitter', $twitter)

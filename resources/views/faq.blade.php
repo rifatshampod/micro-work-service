@@ -4,7 +4,7 @@
   <x-assets title="FAQs : "/>
 
   <body>
-    <x-header-white/>
+    <x-header2/>
 
     <!----------Faq Start------------->
     <section class="faq py-5">

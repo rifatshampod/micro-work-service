@@ -18,7 +18,7 @@
                   <i class="far fa-envelope me-2 mt-2"></i>
                 </div>
                 <div>
-                  <small>ptoworkers@gmail.com</small>
+                  <small>{{$email->link}}</small>
                 </div>
               </div>
               <div class="text-white fw-lighterr d-flex align-items-center">
@@ -26,26 +26,29 @@
                   <i class="fas fa-phone-alt me-2 mt-2"></i>
                 </div>
                 <div>
-                  <small>+880-1676044462</small>
+                  <small>{{$phone->link}}</small>
                 </div>
               </div>
             </div>
             <div class="d-flex mt-2">
-            <div
+            <a
                 class="topSocialIcon d-flex justify-content-center align-items-center cursor mx-1"
+                href="https://{{$facebook->link}}" target="_blank"
               >
                 <i class="fab fa-facebook-f cl-white"></i>
-              </div>
-              <div
+              </a>
+              <a
                 class="topSocialIcon d-flex justify-content-center align-items-center cursor mx-1"
+                href="https://{{$twitter->link}}" target="_blank"
               >
                 <i class="fab fa-twitter cl-white"></i>
-              </div>
-              <div
+              </a>
+              <a
                 class="topSocialIcon d-flex justify-content-center align-items-center cursor mx-1"
+                href="https://{{$youtube->link}}" target="_blank"
               >
                 <i class="fab fa-youtube cl-white"></i>
-              </div>
+              </a>
             </div>
           </div>
           <div class="col-lg-3 mb-4">
@@ -114,7 +117,8 @@
               <div class="text-white mb-2">
                 <small>Download Our App From</small>
               </div>
-              <div class="footerApp bg-cl-pm d-flex align-items-center cursor px-3 py-2 rounded-3">
+              <a class="footerApp bg-cl-pm d-flex align-items-center cursor px-3 py-2 rounded-3"
+              href="https://{{$googlePlay->link}}" target="_blank">
                 <div class="me-2">
                   <i class="fab fa-google-play cl-white"></i>
                 </div>
@@ -122,7 +126,7 @@
                   <h5>Google Play</h5>
                   <small>Get It Now</small>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
