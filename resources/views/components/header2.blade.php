@@ -120,7 +120,7 @@
                                       {{ Auth::user()->name }} <span class="bg-cl-pm ms-4 cl-white px-3 py-1 rounded-3">Profile</span>
                                     </button>
                                     <ul class="">
-                                    
+                                      <li><button class="dropdown-item" type="button" onclick="location.href='my-wallet'">My Wallet</button></li>
                                       <li><button class="dropdown-item" type="button" onclick="location.href='my-jobs'">My Create Job</button></li>
                                       <li><button class="dropdown-item" type="button" onclick="location.href='applied-jobs'">My Applied Job</button></li>
                                       <li><button class="dropdown-item" type="button" onclick="location.href='my-gigs'">My Gigs</button></li>
@@ -145,19 +145,22 @@
                           
                         <li>
                         <div class="d-flex mobileNavSocial">
-                        <div
-                        class="topSocialIcon d-flex justify-content-center align-items-center cursor mx-1">
-                        <i class="fab fa-facebook-f cl-white"></i>
-                       </div>
-                       <div
-                         class="topSocialIcon d-flex justify-content-center align-items-center cursor mx-1">
-                        <i class="fab fa-twitter cl-white"></i>
-                        </div>
-                       <div
+                        <a
                         class="topSocialIcon d-flex justify-content-center align-items-center cursor mx-1"
+                        href="https://{{$facebook->link}}" target="_blank">
+                        <i class="fab fa-facebook-f cl-white"></i>
+                       </a>
+                       <a
+                         class="topSocialIcon d-flex justify-content-center align-items-center cursor mx-1"
+                         href="https://{{$twitter->link}}" target="_blank">
+                        <i class="fab fa-twitter cl-white"></i>
+                        </a>
+                       <a
+                        class="topSocialIcon d-flex justify-content-center align-items-center cursor mx-1"
+                        href="https://{{$youtube->link}}" target="_blank"
                         >
                         <i class="fab fa-youtube cl-white"></i>
-                        </div>
+                        </a>
                         </div>
                           </li>
                 </ul>

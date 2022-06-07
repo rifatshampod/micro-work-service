@@ -6,107 +6,7 @@
   <body>
     <!-- Hero start -->
     <section class="hero SingleJobHero">
-      <div class="topHeader bg-white">
-        <div class="container">
-          <div class="d-flex justify-content-between align-items-center py-3">
-            <div class="d-flex flex-wrap align-items-center">
-              <div class="mx-2">
-                <small class="fw-lighter"
-                  ><i class="far fa-envelope me-2"></i
-                  >ptoworkers@gmail.com</small
-                >
-              </div>
-              <div
-                class="topHeadPhone d-flex align-items-center mx-2 bg-cl-green"
-              >
-                <small class="fw-lighter"
-                  ><i class="fas fa-phone-alt me-2"></i>+091-321654987</small
-                >
-              </div>
-            </div>
-            <div class="topSocial d-flex">
-              <div
-                class="topSocialIcon topSocialIcon2 d-flex justify-content-center align-items-center cursor me-3"
-              >
-                <i class="fab fa-facebook-f"></i>
-              </div>
-              <div
-                class="topSocialIcon topSocialIcon2 d-flex justify-content-center align-items-center cursor"
-              >
-                <i class="fab fa-twitter"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Bottom Header-->
-      <div class="bottomHeader bg-cl-navy-blue" id="navbar">
-        <div class="container">
-          <nav class="navbar navbar-expand-xl navbar-light">
-            <div class="container-fluid px-0 py-2">
-              <div class="bottomHeader-img cursor">
-                <img
-                  src="assets/image/logo.png"
-                  alt=""
-                  onclick="window.location.href='index.html'"
-                />
-              </div>
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                  <li class="nav-item mx-2">
-                    <a class="nav-link text-white" href="index.html"
-                      >Home</a
-                    >
-                  </li>
-                  <li class="nav-item mx-2">
-                    <a class="nav-link text-white" href="paymentHistory.html"
-                      >Payment Proof</a
-                    >
-                  </li>
-                  <li class="nav-item mx-2">
-                    <a class="nav-link text-white" href="allJob.html"
-                      >Find a Job</a
-                    >
-                  </li>
-                  <li class="nav-item mx-2">
-                    <a class="nav-link text-white" href="allGig.html"
-                      >Find Gigs</a
-                    >
-                  </li>
-                  <li class="nav-item mx-2">
-                    <a class="nav-link text-white" href="employeeWalet.html">Post a Job</a>
-                  </li>
-                  <li class="nav-item mx-2 me-5">
-                    <a class="nav-link text-white" href="support.html">Help</a>
-                  </li>
-                  <li class="nav-item navSignIn mx-1 px-3 mb-2">
-                    <a
-                      class="btn bg-cl-green border-0 px-3 text-white"
-                      href="signIn.html"
-                      role="button"
-                      >Sign In</a
-                    >
-                  </li>
-                  <li class="nav-item navSignIn mx-1 px-3 mb-2">
-                    <a class="nav-link text-white" href="signUp.html">Sign Up</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
+      <x-header/>
       <div class="container">
         <div class="d-flex justify-content-center">
           <div class="singleJobHeroContent">
@@ -157,7 +57,7 @@
                             <div class="col-lg-6 mb-2">
                                 <div class="myWalletCard bg-cl-pink p-4">
                                     <div>
-                                        <h4 class="fs18">Available Amount</h4>
+                                        <h4 class="fs18">Total Spent</h4>
                                     </div>
                                     <div>
                                         <p class="fs36 fw-bold">$220.00</p>
@@ -172,7 +72,7 @@
                         <div class="myWalletTopRightImg mb-4">
                             <img src="assets/image/allGigImg.png" alt="">
                         </div>
-                        <div class="d-flex justify-content-center" onclick="location.href='employeeWalletEdit.html'">
+                        <div class="d-flex justify-content-center" onclick="location.href='recharge-wallet'">
                             <button class="px-4 py-2 bg-cl-pm border-0 rounded-3 cl-white">Recharge</button>
                         </div>
                     </div>
@@ -181,8 +81,8 @@
             <div class="myWalletBottom py-5">
                 <div>
                     <div class="text-center mb-4">
-                        <h2 class="cl-mat-black fw-bold">Recent Withdraw History</h2>
-                        <h4 class="cl-dark-ash2">From 22 Jan, 2018</h4>
+                        <h3 class="cl-mat-black fw-bold pt-5 pb-3">Recent Withdraw History</h3>
+
                     </div>
                 </div>
                 <div class="pHistoryTable table-responsive mb-4">

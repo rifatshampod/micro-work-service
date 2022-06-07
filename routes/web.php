@@ -65,6 +65,7 @@ Route::get("payment-proof", [paymentProofController::class, 'getData']);
 
 //Logged in route list -----------------------------------------------------------
 Route::group(['middleware' => ['web', 'auth','verified']], function(){
+    
 //job
 Route::get("add-job", [jobsDetail::class, 'showCategoryData']);  //add job input form
 Route::post("addJob", [jobsDetail::class, 'addData']); //save data in database
@@ -79,12 +80,17 @@ Route::post("addContest", [contestController::class, 'addData']); //save data in
 Route::get("add-campaign", [jobsDetail::class, 'showCampaignData']);  //add job input form
 Route::post("addCampaign", [jobsDetail::class, 'addCampaignData']); //save data in database
 
-//user 
+//user menu ------------------------------------ 
 
+//profile
 Route::view('profile','profile');
 Route::view('edit-profile','profileEdit');
 Route::post('edit-data',[users::class, 'editProfile']);
 Route::post('edit-password',[users::class, 'editPassword']);
+
+//wallet
+Route::view('my-wallet','wallet');
+Route::view('recharge-wallet','rechargeWallet');
 
 //job
 Route::get("my-jobs", [jobsDetail::class, 'userJobs']);
@@ -108,6 +114,7 @@ Route::get('my-gigs',[gigsController::class,'getUserData']);
 Route::get('edit-gig={gig_slug}',[gigsController::class,'editUserData']);
 Route::post('updateGig',[gigsController::class,'updateUserData']);
 
+//user menu ends ------------------------------
 });
 
 

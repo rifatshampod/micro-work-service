@@ -135,10 +135,10 @@
                                     <label class="mb-2 fw-bold">Campaign Posting Cost</label>
                                     <div class="createJobCampaign d-flex rounded-3">
                                         <div class="createJobCampaignIcon d-flex justify-content-center align-items-center">
-                                            {{$costing->charge}} %
+                                            <span id="costPercent">{{$costing->charge}}</span> %
                                         </div>
                                         <div class="d-flex align-items-center px-4">
-                                            <input name="cost" class="fs16 cl-pm" id="cost" onblur="countSum()" style="border:0" type="number" value="{{$costing->charge}}" readonly/>
+                                            <input name="cost" class="fs16 cl-pm" id="cost" style="border:0" type="number" value="" readonly/>
                                             
                                         </div>
                                     </div>
@@ -154,7 +154,7 @@
                                             <i class="fas fa-dollar-sign cl-green"></i>
                                         </div>
                                         <div>
-                                        <input name="totalCost" id="totalCost" onblur="countSum()" class="fs20 fw-bold w-30 bg-cl-sky" style="border:0" type="number" readonly/>
+                                        <input name="totalCost" id="totalCost" class="fs20 fw-bold w-30 bg-cl-sky" style="border:0" type="number" readonly/>
                                             
                                         </div>
                                     </div>
@@ -236,6 +236,19 @@
           ['view', ['fullscreen', 'codeview', 'help']]
         ]
       });
+
+
+      //Price Multiply
+      function countSum(){
+        var availableAmount = parseFloat(document.getElementById("availableAmount").value);
+        var pricePerJob = parseFloat(document.getElementById("pricePerJob").value);
+        var cost = parseFloat(document.getElementById("costPercent").innerHTML)
+        var multifly = availableAmount * pricePerJob;
+        var costPercentVal = (multifly / 100) * cost;
+        var totalCost = multifly + costPercentVal;
+        document.getElementById("cost").value = costPercentVal;
+        document.getElementById("totalCost").value = totalCost;
+      }
     </script>
 
     <script src="js/main.js"></script>
