@@ -94,14 +94,3 @@ function addTag(e){
 input.addEventListener("keyup", addTag);
 
 
-
-//Price Multiply
-function countSum(){
-  var availableAmount = parseFloat(document.getElementById("availableAmount").value);
-  var pricePerJob = parseFloat(document.getElementById("pricePerJob").value);
-  var cost = parseFloat(document.getElementById("cost").value)
-  var multifly = availableAmount * pricePerJob;
-  var costPercent = (multifly / 100) * cost;
-  var totalCost = multifly + costPercent;
-  document.getElementById("totalCost").value = totalCost;
-}

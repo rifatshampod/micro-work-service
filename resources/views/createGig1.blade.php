@@ -134,7 +134,7 @@
                       <div
                         class="createJobCampaignIcon d-flex justify-content-center align-items-center"
                       >
-                        {{$costing->charge}}%
+                        <span id="costPercent">{{$costing->charge}}</span>%
                       </div>
                       <div class="d-flex align-items-center px-4">
                         <input name="cost" class="fs16 cl-pm bg-cl-ash2" style="border:0" type="number" value="" id="postingCost" readonly/>
@@ -216,9 +216,10 @@
       //Price percentage
         function pricePercentage(){
           var startPrice = parseFloat(document.getElementById("startPrice").value);
-          var postingCost = parseFloat(document.getElementById("postingCost").value);
-          var costPercent = (startPrice / 100) * postingCost;
-          var totalCost = startPrice + costPercent;
+          var postingCost = parseFloat(document.getElementById("costPercent").innerHTML);
+          var costPercentVal = (startPrice / 100) * postingCost;
+          var totalCost = startPrice + costPercentVal;
+          document.getElementById("postingCost").value = costPercentVal;
           document.getElementById("totalCost").value = totalCost;
         }
     </script>
