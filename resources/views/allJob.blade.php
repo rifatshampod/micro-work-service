@@ -40,12 +40,13 @@
                   <th scope="col">Competion Time</th>
                   <th scope="col">Availability</th>
                   <th scope="col">Payment</th>
+                  <th scope="col">Success Rate</th>
                   <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
                 <!-- one row start with feature 1-->
-                @foreach ($joblist as $item)
+                @foreach ($featuredJob as $item)
                   <tr class="tableRow bg-white rounded-3 cl-grey">
                   <td scope="row">
                     <!-- featured priority level 1 -->
@@ -69,6 +70,40 @@
                       </div>
                   </td>
                   <td>{{$item['price']}} $</td>
+                  @if($item['total_submitted']==0)
+                    <td>No Rating</td>
+                    @else
+                    <td>{{round($item['total_approved']/$item['total_submitted']*100)}} %</td>
+                  @endif
+                  <td>
+                    <a href="single-job={{$item['id']}}">
+                      <div class="tableRowBtn text-end">
+                      <a href="job-details={{$item['id']}}">
+                          <button class="py-1 px-4 bg-cl-pm border-0 rounded-3 cl-white">Apply Job</button></a>
+                      </div>
+                    </a>
+                  </td>
+                </tr>
+                @endforeach
+
+                @foreach ($joblist as $item)
+                  <tr class="tableRow bg-white rounded-3 cl-grey">
+                  <td scope="row">
+                  
+                    {{$item['name']}}</td>
+                  <td><i class="fas fa-link cl-pm me-2"></i>{{$item['target']}}</td>
+                  <td>{{$item['completion']}}</td>
+                  <td>
+                      <div class="tableAvNumber d-flex justify-content-center align-items-center bg-cl-pm rounded-3">
+                          <span class="text-white">{{$item['due_availability']}}</span>
+                      </div>
+                  </td>
+                  <td>{{$item['price']}} $</td>
+                  @if($item['total_submitted']==0)
+                    <td>No Rating</td>
+                    @else
+                    <td>{{round($item['total_approved']/$item['total_submitted']*100)}} %</td>
+                  @endif
                   <td>
                     <a href="single-job={{$item['id']}}">
                       <div class="tableRowBtn text-end">
@@ -83,9 +118,9 @@
           </table>
         </div>
 <!-- --------------------------------- pagination ------------------------>
-      <div class="pagination d-flex justify-content-center align-items-center">
+      {{-- <div class="pagination d-flex justify-content-center align-items-center">
           {{$joblist->links('vendor.pagination.bootstrap-4')}}
-      </div>
+      </div> --}}
 <!-- --------------------------------- pagination ------------------------>
 
       </div>

@@ -10,14 +10,14 @@
     <title>{{ config('app.name', 'KBH Workers') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
     <div id="app">
@@ -30,14 +30,38 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
+                    {{-- <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/"
+                            >Home</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/payment-proof"
+                            >Payment Proof</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/jobs"
+                            >Find a Job</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/gigs"
+                            >Find Gigs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contests"
+                            >Find Contests</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Post a Job</a>
+                        </li>
+                    </ul> --}}
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav d-flex justify-content-end">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

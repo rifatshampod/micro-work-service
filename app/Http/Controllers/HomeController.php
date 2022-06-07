@@ -32,7 +32,8 @@ class HomeController extends Controller
     {
         $jobList= Job::orderBy('featured', 'DESC')
         ->where('featured', '>=' , 1)
-        ->paginate(5); //pagination and default data to show
+        ->inRandomOrder()
+        ->paginate(10); //pagination and default data to show
         
         $news = News_scroll::all();
         return view('home', ['joblist' => $jobList])->with('news',$news);

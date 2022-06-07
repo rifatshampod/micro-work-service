@@ -59,11 +59,18 @@ class jobsDetail extends Controller
 
     function getData()
     {
-        $jobList= Job::orderBy('featured', 'DESC')
-        ->paginate(20); //pagination and default data to show
+        $featureJobList= Job::orderBy('featured', 'DESC')
+        ->inRandomOrder()
+        ->where('featured','>', 0)
+        ->where('due_availability','>', 0)
+        ->paginate(10); //pagination and default data to show
         
+        $jobList= Job::where('featured', 0)
+        ->where('due_availability','>', 0)
+        ->orderBy('id','desc')
+        ->get(); //pagination and default data to show
 
-        return view('allJob', ['joblist' => $jobList]);
+        return view('allJob', ['joblist' => $jobList])->with('featuredJob',$featureJobList);
     }
 
     function getSingleData($job_slug)
@@ -146,11 +153,14 @@ class jobsDetail extends Controller
         $staffPic->save();
         
         if($req->input('post_type')==1){
+            $jobUpdate = Job::where('id',$jobID)
+            ->increment('total_submitted', 1);
+        
             $req->session()->flash('status','Proof submitted Successfully. Try other jobs');
         return redirect('jobs');
         }
         else{
-            $req->session()->flash('status','Proof submitted Successfully. Try other jobs');
+            $req->session()->flash('status','Proof submitted Successfully. Try other contests');
             return redirect('contests');
         }
         
@@ -216,7 +226,7 @@ class jobsDetail extends Controller
             $submission = Submitted_proof::join('jobs','jobs.id','=','submitted_proofs.job_id')
             ->join('users','users.id','=','submitted_proofs.user_id')
             ->get(['submitted_proofs.id as id','submitted_proofs.job_id',
-            'submitted_proofs.type',
+            'submitted_proofs.type','submitted_proofs.description',
             'users.name as username','submitted_proofs.file as attachment',
             'submitted_proofs.status as approval'])
             ->where('job_id',$job_slug)
@@ -266,6 +276,7 @@ class jobsDetail extends Controller
         $jobAvailability = Submitted_proof::where('id', $proof_slug)
                         ->get(['job_id'])->first();
         $jobUpdate = Job::where('id',$jobAvailability['job_id'])
+        ->increment('total_approved',1)
         ->decrement('due_availability', 1);
 
         // $req = new Request;
@@ -278,6 +289,23 @@ class jobsDetail extends Controller
         ->update([
            'status' => 2
         ]);
+        // $req = new Request;
+        // $req->session()->flash('status','Job approved successfully');
+        return back();
+    }
+
+    function mistakeApproveJob($proof_slug)  //if approved by mistake
+    {
+        $approve=Submitted_proof::where('id', $proof_slug)
+        ->update([
+           'status' => 2
+        ]);
+        
+        $jobAvailability = Submitted_proof::where('id', $proof_slug)
+                        ->get(['job_id'])->first();
+        $jobUpdate = Job::where('id',$jobAvailability['job_id'])
+        ->decrement('total_approved',1)
+        ->increment('due_availability', 1);
         // $req = new Request;
         // $req->session()->flash('status','Job approved successfully');
         return back();

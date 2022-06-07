@@ -56,7 +56,7 @@
                   <td>{{$item['price']}}</td>
                   <td>
                       <div class="tableRowBtn d-flex justify-content-end">
-                        <a href="my-single-job={{$item['id']}}">
+                        <a href="my-single-job={{$item['id']}}" style="text-decoration: none;">
                         <div class="tableIcon d-flex justify-content-center align-items-center me-2">
                             <i class="fa fa-eye cl-pm"></i>
                         </div>

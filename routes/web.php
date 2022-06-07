@@ -9,6 +9,7 @@ use App\Http\Controllers\gigsController;
 use App\Http\Controllers\paymentProofController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\contestController;
+use App\Http\Controllers\users;
 
 Route::get('home', function () {
     //return view('home');
@@ -82,6 +83,8 @@ Route::post("addCampaign", [jobsDetail::class, 'addCampaignData']); //save data 
 
 Route::view('profile','profile');
 Route::view('edit-profile','profileEdit');
+Route::post('edit-data',[users::class, 'editProfile']);
+Route::post('edit-password',[users::class, 'editPassword']);
 
 //job
 Route::get("my-jobs", [jobsDetail::class, 'userJobs']);
@@ -90,6 +93,7 @@ Route::get("my-single-job={job_slug}", [jobsDetail::class, 'userJobSingle']);
 Route::get('applied-jobs',[jobsDetail::class, 'userAppliedJobs']);
 Route::get("approve-job={proof_slug}",[jobsDetail::class, 'approveJob']); //approve single submission
 Route::get("reject-job={proof_slug}",[jobsDetail::class, 'rejectJob']); //reject single submission
+Route::get("mistake-reject-job={proof_slug}",[jobsDetail::class, 'mistakeApproveJob']); //reject after approving single submission
 
 //contest
 Route::get('my-contests',[contestController::class, 'userContests']);

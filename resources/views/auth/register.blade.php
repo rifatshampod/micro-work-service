@@ -325,9 +325,9 @@
                   </div>
                   <div>
                     <div class="form-check mb-2">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" required>
                         <label class="form-check-label" for="flexCheckDefault1">
-                          T.O.S <span class="fs10 cursor cl-pm fw-bold" onclick="location.href='terms.html'">View Terms of Services</span>
+                          T.O.S <span class="fs10 cursor cl-pm fw-bold" onclick="location.href='terms'">View Terms of Services</span>
                         </label>
                       </div>
                       {{-- <div class="form-check mb-3">

@@ -69,12 +69,21 @@
                         </p>
                       </div>
                     </div>
-                    <div class="d-flex cl-grey">
+                    <div class="d-flex cl-grey me-3">
                       <div class="me-2">
                         <i class="far fa-clock"></i>
                       </div>
                       <div class="text-center">
                         <p>Time <span class="cl-pm fw-bold">{{$jobs->completion}}</span></p>
+                      </div>
+                    </div>
+
+                    <div class="d-flex cl-grey me-3">
+                      <div class="me-2">
+                        <i class="far fa-clock"></i>
+                      </div>
+                      <div class="text-center">
+                        <p>Target <span class="cl-pm fw-bold">{{$jobs->target}}</span></p>
                       </div>
                     </div>
                   </div>

@@ -93,7 +93,7 @@
                     >
                   </li>
                   <li class="nav-item mx-2">
-                    <a class="nav-link text-white" href="/login">Post a Job</a>
+                    <a class="nav-link text-white" href="add-job">Post a Job</a>
                   </li>
                   
                           @guest
