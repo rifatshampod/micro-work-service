@@ -162,7 +162,7 @@
                             </div>
                             <div class="mb-4">
                                 <div class="form-check me-2">
-                                    <input class="form-check-input" name="agreement" type="radio" id="flexCheckDefault6">
+                                    <input class="form-check-input" name="agreement" type="radio" id="flexCheckDefault6" required>
                                     <label class="form-check-label" for="flexCheckDefault6">
                                         I agree with Quick F.A.Q. and T.O.S.
                                     </label>

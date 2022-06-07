@@ -93,7 +93,7 @@
                 <div class="cl-grey">
                   <small>
                     <p>
-                      {{$jobs->description}} 
+                      {!!$jobs->description!!} 
                     </p>
                   </small>
                 </div>
@@ -105,7 +105,7 @@
                 <div class="cl-grey">
                   <small>
                     <p>
-                      {{$jobs->requirement}}
+                      {!!$jobs->requirement!!}
                     </p>
                   </small>
                 </div>
@@ -135,6 +135,7 @@
                 <tr>
                   <th scope="col">Submitted By</th>
                   <th scope="col">Attachment</th>
+                  <th scope="col">Description</th>
                   <th class="text-end" scope="col">Action / Status</th>
                 </tr>
               </thead>
@@ -142,18 +143,19 @@
                 @foreach ($submission as $item)
                     <tr class="tableRow bg-white rounded-3 cl-grey">
                   <td scope="row">{{$item['username']}}</td>
-                  <td><a href="/{{$item['attachment']}}" download>
+                  <td><a href="/{{$item['attachment']}}" target="_blank">
                     <i class="fas fa-link cl-pm me-2"></i>{{$item['attachment']}}
                   </a></td>
+                  <td scope="row">{{$item['description']}}</td>
                   @if($item['approval']==0)
                     <td>
                       <div class="d-flex justify-content-end">
-                        <a href="approve-job={{$item['id']}}">
+                        <a href="approve-job={{$item['id']}}" style="text-decoration: none;">
                           <div class="submissionIcon d-flex justify-content-center align-items-center mx-1 cursor">
                             <i class="fa fa-check cl-pm"></i>
                           </div>
                         </a>
-                        <a href="reject-job={{$item['id']}}">
+                        <a href="reject-job={{$item['id']}}" style="text-decoration: none;">
                           <div class="submissionIcon d-flex justify-content-center align-items-center mx-1 cursor">
                             <i class="fa fa-times text-danger"></i>
                           </div>
@@ -161,9 +163,21 @@
                       </div>
                   </td>
                   @elseif($item['approval']==1)
-                  <td class="d-flex justify-content-end">Approved</td>
+                  <td class="text-end cl-green"> <b>Approved</b> 
+                  <a href="mistake-reject-job={{$item['id']}}" style="text-decoration: none;">
+                    <div>
+                      <small>Approved by mistake? Reject</small>
+                    </div>
+                  </a>
+                  </td>
                   @else
-                  <td class="d-flex justify-content-end">Rejected</td>
+                  <td class="text-end cl-red"> <b>Rejected</b> 
+                  <a href="approve-job={{$item['id']}}" style="text-decoration: none;">
+                    <div>
+                      <small>Rejected by mistake? Approve</small>
+                    </div>
+                  </a>
+                  </td>
                   @endif
                   
                   
