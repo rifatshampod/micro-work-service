@@ -4,7 +4,7 @@
   <x-assets title="Refund policy : "/>
 
   <body>
-    <x-header-white/>
+    <x-header2/>
 
     <!----------Terms And Services Start------------->
     <section class="terms p-150">

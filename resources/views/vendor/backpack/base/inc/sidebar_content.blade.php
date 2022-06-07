@@ -10,3 +10,4 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('submitted-proof') }}'><i class='nav-icon la la-file-alt'></i> Submitted proofs</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('charge') }}'><i class='nav-icon la la-hand-holding-usd'></i> Charges</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('news-scroll') }}'><i class='nav-icon la la-newspaper'></i> News scrolls</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('contact') }}'><i class='nav-icon la la-question'></i> Contacts</a></li>

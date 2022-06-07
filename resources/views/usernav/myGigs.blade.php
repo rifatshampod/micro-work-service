@@ -6,7 +6,7 @@
   <body>
     <!-- Hero start -->
     <section class="">
-      <x-header-white />
+      <x-header2 />
     </section>
     <!-- Hero end -->
 

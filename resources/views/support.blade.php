@@ -4,7 +4,7 @@
   <x-assets title="Support : "/>
 
   <body>
-    <x-header-white/>
+    <x-header2/>
 
     <!----------Support & Contact Start------------->
     <section class="support">

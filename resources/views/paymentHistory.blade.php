@@ -4,7 +4,7 @@
   <x-assets title="Payment proof : "/>
 
   <body>
-    <x-header-white/>
+    <x-header2/>
 
     <!----------Payment History Start------------->
     <section class="pHistory py-5">

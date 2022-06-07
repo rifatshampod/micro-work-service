@@ -6,14 +6,14 @@
               <div class="mx-2">
                 <small class="fw-lighter cl-white cursor"
                   ><i class="far fa-envelope me-2"></i
-                  >ptoworkers@gmail.com</small
+                  >{{$email->link}}</small
                 >
               </div>
               <div
                 class="topHeadPhone d-flex align-items-center mx-2 bg-cl-green"
               >
                 <small class="fw-lighter cl-white cursor"
-                  ><i class="fas fa-phone-alt me-2"></i>+091-321654987</small
+                  ><i class="fas fa-phone-alt me-2"></i>{{$phone->link}}</small
                 >
               </div>
             </div>
@@ -22,21 +22,24 @@
               <small class="topSocialHelp cl-white me-3 cursor" onclick="location.href='support'">Help & Support</small>
             </div>
             <div class="d-flex">
-            <div
+              <a
                 class="topSocialIcon d-flex justify-content-center align-items-center cursor mx-1"
+                href="https://{{$facebook->link}}" target="_blank"
               >
                 <i class="fab fa-facebook-f cl-white"></i>
-              </div>
-              <div
+              </a>
+              <a
                 class="topSocialIcon d-flex justify-content-center align-items-center cursor mx-1"
+                href="https://{{$twitter->link}}" target="_blank"
               >
                 <i class="fab fa-twitter cl-white"></i>
-              </div>
-              <div
+              </a>
+              <a
                 class="topSocialIcon d-flex justify-content-center align-items-center cursor mx-1"
+                href="https://{{$youtube->link}}" target="_blank"
               >
                 <i class="fab fa-youtube cl-white"></i>
-              </div>
+              </a>
             </div>
             </div>
           </div>

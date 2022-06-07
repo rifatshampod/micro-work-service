@@ -4,7 +4,7 @@
   <x-assets title="All Contests : "/>
   
   <body>
-    <x-header-white/>
+    <x-header2/>
 
     <!----------Job Start------------->
     <section class="jobs bg-cl-light-pink p-100">
