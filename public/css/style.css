@@ -58,7 +58,9 @@ small {
 .fs20 {
     font-size: 20px;
 }
-
+.fs30 {
+    font-size: 30px;
+}
 .fs36 {
     font-size: 36px;
 }
@@ -867,6 +869,10 @@ input[type="number"] {
 /* .reachargeWallet input {
     border: 1px solid #293e55;
 } */
+
+#balanceAlert{
+    display: none;
+}
 
 /*********My Wallet End*************/
 

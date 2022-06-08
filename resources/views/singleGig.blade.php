@@ -138,14 +138,18 @@
                 </div>
                 <div class="singleJobRightTop2nd d-flex align-items-center p-2 bg-cl-ash2 mb-3">
                   <div class="singleJobRightTop2ndImg singleContestRightTop2ndImg me-2">
-                    <img src="assets/image/About/team1.png" alt="">
+                    @if($gigs['img']==null)
+                          <img src="/assets/image/gigs/user.png" alt="" />
+                        @else
+                          <img src="{{$gigs['img']}}" alt="" />
+                        @endif
                   </div>
                   <div>
                     <div>
                       <small class="fs16 cl-pm fw-bold">{{$gigs->user_name}}</small>
                     </div>
                     <div>
-                      <small>Web Designer</small>
+                      <small>{{$gigs->country}}</small>
                     </div>
                   </div>
                 </div>
