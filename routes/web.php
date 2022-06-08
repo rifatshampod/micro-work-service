@@ -91,8 +91,11 @@ Route::post('edit-password',[users::class, 'editPassword']);
 
 //wallet
 Route::get('my-wallet',[walletController::class, 'getData']);
-Route::get('deposite-wallet',[walletController::class, 'depositeData']);
+Route::post('deposit-wallet',[walletController::class, 'depositData']);
 Route::view('recharge-wallet','rechargeWallet');
+Route::view('withdraw-wallet','withdrawWallet');
+Route::post('withdraw-request',[walletController::class, 'withdrawData']);
+
 
 //job
 Route::get("my-jobs", [jobsDetail::class, 'userJobs']);

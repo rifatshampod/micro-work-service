@@ -11,3 +11,5 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('charge') }}'><i class='nav-icon la la-hand-holding-usd'></i> Charges</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('news-scroll') }}'><i class='nav-icon la la-newspaper'></i> News scrolls</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('contact') }}'><i class='nav-icon la la-question'></i> Contacts</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('deposit') }}'><i class='nav-icon la la-question'></i> Deposits</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('withdraw') }}'><i class='nav-icon la la-question'></i> Withdraws</a></li>
