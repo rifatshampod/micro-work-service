@@ -10,6 +10,6 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('submitted-proof') }}'><i class='nav-icon la la-file-alt'></i> Submitted proofs</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('charge') }}'><i class='nav-icon la la-hand-holding-usd'></i> Charges</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('news-scroll') }}'><i class='nav-icon la la-newspaper'></i> News scrolls</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('contact') }}'><i class='nav-icon la la-question'></i> Contacts</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('deposit') }}'><i class='nav-icon la la-question'></i> Deposits</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('withdraw') }}'><i class='nav-icon la la-question'></i> Withdraws</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('contact') }}'><i class='nav-icon la la-comment-dots'></i> Contacts</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('deposit') }}'><i class='nav-icon la la-piggy-bank'></i> Deposits</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('withdraw') }}'><i class='nav-icon la la-receipt'></i> Withdraws</a></li>

@@ -60,6 +60,6 @@ class walletController extends Controller
         $withdraw->save();
 
         $req->session()->flash('status','Withdraw request submitted successfully');
-        return redirect('my-wallet#all-transactions');
+        return redirect('payment-proof');
     }
 }

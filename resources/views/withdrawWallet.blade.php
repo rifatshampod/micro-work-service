@@ -106,28 +106,30 @@
                             </ul>
                         </div>
                         <div>
-                          <form action="">
+                          <form action="withdraw-request" method="POST">
+                            @csrf
                             <div class="row justify-content-center">
                               <div class="col-lg-6">
                                 <div class="mb-3">
                                   <label for="exampleFormControlInput1" class="form-label fw-bold">Recharge Method</label>
-                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" value="Nagad" readonly>
+                                  <input type="text" name="method" class="form-control bg-cl-ash2" id="exampleFormControlInput1" value="Nagad" readonly>
                                 </div>
                               </div>
-                              
+
                               <div class="col-lg-6">
                                 <div class="mb-3">
                                   <label for="exampleFormControlInput1" class="form-label fw-bold">Amount</label>
-                                  <input type="number" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Enter Amount">
+                                  <input type="number" name="amount" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Enter Amount">
                                 </div>
                               </div>
 
                               <div class="col-lg-12">
                                 <div class="mb-3">
                                   <label for="exampleFormControlInput1" class="form-label fw-bold">Account</label>
-                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Enter Account No">
+                                  <input type="text" class="form-control bg-cl-ash2" name="account_no" id="exampleFormControlInput1" placeholder="Enter Account No">
                                 </div>
                               </div>
+                              
                               
                               <div class="col-lg-3">
                                 <div class="my-2">
@@ -147,30 +149,31 @@
                             </ul>
                         </div>
                         <div>
-                          <form action="">
+                          <form action="withdraw-request" method="POST">
+                            @csrf
                             <div class="row justify-content-center">
                               <div class="col-lg-6">
                                 <div class="mb-3">
                                   <label for="exampleFormControlInput1" class="form-label fw-bold">Recharge Method</label>
-                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" value="Payeer" readonly>
+                                  <input type="text" name="method" class="form-control bg-cl-ash2" id="exampleFormControlInput1" value="Payeer" readonly>
                                 </div>
                               </div>
-                              
+
                               <div class="col-lg-6">
                                 <div class="mb-3">
                                   <label for="exampleFormControlInput1" class="form-label fw-bold">Amount</label>
-                                  <input type="number" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Enter Amount">
+                                  <input type="number" name="amount" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Enter Amount">
                                 </div>
                               </div>
 
                               <div class="col-lg-12">
                                 <div class="mb-3">
                                   <label for="exampleFormControlInput1" class="form-label fw-bold">Account</label>
-                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Enter Account No">
+                                  <input type="text" class="form-control bg-cl-ash2" name="account_no" id="exampleFormControlInput1" placeholder="Enter Account No">
                                 </div>
                               </div>
-
-                        
+                              
+                              
                               <div class="col-lg-3">
                                 <div class="my-2">
                                   <button type="submit" class="px-4 py-2 border-0 rounded-3 bg-cl-pm text-white">Submit</button>
@@ -189,29 +192,30 @@
                             </ul>
                         </div>
                         <div>
-                          <form action="">
+                          <form action="withdraw-request" method="POST">
+                            @csrf
                             <div class="row justify-content-center">
                               <div class="col-lg-6">
                                 <div class="mb-3">
                                   <label for="exampleFormControlInput1" class="form-label fw-bold">Recharge Method</label>
-                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" value="Perfect Money" readonly>
+                                  <input type="text" name="method" class="form-control bg-cl-ash2" id="exampleFormControlInput1" value="Perfect Money" readonly>
                                 </div>
                               </div>
-                              
+
                               <div class="col-lg-6">
                                 <div class="mb-3">
                                   <label for="exampleFormControlInput1" class="form-label fw-bold">Amount</label>
-                                  <input type="number" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Enter Amount">
+                                  <input type="number" name="amount" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Enter Amount">
                                 </div>
                               </div>
 
                               <div class="col-lg-12">
                                 <div class="mb-3">
                                   <label for="exampleFormControlInput1" class="form-label fw-bold">Account</label>
-                                  <input type="text" class="form-control bg-cl-ash2" id="exampleFormControlInput1" placeholder="Enter Account No">
+                                  <input type="text" class="form-control bg-cl-ash2" name="account_no" id="exampleFormControlInput1" placeholder="Enter Account No">
                                 </div>
                               </div>
-
+                              
                               
                               <div class="col-lg-3">
                                 <div class="my-2">
