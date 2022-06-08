@@ -114,8 +114,34 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="col-lg-3">
+                            <div class="createJobRightBottom d-flex justify-content-between align-items-center rounded-3 p-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="createJobRightBottomIcon d-flex justify-content-center align-items-center me-2">
+                                        <i class="fas fa-wallet fs20 cl-white"></i>
+                                    </div>
+                                    <div>
+                                        <small class="fs20 cl-white fw-bold">My Wallet</small>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-2 mb-1">
+                                            <i class="fas fa-dollar-sign cl-green fs16"></i>
+                                        </div>
+                                        <div class="mb-2">
+                                            <small class="fs20 fw-bold cl-white">4500.00</small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="bg-cl-pm border-0 rounded-3 px-4 py-2 cl-white">Recharge</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
             </div>
+                </div>
+                 
         </div>
     </section>
     <!----------Profile End------------->
