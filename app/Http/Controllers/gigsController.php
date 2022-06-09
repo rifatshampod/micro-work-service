@@ -18,7 +18,9 @@ class gigsController extends Controller
     function getData()
     {
 
-        $gigList = Gig::join('users','users.id','=','gigs.user_id')
+        $gigList = Gig::join('users','gigs.user_id','=','users.id')
+        ->select('gigs.id as id','gigs.title','users.img','gigs.review','gigs.review_amount',
+            'gigs.features','gigs.price','gigs.feature_image')
         ->paginate(20);
         return view('allGig', ['giglist' => $gigList]);
     }
@@ -109,9 +111,13 @@ class gigsController extends Controller
     function getUserData(Request $req)
     {
         $user_id = $req->user()->id; //change user id here
-        $gigList = Gig::where('user_id',$user_id)
-        ->paginate(10);
+        $gigList = Gig::join('users','gigs.user_id','=','users.id')
+        ->select('gigs.id as id','gigs.title','users.img','gigs.review','gigs.review_amount',
+            'gigs.features','gigs.price','gigs.feature_image')
+        ->where('gigs.user_id',$user_id)
+        ->paginate(20);
         return view('allGig', ['giglist' => $gigList]);
+        
     }
 
     function editUserData($gig_slug)

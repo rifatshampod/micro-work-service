@@ -79,7 +79,7 @@
                 </div>
                 <div class="cl-grey">
                   <small>
-                    {{$gigs->description}}
+                    {!!$gigs->description!!}
                   </small>
                 </div>
               </div>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="cl-grey">
                   <small>
-                    {{$gigs->features}}
+                    {!!$gigs->features!!}
                   </small>
                 </div>
               </div>
@@ -120,7 +120,7 @@
           <div class="col-xxl-3 col-xl-4">
             <div class="singleJobMidRight p-4">
               {{-- change user id with logged in user id  --}}
-              @if($gigs->gigcreator==1) 
+              @if($gigs->gigcreator==Auth::user()->id) 
                 <div class="mb-4 d-flex justify-content-end">
                     {{-- <div class="me-2">
                         <button class="px-3 py-2 rounded-3 border-0 bg-danger cl-white">Remove Gig</button>

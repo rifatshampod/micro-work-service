@@ -102,7 +102,7 @@
                   </div>
                   <div>
                     <small class="cardText cl-dark-ash2"
-                      >{{$item['features']}}</small
+                      >{!!$item['features']!!}</small
                     >
                   </div>
                 </div>
