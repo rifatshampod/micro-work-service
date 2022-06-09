@@ -195,11 +195,12 @@
           <div class="col-xl-3 col-lg-4">
             <div class="d-flex">
               <div>
-                <button class="px-4 py-2 mx-2 border-0 rounded-3 bg-cl-pm text-white">Edit</button>
+                <button class="px-4 py-2 mx-2 border-0 rounded-3 bg-cl-pm text-white"
+                onclick="location.href='edit-job={{$jobs->id}}'">Edit Job Information</button>
               </div>
-              <div>
-                <button class="px-4 py-2 mx-2 border-0 rounded-3 bg-danger text-white">Delete</button>
-              </div>
+              {{-- <div>
+                <button class="px-4 py-2 mx-2 border-0 rounded-3 bg-primary text-white">Delete</button>
+              </div> --}}
             </div>
           </div>
         </div>

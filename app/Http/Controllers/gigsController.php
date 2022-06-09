@@ -8,6 +8,8 @@ use App\Models\Gig;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Charge;
+use App\Models\User;
+use App\Models\Rating;
 
 
 
@@ -15,7 +17,11 @@ class gigsController extends Controller
 {
     function getData()
     {
-        $gigList = Gig::paginate(10);
+
+        $gigList = Gig::join('users','gigs.user_id','=','users.id')
+        ->select('gigs.id as id','gigs.title','users.img','gigs.review','gigs.review_amount',
+            'gigs.features','gigs.price','gigs.feature_image')
+        ->paginate(20);
         return view('allGig', ['giglist' => $gigList]);
     }
 
@@ -25,12 +31,24 @@ class gigsController extends Controller
         {
             //$clients = Client::where('id',$client_slug)->first();
             $gigs = Gig::join('categories', 'categories.id', '=', 'gigs.category_id')
-            ->get(['gigs.id as id','gigs.title','gigs.user_name','gigs.user_id as gigcreator'
+            ->join('users','users.id','=','gigs.user_id')
+            ->get(['gigs.id as id','gigs.title','users.name as user_name','users.country','users.img','gigs.user_id as gigcreator'
             , 'categories.name as category_name',
             'gigs.description','gigs.features','gigs.speciality','gigs.price','gigs.feature_image as gig_image'])
             ->where('id',$gig_slug)->first();
 
-            return view('singleGig')->with('gigs',$gigs);
+            if(Rating::where('gig_id',$gig_slug)->exists()){
+                $ratings = Rating::where('gig_id',$gig_slug)
+                ->get();
+            }
+
+            else{
+                $ratings = "No Rating";
+            }
+
+            
+
+            return view('singleGig')->with('gigs',$gigs)->with('ratings',$ratings);
         }
         else{
 
@@ -93,9 +111,13 @@ class gigsController extends Controller
     function getUserData(Request $req)
     {
         $user_id = $req->user()->id; //change user id here
-        $gigList = Gig::where('user_id',$user_id)
-        ->paginate(10);
+        $gigList = Gig::join('users','gigs.user_id','=','users.id')
+        ->select('gigs.id as id','gigs.title','users.img','gigs.review','gigs.review_amount',
+            'gigs.features','gigs.price','gigs.feature_image')
+        ->where('gigs.user_id',$user_id)
+        ->paginate(20);
         return view('allGig', ['giglist' => $gigList]);
+        
     }
 
     function editUserData($gig_slug)

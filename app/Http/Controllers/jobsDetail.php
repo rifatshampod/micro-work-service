@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Job;
 use App\Models\Category;
 use App\Models\Campaign; 
@@ -309,6 +310,50 @@ class jobsDetail extends Controller
         // $req = new Request;
         // $req->session()->flash('status','Job approved successfully');
         return back();
+    }
+
+    function editUserData($job_slug)
+    {
+        $user_id = Auth::id(); //change user id here
+        if(Job::where('id',$job_slug)->where('user_id',$user_id)->exists())
+        {
+            
+            $jobs = Job::get()
+            ->where('id',$job_slug)->first();
+
+            $categorylist = Category::all();
+
+            return view('editJob',compact('categorylist'))->with('jobs',$jobs);
+        }
+        else{
+
+            return redirect('my-jobs')->with('status',"The link you have given doesn't have permission");
+        }
+    }
+
+    function updateUserData(Request $req)
+    {
+        $req->validate([
+            'name'=>'required | min:3',
+            'agreement'=>'required'
+        ]);
+        
+        
+        $job_id = $req->input('job_id');
+        $job=Job::where('id', $job_id)
+       ->update([
+           'name' => $req->input('name'),
+           'description' => $req->input('description'),
+           'requirement' => $req->input('requirement'),
+           'category_id' => $req->input('category'),
+           'target' => $req->input('target'),
+           'completion' => $req->input('completion')
+        ]);
+
+        $req->session()->flash('status','Job edited successfully');
+        return redirect('my-jobs');
+
+    
     }
 
 

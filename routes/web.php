@@ -105,6 +105,8 @@ Route::get('applied-jobs',[jobsDetail::class, 'userAppliedJobs']);
 Route::get("approve-job={proof_slug}",[jobsDetail::class, 'approveJob']); //approve single submission
 Route::get("reject-job={proof_slug}",[jobsDetail::class, 'rejectJob']); //reject single submission
 Route::get("mistake-reject-job={proof_slug}",[jobsDetail::class, 'mistakeApproveJob']); //reject after approving single submission
+Route::get('edit-job={job_slug}',[jobsDetail::class,'editUserData']);
+Route::post('updateJob',[jobsDetail::class,'updateUserData']);
 
 //contest
 Route::get('my-contests',[contestController::class, 'userContests']);

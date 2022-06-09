@@ -75,7 +75,12 @@
                   <div class="d-flex justify-content-between align-items-center mb-3">
                     <div class="d-flex align-items-center">
                       <div class="gigcardBodyTopImg me-2">
-                        <img src="assets/image/gigs/gigcard.jfif" alt="" />
+                        @if($item['img']==null)
+                          <img src="/assets/image/gigs/user.png" alt="" />
+                        @else
+                          <img src="{{$item['img']}}" alt="" />
+                        @endif
+                        
                       </div>
                       <div>
                         <small class="cl-pm fw-bold">{{$item['title']}}</small>
@@ -83,14 +88,21 @@
                     </div>
                     <div>
                       <small class="cl-yellow fw-bold"
-                        ><i class="fas fa-star"></i> {{$item['review']}}
-                        <span class="cl-black fw-lighter">({{$item['review_amount']}})</span></small
-                      >
+                        >
+                        @if($item['review_amount']==null)
+                          <small class="fs10">No review</small> 
+                        @else 
+                          <i class="fas fa-star"></i> {{round($item['review']/$item['review_amount'], 1)}}
+                          <span class="cl-black fw-lighter">({{$item['review_amount']}})</span>
+                        @endif
+                        
+                        
+                      </small>
                     </div>
                   </div>
                   <div>
                     <small class="cardText cl-dark-ash2"
-                      >{{$item['description']}}</small
+                      >{!!$item['features']!!}</small
                     >
                   </div>
                 </div>
@@ -130,7 +142,6 @@
 
     <!-- Bottom Section -->
     <x-footer/>
-
     <script src="js/main.js"></script>
   </body>
 </html>

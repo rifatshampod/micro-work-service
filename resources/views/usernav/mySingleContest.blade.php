@@ -135,6 +135,7 @@
               <thead>
                 <tr>
                   <th scope="col">Submitted By</th>
+                  <th scope="col">Details</th>
                   <th scope="col">Attachment</th>
                   <th class="text-end" scope="col">Action</th>
                 </tr>
@@ -143,7 +144,8 @@
                 @foreach ($submission as $item)
                     <tr class="tableRow bg-white rounded-3 cl-grey">
                   <td scope="row">{{$item['username']}}</td>
-                  <td><a href="/{{$item['attachment']}}" download>
+                  <td scope="row">{{$item['details']}}</td>
+                  <td><a href="/{{$item['attachment']}}" target="_blank">
                     <i class="fas fa-link cl-pm me-2"></i>{{$item['attachment']}}
                   </a></td>
                   <td>

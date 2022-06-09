@@ -10,14 +10,14 @@
     <section class="pHistory py-5">
         <div class="container">
             <div>
-                <div class="mb-3">
-                    <h2 class="cl-mat-black fw-bold">Recent Withdraw History</h2>
+                <div class="mb-5 text-center">
+                    <h3 class="cl-mat-black fw-bold">Recent Withdraw History</h3>
                 </div>
                 <div class="pHistorySearchDiv d-flex justify-content-end mb-3 px-1">
                     <!-- <div class="pHistorySearch px-2 w-20 d-flex justify-content-between align-items-center rounded-3"> -->
-                        <div class="pHistorySearch">
+                        {{-- <div class="pHistorySearch">
                             <input class="p-2 w-100 rounded-3" type="text" placeholder="Search">
-                        </div>
+                        </div> --}}
                         <!-- <div class="">
                             <i class="fas fa-search cursor pe-2"></i>
                         </div> -->
@@ -28,7 +28,7 @@
                 <table class="table table-hover table-borderless">
                     <thead>
                       <tr class="cl-deep-blue fw-bold">
-                        <th scope="col">Id</th>
+                        <th scope="col">#</th>
                         <th scope="col">Email</th>
                         <th scope="col">Payment</th>
                         <th scope="col">Method</th>
@@ -43,16 +43,16 @@
                       @foreach ($prooflist as $item)
 
                         <tr class="cl-dark-ash2">
-                        <td>{{$item['id']}}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{$item['email']}}</td>
-                        <td>${{$item['payment']}}</td>
+                        <td>${{$item['amount']}}</td>
                         <td>{{$item['method']}}</td>
                         <td>{{$item['country']}}</td>
                         <td>
                   
-                          @if ($item['status']==0)    
+                          @if ($item['completed']==0)    
                               <div class="">
-                                <small class="pTablestatus bg-cl-light-red px-4 py-1">UnPaid</small>
+                                <small class="pTablestatus bg-cl-light-red px-4 py-1">Pending</small>
                               </div>
                           @else                         
                               <div class="">
@@ -62,7 +62,7 @@
                           
                             
                         </td>
-                        <td class="text-end">{{$item['date']}}</td>
+                        <td class="text-end">{{$item['created_at']->format('d-m-Y')}}</td>
                       </tr>
 
                           

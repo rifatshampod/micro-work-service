@@ -11,7 +11,7 @@
         <div class="d-flex justify-content-center">
           <div class="singleJobHeroContent">
             <div class="text-center">
-              <h3 class="cl-white">Create a New Gig</h3>
+              <h3 class="cl-white">Edit Job</h3>
             </div>
             <div class="breadcrumb">
               <nav aria-label="breadcrumb">
@@ -22,7 +22,7 @@
                   >
                     Home
                   </li>
-                  <li class="breadcrumb-item cl-white">Create a New Gig</li>
+                  <li class="breadcrumb-item cl-white">Edit Job</li>
                 </ol>
               </nav>
             </div>
@@ -35,21 +35,23 @@
     <!----------Create Job Start------------->
     <section class="createGig py-5">
       <div class="container">
-        <form action="addGig" method="POST" enctype="multipart/form-data">
+        <form action="updateJob" method="POST" enctype="multipart/form-data">
           @csrf
+
+          <input type="hidden" name="job_id" value="{{$jobs->id}}">
           <div class="row">
             <div class="col-lg-8">
               <div class="row">
                 <div class="col-lg-12 mb-4">
                   <div class="">
-                    <label class="mb-2 fw-bold">Gig Title</label>
+                    <label class="mb-2 fw-bold">Job Title</label>
                     <input
-                      type="text" name="title"
-                      class="form-control w-100 bg-cl-ash2"
-                      placeholder="Enter Gig Title"
+                      type="text" name="name"
+                      class="form-control w-100 bg-cl-ash2" value="{{$jobs->name}}"
+                      
                     />
                   </div>
-                  @error('title')
+                  @error('name')
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                       {{$message}}
                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -58,26 +60,64 @@
                 </div>
                 <div class="col-lg-12 mb-4">
                   <div class="">
-                    <label class="fw-bold mb-2">Gig Description</label>
+                    <label class="fw-bold mb-2">Job Description</label>
                     <textarea
-                    id="summernote"
+                      id="summernote"
+                      value="{{$jobs->description}}"
                       class="form-control" name="description"
                       rows="7"
-                      placeholder="Enter Gig Description"
-                    ></textarea>
+                      
+                    >{{$jobs->description}}</textarea>
                   </div>
                 </div>
                 <div class="col-lg-12 mb-4">
                   <div class="">
-                    <label class="fw-bold mb-2">Gig Features</label>
-                    <textarea
+                    <label class="fw-bold mb-2">Job Requirements</label>
+                    <textarea name="requirement"
                     id="summernote2"
-                      class="form-control" name="feature"
+                      class="form-control"
                       rows="7"
-                      placeholder="Enter Gig Description"
-                    ></textarea>
+                      value="{{$jobs->requirement}}"
+                    >{{$jobs->requirement}}</textarea>
                   </div>
                 </div>
+                <div class="col-lg-12 mb-4">
+                                <div class="">
+                                    <label class="mb-2 fw-bold">Target Workers</label>
+                                    <div class="d-flex flex-wrap">
+                                        <div class="form-check me-2 mb-4">
+                                            <input name="target" class="form-check-input" type="radio" value="International" id="flexCheckDefault1">
+                                            <label class="form-check-label" for="flexCheckDefault1">
+                                              International
+                                            </label>
+                                          </div>
+                                          <div class="form-check me-2 mb-4">
+                                            <input name="target" class="form-check-input" type="radio" value="Europe-West" id="flexCheckDefault2">
+                                            <label class="form-check-label" for="flexCheckDefault2">
+                                                Europe West
+                                            </label>
+                                          </div>
+                                          <div class="form-check me-2 mb-4">
+                                            <input name="target" class="form-check-input" type="radio" value="Usa-Western" id="flexCheckDefault3">
+                                            <label class="form-check-label" for="flexCheckDefault3">
+                                                Usa Western
+                                            </label>
+                                          </div>
+                                          <div class="form-check me-2 mb-4">
+                                            <input name="target" class="form-check-input" type="radio" value="Europe-East" id="flexCheckDefault4">
+                                            <label class="form-check-label" for="flexCheckDefault4">
+                                                Europe East
+                                            </label>
+                                          </div>
+                                          <div class="form-check me-2 mb-4">
+                                            <input name="target" class="form-check-input" type="radio" value="Asia And Africa" id="flexCheckDefault5">
+                                            <label class="form-check-label" for="flexCheckDefault5">
+                                                Asia And Africa
+                                            </label>
+                                          </div>
+                                    </div>
+                                  </div>
+                            </div>
 
                 <!--
                 <div class="col-lg-6">
@@ -104,96 +144,29 @@
                     </select>
                   </div>
                 </div>
+                
                 <div class="col-lg-6 mb-4">
                   <div class="">
-                    <label class="mb-2 fw-bold">Duration</label>
-                    <select name="duration"
-                      class="form-select bg-cl-ash2"
-                      aria-label="Default select example"
-                    >
-                      <option selected>Select Duration</option>
-                      <option value="1">One Month</option>
-                      <option value="2">Three Months</option>
-                      <option value="3">Six Months</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="">
-                    <label class="mb-2 fw-bold">Starting Price</label>
+                    <label class="mb-2 fw-bold">Due Date</label>
                     <input
-                      type="number" name="price"
+                      type="date" name="completion"
                       class="form-control w-100 bg-cl-ash2"
-                      id="startPrice"
-                      placeholder="Enter Amount" onchange="pricePercentage()"
+                      value="{{$jobs->completion}}"
                     />
                   </div>
                 </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="">
-                    <label class="mb-2 fw-bold"> Posting Cost</label>
-                    <div class="createJobCampaign d-flex rounded-3 bg-cl-ash2">
-                      <div
-                        class="createJobCampaignIcon d-flex justify-content-center align-items-center"
-                      >
-                        <span id="costPercent">{{$costing->charge}}</span>%
-                      </div>
-                      <div class="d-flex align-items-center px-4">
-                        <input name="cost" class="fs16 cl-pm bg-cl-ash2" style="border:0" type="number" value="" id="postingCost" readonly/>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12 mb-4">
-                  <div
-                    class="createJobTotalCost bg-cl-sky d-flex justify-content-between align-items-center px-4 py-2"
-                  >
-                    <div>
-                      <small class="fs20 fw-bold">Total Cost</small>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <div class="me-2">
-                        <i class="fas fa-dollar-sign cl-green"></i>
-                      </div>
-                      <div>
-
-                        <input name="totalCost" class="fs20 fw-bold w-30 bg-cl-sky" style="border:0" type="number" value="{{$costing->charge}}" readonly/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                
+                
               </div>
             </div>
-            <div class="col-lg-4">
-              <div class="row">
-                <div class="col-lg-12 mt-4">
-                  <label class="fw-bold mb-2">Gig Feature Image</label>
-                  <input type="file" name="file"/>
-                  <div class="fileUpload bg-cl-ash2 mb-4">
-                    <!-- We'll transform this input into a pond  -->
-                    
-                  </div>
-                </div>
 
-                <div class="col-lg-12 mt-4">
-                  <label class="fw-bold mb-2">Gig Speciality</label>
-                    <textarea
-                    
-                      class="form-control" name="speciality"
-                      rows="7"
-                      placeholder="Enter Gig Description"
-                    ></textarea>
-                  
-                </div>
-              </div>
-            </div>
             <div class="mb-4">
               <div class="form-check me-2">
                 <input
                   class="form-check-input"
                   type="checkbox" name="agreement"
                   value="1"
+                  required
                   id="flexCheckDefault6"
                 />
                 <label class="form-check-label" for="flexCheckDefault6">
@@ -212,7 +185,7 @@
                 type="submit"
                 class="bg-cl-pm border-0 rounded-3 px-4 py-2 cl-white"
               >
-                Create Gig
+                Update Job
               </button>
             </div>
           </div>
@@ -225,10 +198,12 @@
     <x-footer/>
 
     <!-- Load FilePond library -->
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/fileupload.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script>
-      //description
       $('#summernote').summernote({
         placeholder: 'Job Descriptions',
         tabsize: 2,
@@ -244,9 +219,8 @@
         ]
       });
 
-      //features
       $('#summernote2').summernote({
-        placeholder: 'Job Descriptions',
+        placeholder: 'Job Completion requirements',
         tabsize: 2,
         height: 150,
         toolbar: [
@@ -259,19 +233,6 @@
           ['view', ['fullscreen', 'codeview', 'help']]
         ]
       });
-
-      //Price percentage
-        function pricePercentage(){
-          var startPrice = parseFloat(document.getElementById("startPrice").value);
-          var postingCost = parseFloat(document.getElementById("costPercent").innerHTML);
-          var costPercentVal = (startPrice / 100) * postingCost;
-          var totalCost = startPrice + costPercentVal;
-          document.getElementById("postingCost").value = costPercentVal;
-          document.getElementById("totalCost").value = totalCost;
-        }
     </script>
-    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/fileupload.js"></script>
   </body>
 </html>
