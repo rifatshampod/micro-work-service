@@ -9,6 +9,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Charge;
 use App\Models\User;
+use App\Models\Rating;
 
 
 
@@ -16,6 +17,7 @@ class gigsController extends Controller
 {
     function getData()
     {
+
         $gigList = Gig::join('users','users.id','=','gigs.user_id')
         ->paginate(20);
         return view('allGig', ['giglist' => $gigList]);
@@ -33,7 +35,18 @@ class gigsController extends Controller
             'gigs.description','gigs.features','gigs.speciality','gigs.price','gigs.feature_image as gig_image'])
             ->where('id',$gig_slug)->first();
 
-            return view('singleGig')->with('gigs',$gigs);
+            if(Rating::where('gig_id',$gig_slug)->exists()){
+                $ratings = Rating::where('gig_id',$gig_slug)
+                ->get();
+            }
+
+            else{
+                $ratings = "No Rating";
+            }
+
+            
+
+            return view('singleGig')->with('gigs',$gigs)->with('ratings',$ratings);
         }
         else{
 

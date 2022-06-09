@@ -88,9 +88,16 @@
                     </div>
                     <div>
                       <small class="cl-yellow fw-bold"
-                        ><i class="fas fa-star"></i> {{$item['review']}}
-                        <span class="cl-black fw-lighter">({{$item['review_amount']}})</span></small
-                      >
+                        >
+                        @if($item['review_amount']==null)
+                          <small class="fs10">No review</small> 
+                        @else 
+                          <i class="fas fa-star"></i> {{round($item['review']/$item['review_amount'], 1)}}
+                          <span class="cl-black fw-lighter">({{$item['review_amount']}})</span>
+                        @endif
+                        
+                        
+                      </small>
                     </div>
                   </div>
                   <div>
@@ -135,7 +142,6 @@
 
     <!-- Bottom Section -->
     <x-footer/>
-
     <script src="js/main.js"></script>
   </body>
 </html>

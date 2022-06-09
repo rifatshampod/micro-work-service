@@ -233,7 +233,7 @@
     <!-- Bottom Section -->
     <x-footer/>
     
-        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script>
       $('#summernote').summernote({
         placeholder: 'Job Descriptions',
@@ -294,5 +294,7 @@
     </script>
 
     <script src="js/main.js"></script>
+
+    
   </body>
 </html>

@@ -105,7 +105,7 @@ class contestController extends Controller
 
             $submission = Submitted_proof::join('contests','contests.id','=','submitted_proofs.job_id')
             ->join('users','users.id','=','submitted_proofs.user_id')
-            ->get(['submitted_proofs.id as id','submitted_proofs.job_id', 
+            ->get(['submitted_proofs.id as id','submitted_proofs.job_id', 'submitted_proofs.description as details', 
             'users.name as username','submitted_proofs.file as attachment',
             'submitted_proofs.status as approval','submitted_proofs.type'])
             ->where('job_id',$contest_slug)
