@@ -81,13 +81,13 @@ class GigCrudController extends CrudController
         CRUD::field('feature_image');
         CRUD::field('review');
         CRUD::field('review_amount');
-        CRUD::field('description');
-        CRUD::field('features');
+        CRUD::field('description')->type('summernote');
+        CRUD::field('features')->type('summernote');
         CRUD::field('speciality');
         CRUD::field('category_id');
         CRUD::field('duration');
         CRUD::field('price');
-        CRUD::field('posting_cost');
+        CRUD::field('posting_cost')->value(0)->type('hidden');
         CRUD::field('time_started');
         CRUD::field('created_at');
         CRUD::field('updated_at');

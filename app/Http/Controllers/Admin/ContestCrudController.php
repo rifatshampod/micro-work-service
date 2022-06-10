@@ -44,12 +44,12 @@ class ContestCrudController extends CrudController
         CRUD::column('category_id');
         CRUD::column('contest_name');
         CRUD::column('feature_image');
-        CRUD::column('description');
+        CRUD::column('description')->type('summernote');
         CRUD::column('due_date');
         CRUD::column('result_date');
         CRUD::column('prize_money');
         CRUD::column('time_started');
-        CRUD::column('posting_cost');
+        CRUD::column('posting_cost')->value(0)->type('hidden');
         CRUD::column('created_at');
         CRUD::column('updated_at');
 
@@ -74,13 +74,18 @@ class ContestCrudController extends CrudController
         CRUD::field('user_id');
         CRUD::field('category_id');
         CRUD::field('contest_name');
-        CRUD::field('feature_image');
-        CRUD::field('description');
+        $this->crud->addField([ // image
+            'label' => "Feature Image",
+            'name' => "feature_image",
+            'type' => 'upload',
+            'upload' => true,
+        ]);
+        CRUD::field('description')->type('summernote');
         CRUD::field('due_date');
         CRUD::field('result_date');
         CRUD::field('prize_money');
         CRUD::field('time_started');
-        CRUD::field('posting_cost');
+        CRUD::field('posting_cost')->value(0)->type('hidden');
         CRUD::field('created_at');
         CRUD::field('updated_at');
 
