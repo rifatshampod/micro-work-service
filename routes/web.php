@@ -112,6 +112,8 @@ Route::post('updateJob',[jobsDetail::class,'updateUserData']);
 Route::get('my-contests',[contestController::class, 'userContests']);
 Route::get('applied-contests',[contestController::class, 'userAppliedContests']);
 Route::get("my-contest={contest_slug}", [contestController::class, 'userSingleData']);  //retrieve and show single job
+Route::get('edit-contest={contest_slug}',[contestController::class,'editUserData']); //edit contest
+Route::post('updateContest',[contestController::class,'updateUserData']); //update contest
 
 //campaign
 Route::get('my-campaigns',[jobsDetail::class, 'userCampaign']);
