@@ -12,14 +12,14 @@ class Contest extends Model
 
     protected $guarded = ['id'];
 
-    public function setFeatureImageAttribute($value)
-    {
-        $attribute_name = "feature_image";
-        $disk = "public";
-        $destination_path = "contestImg";
+    // public function setFeatureImageAttribute($value)
+    // {
+    //     $attribute_name = "feature_image";
+    //     $disk = "public";
+    //     $destination_path = "contestImg";
 
-        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
+    //     $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
 
-    // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
-    }
+    // // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
+    // }
 }

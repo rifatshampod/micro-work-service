@@ -95,7 +95,7 @@ class jobsDetail extends Controller
 
         return view('allJob', ['joblist' => $jobList])
         ->with('featuredJob',$featureJobList)
-        ->with('categorylist',$categoryList);
+        ->with('categorylist',$categoryList); 
     }
 
     function getSingleData($job_slug)

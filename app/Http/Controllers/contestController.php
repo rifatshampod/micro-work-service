@@ -171,31 +171,17 @@ class contestController extends Controller
     function updateUserData(Request $req)
     {
         $req->validate([
-            'title'=>'required | min:3',
-            'agreement'=>'required'
+            'title'=>'required | min:3'
         ]);
         
-        // $gig = new Gig;
-        // $gig->user_id = 1;
-        // $gig->title = $req->input('title');
-        // //$gig->feature_image = $req->input('feature_img');
-        // $gig->category_id=$req->input('category');
-        // $gig->description=$req->input('description');
-        // $gig->features=$req->input('feature');
-        // $gig->speciality =$req->input('speciality');
-        // $gig->duration=$req->input('duration');
-        // $gig->price =$req->input('price');
-        // $gig->posting_cost =$req->input('cost');
-        // $gig->time_started =date("Y-m-d H:i:s", strtotime('now'));
-        // $gig->save();
-        $gig_id = $req->input('gig_id');
-        $gig=Gig::where('id', $gig_id)
+        $contest_id = $req->input('contest_id');
+        $contest=Contest::where('id', $contest_id)
        ->update([
-           'title' => $req->input('title'),
+           'contest_name' => $req->input('title'),
            'description' => $req->input('description'),
-           'features' => $req->input('feature'),
            'category_id' => $req->input('category'),
-           'price' => $req->input('price')
+           'due_date' => $req->input('due_date'),
+           'result_date' => $req->input('result_date')
         ]);
 
         if(null!==$req->file('file')){
@@ -205,18 +191,18 @@ class contestController extends Controller
 
         $picName = $pictureInfo->getClientOriginalName();
 
-        $folder = "gigsImg";
+        $folder = "contestsImg";
 
         $pictureInfo->move($folder, $picName);
 
         $picUrl = $folder .'/'. $picName;
 
-        $staffPic = Gig::find($lastId);
+        $staffPic = Contest::find($lastId);
 
         $staffPic->feature_image = $picUrl;
         $staffPic->save();
         }
-        $req->session()->flash('status','Gig edited successfully');
+        $req->session()->flash('status','Contest edited successfully');
         return redirect('my-contests');
 
     
