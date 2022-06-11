@@ -180,14 +180,39 @@
                 @enderror
               </div>
             </div>
-            <div>
-              <button
-                type="submit"
-                class="bg-cl-pm border-0 rounded-3 px-4 py-2 cl-white"
-              >
-                Create Contest
-              </button>
-            </div>
+              <div id="balanceAlert" class="alert alert-danger" role="alert">
+                 insufficient credits balance please recharge to continue.
+               </div>
+             <div class="mb-4">
+              <button id="submitBtn" type="button" onclick="walletCheck()" class="bg-cl-pm border-0 rounded-3 px-4 py-2 cl-white">Create Contest</button>
+           </div>
+           <div class="row">
+                         <div class="col-lg-6">
+                            <div class="createJobRightBottom d-flex justify-content-between align-items-center rounded-3 p-5">
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="createJobRightBottomIcon d-flex justify-content-center align-items-center me-2">
+                                        <i class="fas fa-wallet fs20 cl-white"></i>
+                                    </div>
+                                    <div>
+                                        <small class="fs20 cl-white fw-bold">My Wallet</small>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-2 mb-1">
+                                            <i class="fas fa-dollar-sign cl-green fs30"></i>
+                                        </div>
+                                        <div class="mb-2">
+                                            <small class="fs36 fw-bold cl-white" id="walletBalance">210</small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="bg-cl-pm border-0 rounded-3 px-4 py-2 cl-white" onclick="location.href='recharge-wallet'">Recharge</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>           
+           </div>
           </div>
         </form>
       </div>
@@ -222,6 +247,20 @@
           document.getElementById("postingCost").value = costPercentVal;
           document.getElementById("totalCost").value = totalCost;
         }
+
+
+      //wallet check
+      function walletCheck(){
+        var totalCost = parseFloat(document.getElementById("totalCost").value);
+        var walletBalance = parseFloat(document.getElementById("walletBalance").innerHTML);
+        if( totalCost > walletBalance ){
+          document.getElementById("balanceAlert").style.display = "block";
+        }
+        else{
+          var submitBtn = document.getElementById("submitBtn").type = "submit";
+        }
+      }
+
     </script>
 
     <!-- Load FilePond library -->

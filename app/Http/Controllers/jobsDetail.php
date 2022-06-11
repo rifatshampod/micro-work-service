@@ -60,6 +60,7 @@ class jobsDetail extends Controller
 
     function getData()
     {
+        $categoryList = Category::all();
         $featureJobList= Job::orderBy('featured', 'DESC')
         ->inRandomOrder()
         ->where('featured','>', 0)
@@ -71,7 +72,30 @@ class jobsDetail extends Controller
         ->orderBy('id','desc')
         ->get(); //pagination and default data to show
 
-        return view('allJob', ['joblist' => $jobList])->with('featuredJob',$featureJobList);
+        return view('allJob', ['joblist' => $jobList])
+        ->with('featuredJob',$featureJobList)
+        ->with('categorylist',$categoryList);
+    }
+
+    function getCategoryData($job_slug)
+    {
+        $categoryList = Category::all();
+        
+        $featureJobList= Job::orderBy('featured', 'DESC')
+        ->inRandomOrder()
+        ->where('featured','>', 0)
+        ->where('due_availability','>', 0)
+        ->paginate(5); //pagination and default data to show
+        
+        $jobList= Job::where('featured', 0)
+        ->where('due_availability','>', 0)
+        ->where('category_id',$job_slug)
+        ->orderBy('id','desc')
+        ->get(); //pagination and default data to show
+
+        return view('allJob', ['joblist' => $jobList])
+        ->with('featuredJob',$featureJobList)
+        ->with('categorylist',$categoryList);
     }
 
     function getSingleData($job_slug)

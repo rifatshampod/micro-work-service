@@ -15,7 +15,17 @@
                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
-            <div class="d-flex justify-content-end mb-4">
+            <div class="d-flex justify-content-between mb-4">
+              <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Select category
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              @foreach ($categorylist as $item)
+                  <li><a class="dropdown-item" href="jobs-category={{$item['id']}}">{{$item['name']}}</a></li>
+              @endforeach
+            </ul>
+          </div>
             <div>
                 <button class="px-4 py-2 bg-primary border-0 rounded-3 text-white" 
                 onclick="location.href='add-job'">

@@ -14,8 +14,17 @@ class contestController extends Controller
 {
     function getData()
     {
+        $categoryList = Category::all();
         $contestList = Contest::paginate(10);
-        return view('allContests', ['contestlist' => $contestList]);
+        return view('allContests', ['contestlist' => $contestList])->with('categorylist',$categoryList);
+    }
+    
+    function getCategoryData($contest_slug)
+    {
+        $categoryList = Category::all();
+        $contestList = Contest::where('contests.category_id',$contest_slug)
+        ->paginate(10);
+        return view('allContests', ['contestlist' => $contestList])->with('categorylist',$categoryList);
     }
 
     function getSingleData($contest_slug)
