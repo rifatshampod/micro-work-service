@@ -24,7 +24,7 @@
                                         <h4 class="fs18">Available Amount</h4>
                                     </div>
                                     <div>
-                                        <p class="fs36 cl-pm fw-bold">$ {{collect($balance)->sum('amount')-collect($withdraw)->sum('amount')}}</p>
+                                        <p class="fs36 cl-pm fw-bold">$ {{collect($balance)->sum('amount')-collect($withdraw)->sum('amount')+ Auth::user()->earned - Auth::user()->spent}}</p>
                                     </div>
                                 </div>
                             </div>

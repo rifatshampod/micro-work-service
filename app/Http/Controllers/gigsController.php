@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Charge;
 use App\Models\User;
 use App\Models\Rating;
+use App\Models\Deposit;
+use App\Models\Withdraw;
 
 
 
@@ -69,9 +71,19 @@ class gigsController extends Controller
 
     function showCategoryData(Request $req)
     {
+        $user_id = $req->user()->id;
+        $balance= Deposit::where('user_id',$user_id)
+                    ->where('status',1)
+                    ->get();
+        $withdraw= Withdraw::where('user_id',$user_id)
+                    ->where('completed',1)
+                    ->get();
         $categoryList = Category::all();
         $costing = Charge::where('id',4)->first();
-        return view('createGig1', ['categorylist'=> $categoryList])->with('costing',$costing);
+        return view('createGig1', ['categorylist'=> $categoryList])
+        ->with('costing',$costing)
+        ->with('balance',$balance)
+        ->with('withdraw',$withdraw);
     }
 
     function addData(Request $req)
@@ -160,19 +172,6 @@ class gigsController extends Controller
             'agreement'=>'required'
         ]);
         
-        // $gig = new Gig;
-        // $gig->user_id = 1;
-        // $gig->title = $req->input('title');
-        // //$gig->feature_image = $req->input('feature_img');
-        // $gig->category_id=$req->input('category');
-        // $gig->description=$req->input('description');
-        // $gig->features=$req->input('feature');
-        // $gig->speciality =$req->input('speciality');
-        // $gig->duration=$req->input('duration');
-        // $gig->price =$req->input('price');
-        // $gig->posting_cost =$req->input('cost');
-        // $gig->time_started =date("Y-m-d H:i:s", strtotime('now'));
-        // $gig->save();
         $gig_id = $req->input('gig_id');
         $gig=Gig::where('id', $gig_id)
        ->update([
@@ -210,3 +209,4 @@ class gigsController extends Controller
 
 
 }
+    

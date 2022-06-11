@@ -9,6 +9,8 @@ use App\Models\Category;
 use App\Models\Submitted_proof;
 use App\Models\Charge;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Deposit;
+use App\Models\Withdraw;
 
 class contestController extends Controller
 {
@@ -48,9 +50,19 @@ class contestController extends Controller
 
     function showCategoryData(Request $req)
     {
+        $user_id = $req->user()->id;
+        $balance= Deposit::where('user_id',$user_id)
+                    ->where('status',1)
+                    ->get();
+        $withdraw= Withdraw::where('user_id',$user_id)
+                    ->where('completed',1)
+                    ->get();
         $categoryList = Category::all();
         $costing = Charge::where('id',5)->first();
-        return view('createContest', ['categorylist'=> $categoryList])->with('costing',$costing);
+        return view('createContest', ['categorylist'=> $categoryList])
+        ->with('costing',$costing)
+        ->with('balance',$balance)
+        ->with('withdraw',$withdraw);
     }
 
     function addData(Request $req)

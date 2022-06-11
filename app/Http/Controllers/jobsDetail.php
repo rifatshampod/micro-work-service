@@ -12,6 +12,8 @@ use App\Models\Submitted_proof;
 use App\Models\Usertable;
 use App\Models\User;
 use App\Models\Charge;
+use App\Models\Deposit;
+use App\Models\Withdraw;
 
 class jobsDetail extends Controller
 {
@@ -23,9 +25,19 @@ class jobsDetail extends Controller
 
     function showCategoryData(Request $req)
     {
+        $user_id = $req->user()->id;
+        $balance= Deposit::where('user_id',$user_id)
+                    ->where('status',1)
+                    ->get();
+        $withdraw= Withdraw::where('user_id',$user_id)
+                    ->where('completed',1)
+                    ->get();
         $categoryList = Category::all();
         $costing = Charge::where('id',1)->first();
-        return view('createJob', ['categorylist'=> $categoryList])->with('costing',$costing);
+        return view('createJob', ['categorylist'=> $categoryList])
+        ->with('costing',$costing)
+        ->with('balance',$balance)
+        ->with('withdraw',$withdraw);
     }
 
     function addData(Request $req)
