@@ -17,12 +17,23 @@ class gigsController extends Controller
 {
     function getData()
     {
-
+        $categoryList = Category::all();
         $gigList = Gig::join('users','gigs.user_id','=','users.id')
         ->select('gigs.id as id','gigs.title','users.img','gigs.review','gigs.review_amount',
             'gigs.features','gigs.price','gigs.feature_image')
         ->paginate(20);
-        return view('allGig', ['giglist' => $gigList]);
+        return view('allGig', ['giglist' => $gigList])->with('categorylist',$categoryList);
+    }
+
+    function getCategoryData($gig_slug)
+    {
+        $categoryList = Category::all();
+        $gigList = Gig::join('users','gigs.user_id','=','users.id')
+        ->select('gigs.id as id','gigs.title','users.img','gigs.review','gigs.review_amount',
+            'gigs.features','gigs.price','gigs.feature_image')
+        ->where('gigs.category_id',$gig_slug)
+        ->paginate(20);
+        return view('allGig', ['giglist' => $gigList])->with('categorylist',$categoryList);
     }
 
     function getSingleData($gig_slug)

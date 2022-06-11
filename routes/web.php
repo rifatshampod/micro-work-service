@@ -53,10 +53,13 @@ Route::get("/", [HomeController::class, 'getData']); //retrieve all jobs from da
 
 Route::post("career", [careerController::class, 'getData']);  //controller to get html form data in career page
 Route::get("jobs", [jobsDetail::class, 'getData']); //retrieve all jobs from database
+Route::get("jobs-category={job_slug}", [jobsDetail::class, 'getCategoryData']); //retrieve category based jobs from database
 Route::get("job-details={job_slug}", [jobsDetail::class, 'getSingleData']);  //retrieve and show single job
 Route::get("gigs", [gigsController::class, 'getData']);
+Route::get("gigs-category={gig_slug}", [gigsController::class, 'getCategoryData']);
 Route::get("gig-details={gig_slug}", [gigsController::class, 'getSingleData']);
 Route::get("contests", [contestController::class, 'getData']);
+Route::get("contests-category={contest_slug}", [contestController::class, 'getCategoryData']);
 Route::get("contest-details={contest_slug}", [contestController::class, 'getSingleData']);  //retrieve and show single job
 Route::get("payment-proof", [paymentProofController::class, 'getData']);
 // Route::view('contests','allContests');
@@ -112,6 +115,8 @@ Route::post('updateJob',[jobsDetail::class,'updateUserData']);
 Route::get('my-contests',[contestController::class, 'userContests']);
 Route::get('applied-contests',[contestController::class, 'userAppliedContests']);
 Route::get("my-contest={contest_slug}", [contestController::class, 'userSingleData']);  //retrieve and show single job
+Route::get('edit-contest={contest_slug}',[contestController::class,'editUserData']); //edit contest
+Route::post('updateContest',[contestController::class,'updateUserData']); //update contest
 
 //campaign
 Route::get('my-campaigns',[jobsDetail::class, 'userCampaign']);

@@ -85,8 +85,8 @@ class JobCrudController extends CrudController
         CRUD::field('availability');
         CRUD::field('due_availability');
         CRUD::field('price');
-        CRUD::field('campaign_cost');
-        CRUD::field('total_cost');
+        CRUD::field('campaign_cost')->value(0)->type('hidden');
+        CRUD::field('total_cost')->value(0)->type('hidden');
         CRUD::field('featured');
 
         /**
