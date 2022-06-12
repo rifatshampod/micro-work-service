@@ -74,12 +74,12 @@ class ContestCrudController extends CrudController
         CRUD::field('user_id');
         CRUD::field('category_id');
         CRUD::field('contest_name');
-        $this->crud->addField([ // image
-            'label' => "Feature Image",
-            'name' => "feature_image",
-            'type' => 'upload',
-            'upload' => true,
-        ]);
+        // $this->crud->addField([ // image
+        //     'label' => "Feature Image",
+        //     'name' => "feature_image",
+        //     'type' => 'upload',
+        //     'upload' => true,
+        // ]);
         CRUD::field('description')->type('summernote');
         CRUD::field('due_date');
         CRUD::field('result_date');

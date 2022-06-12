@@ -55,7 +55,11 @@
                   </td>
                   <td>{{$item['deadline']}}</td>
                   <td>$ {{$item['prize_money']}}</td>
-                  <td>{{$item['status']}}</td>
+                  @if ($item['status']==0)
+                      <td>Pending</td>
+                  @else
+                      <td>Approved</td>
+                  @endif
                   <td><a href="contest-details={{$item['contestId']}}">
                       <div class="tableRowBtn d-flex justify-content-end">
                         <div class="tableIcon d-flex justify-content-center align-items-center me-2">

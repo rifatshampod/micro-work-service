@@ -125,7 +125,7 @@
           </div>
           <div class="col-xl-3 col-lg-4">
             <button class="px-4 py-2 mx-2 border-0 rounded-3 bg-cl-pm text-white"
-                onclick="location.href='edit-contest={{$contests->id}}'">Edit Job Information</button>
+                onclick="location.href='edit-contest={{$contests->id}}'">Edit Contest Information</button>
           </div>
         </div>
         <div class="table-responsive-md jobTable">

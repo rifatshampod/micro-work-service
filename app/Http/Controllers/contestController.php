@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Contest;
 use App\Models\Category;
 use App\Models\Submitted_proof;
 use App\Models\Charge;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Deposit;
+use App\Models\Withdraw;
 
 class contestController extends Controller
 {
@@ -48,17 +51,26 @@ class contestController extends Controller
 
     function showCategoryData(Request $req)
     {
+        $user_id = $req->user()->id;
+        $balance= Deposit::where('user_id',$user_id)
+                    ->where('status',1)
+                    ->get();
+        $withdraw= Withdraw::where('user_id',$user_id)
+                    ->where('completed',1)
+                    ->get();
         $categoryList = Category::all();
         $costing = Charge::where('id',5)->first();
-        return view('createContest', ['categorylist'=> $categoryList])->with('costing',$costing);
+        return view('createContest', ['categorylist'=> $categoryList])
+        ->with('costing',$costing)
+        ->with('balance',$balance)
+        ->with('withdraw',$withdraw);
     }
 
     function addData(Request $req)
     {
         $req->validate([
             'title'=>'required | min:3',
-            'agreement'=>'required',
-            'file'=>'required'  
+            'agreement'=>'required'
         ]);
         
         $contest = new Contest;
@@ -74,7 +86,14 @@ class contestController extends Controller
         $contest->time_started =date("Y-m-d H:i:s", strtotime('now'));
         $contest->save();
 
-        $lastId = $contest->id;
+        $totalCost = $req->input('prize') + $req->input('cost');
+
+        $spent=User::find($req->user()->id);
+        $spent->spent+=$totalCost;
+        $spent->update();
+
+        if($req->file('file')){
+             $lastId = $contest->id;
 
         $pictureInfo = $req->file('file');
 
@@ -90,6 +109,7 @@ class contestController extends Controller
 
         $staffPic->feature_image = $picUrl;
         $staffPic->save();
+        }
         
         $req->session()->flash('status','New contest added successfully');
         return redirect('contests');
@@ -171,31 +191,17 @@ class contestController extends Controller
     function updateUserData(Request $req)
     {
         $req->validate([
-            'title'=>'required | min:3',
-            'agreement'=>'required'
+            'title'=>'required | min:3'
         ]);
         
-        // $gig = new Gig;
-        // $gig->user_id = 1;
-        // $gig->title = $req->input('title');
-        // //$gig->feature_image = $req->input('feature_img');
-        // $gig->category_id=$req->input('category');
-        // $gig->description=$req->input('description');
-        // $gig->features=$req->input('feature');
-        // $gig->speciality =$req->input('speciality');
-        // $gig->duration=$req->input('duration');
-        // $gig->price =$req->input('price');
-        // $gig->posting_cost =$req->input('cost');
-        // $gig->time_started =date("Y-m-d H:i:s", strtotime('now'));
-        // $gig->save();
-        $gig_id = $req->input('gig_id');
-        $gig=Gig::where('id', $gig_id)
+        $contest_id = $req->input('contest_id');
+        $contest=Contest::where('id', $contest_id)
        ->update([
-           'title' => $req->input('title'),
+           'contest_name' => $req->input('title'),
            'description' => $req->input('description'),
-           'features' => $req->input('feature'),
            'category_id' => $req->input('category'),
-           'price' => $req->input('price')
+           'due_date' => $req->input('due_date'),
+           'result_date' => $req->input('result_date')
         ]);
 
         if(null!==$req->file('file')){
@@ -205,18 +211,18 @@ class contestController extends Controller
 
         $picName = $pictureInfo->getClientOriginalName();
 
-        $folder = "gigsImg";
+        $folder = "contestsImg";
 
         $pictureInfo->move($folder, $picName);
 
         $picUrl = $folder .'/'. $picName;
 
-        $staffPic = Gig::find($lastId);
+        $staffPic = Contest::find($lastId);
 
         $staffPic->feature_image = $picUrl;
         $staffPic->save();
         }
-        $req->session()->flash('status','Gig edited successfully');
+        $req->session()->flash('status','Contest edited successfully');
         return redirect('my-contests');
 
     

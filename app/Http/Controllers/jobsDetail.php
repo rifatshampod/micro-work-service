@@ -12,6 +12,8 @@ use App\Models\Submitted_proof;
 use App\Models\Usertable;
 use App\Models\User;
 use App\Models\Charge;
+use App\Models\Deposit;
+use App\Models\Withdraw;
 
 class jobsDetail extends Controller
 {
@@ -23,9 +25,19 @@ class jobsDetail extends Controller
 
     function showCategoryData(Request $req)
     {
+        $user_id = $req->user()->id;
+        $balance= Deposit::where('user_id',$user_id)
+                    ->where('status',1)
+                    ->get();
+        $withdraw= Withdraw::where('user_id',$user_id)
+                    ->where('completed',1)
+                    ->get();
         $categoryList = Category::all();
         $costing = Charge::where('id',1)->first();
-        return view('createJob', ['categorylist'=> $categoryList])->with('costing',$costing);
+        return view('createJob', ['categorylist'=> $categoryList])
+        ->with('costing',$costing)
+        ->with('balance',$balance)
+        ->with('withdraw',$withdraw);
     }
 
     function addData(Request $req)
@@ -51,6 +63,10 @@ class jobsDetail extends Controller
         $job->campaign_cost =$req->input('cost');
         $job->total_cost =$req->input('totalCost');
         $job->save();
+
+        $spent=User::find($req->user()->id);
+        $spent->spent+=$req->input('totalCost');
+        $spent->update();
         
         $req->session()->flash('status','New job added successfully');
         return redirect('jobs');
@@ -95,7 +111,7 @@ class jobsDetail extends Controller
 
         return view('allJob', ['joblist' => $jobList])
         ->with('featuredJob',$featureJobList)
-        ->with('categorylist',$categoryList);
+        ->with('categorylist',$categoryList); 
     }
 
     function getSingleData($job_slug)
@@ -120,22 +136,7 @@ class jobsDetail extends Controller
             return redirect('/')->with('status',"The link is broken");
         }
     }
-    //     function jobView($job_slug)  //to display single job page
-    // {
-    //     if (Client::where('id', $client_slug)->exists()) {
-    //         $clients = Client::where('id', $client_slug)->first();
-    //         $projects = $data = Project::join('clients', 'clients.id', '=', 'projects.client_id')
-    //         // ->join('city', 'city.state_id', '=', 'state.state_id')
-    //             ->get(['projects.id as id', 'projects.name as project_name', 'projects.budget', 'projects.advance', 'projects.renewal_charge', 'projects.next_renewal_date', 'projects.client_id as client_id'])
-    //             ->where('client_id', $client_slug);
 
-    //         return view('singleClientView', compact('projects'))->with('clients', $clients);
-    //     } else {
-
-    //         return redirect('/')->with('status', "The link is broken");
-    //     }
-
-    // }
 
     function delete($id){
         $data=Job::find($id);
@@ -296,17 +297,35 @@ class jobsDetail extends Controller
         $approve=Submitted_proof::where('id', $proof_slug)
         ->update([
            'status' => 1
-        ]);
+        ]); 
 
+        $userID = Submitted_proof::where('id', $proof_slug)
+                        ->get(['user_id'])->first();
         $jobAvailability = Submitted_proof::where('id', $proof_slug)
                         ->get(['job_id'])->first();
         $jobUpdate = Job::where('id',$jobAvailability['job_id'])
-        ->increment('total_approved',1)
-        ->decrement('due_availability', 1);
+        ->update([
+                'total_approved'=> DB::raw('total_approved+1'), 
+                'due_availability' => DB::raw('due_availability-1')
+                ]);
+
+        //add payment to user
+        $jobPrice=Job::where('id',$jobAvailability['job_id'])
+        ->get('price')->first();
+        
+        $submitted_user=$userID['user_id'];
+        $jobPriceSingle = $jobPrice['price'];
+        
+        if($submitted_user!=null){
+            $earned=User::find($submitted_user);
+            $earned->earned+=$jobPriceSingle;
+            $earned->update();
+        }
+        
 
         // $req = new Request;
         // $req->session()->flash('status','Job approved successfully');
-        return back();
+        return redirect()->back();
     }
     function rejectJob($proof_slug)
     {
@@ -326,13 +345,28 @@ class jobsDetail extends Controller
            'status' => 2
         ]);
         
+        $userID = Submitted_proof::where('id', $proof_slug)
+                        ->get(['user_id'])->first();
         $jobAvailability = Submitted_proof::where('id', $proof_slug)
                         ->get(['job_id'])->first();
         $jobUpdate = Job::where('id',$jobAvailability['job_id'])
-        ->decrement('total_approved',1)
-        ->increment('due_availability', 1);
-        // $req = new Request;
-        // $req->session()->flash('status','Job approved successfully');
+        ->update([
+                'total_approved'=> DB::raw('total_approved-1'), 
+                'due_availability' => DB::raw('due_availability+1')
+                ]);
+        
+        //add payment to user
+        $jobPrice=Job::where('id',$jobAvailability['job_id'])
+        ->get('price')->first();
+        
+        $submitted_user=$userID['user_id'];
+        $jobPriceSingle = $jobPrice['price'];
+        
+        if($submitted_user!=null){
+            $earned=User::find($submitted_user);
+            $earned->earned-=$jobPriceSingle;
+            $earned->update();
+        }
         return back();
     }
 
@@ -361,7 +395,6 @@ class jobsDetail extends Controller
             'name'=>'required | min:3',
             'agreement'=>'required'
         ]);
-        
         
         $job_id = $req->input('job_id');
         $job=Job::where('id', $job_id)

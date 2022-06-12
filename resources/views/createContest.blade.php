@@ -206,7 +206,9 @@
                                             <i class="fas fa-dollar-sign cl-green fs30"></i>
                                         </div>
                                         <div class="mb-2">
-                                            <small class="fs36 fw-bold cl-white" id="walletBalance">210</small>
+                                            <small class="fs36 fw-bold cl-white" id="walletBalance">
+                                               {{collect($balance)->sum('amount')-collect($withdraw)->sum('amount')+ Auth::user()->earned - Auth::user()->spent}}
+                                            </small>
                                         </div>
                                     </div>
                                     <div>
