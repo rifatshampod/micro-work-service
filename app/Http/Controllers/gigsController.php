@@ -108,7 +108,12 @@ class gigsController extends Controller
         $gig->time_started =date("Y-m-d H:i:s", strtotime('now'));
         $gig->save();
 
-        $lastId = $gig->id;
+        $spent=User::find($req->user()->id);
+        $spent->spent+=$req->input('cost');
+        $spent->update();
+
+        if($req->file('file')){
+            $lastId = $gig->id;
 
         $pictureInfo = $req->file('file');
 
@@ -124,6 +129,8 @@ class gigsController extends Controller
 
         $staffPic->feature_image = $picUrl;
         $staffPic->save();
+        }
+        
         
         $req->session()->flash('status','New gig added successfully');
         return redirect('gigs');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Contest;
 use App\Models\Category;
 use App\Models\Submitted_proof;
@@ -69,8 +70,7 @@ class contestController extends Controller
     {
         $req->validate([
             'title'=>'required | min:3',
-            'agreement'=>'required',
-            'file'=>'required'  
+            'agreement'=>'required'
         ]);
         
         $contest = new Contest;
@@ -86,7 +86,14 @@ class contestController extends Controller
         $contest->time_started =date("Y-m-d H:i:s", strtotime('now'));
         $contest->save();
 
-        $lastId = $contest->id;
+        $totalCost = $req->input('prize') + $req->input('cost');
+
+        $spent=User::find($req->user()->id);
+        $spent->spent+=$totalCost;
+        $spent->update();
+
+        if($req->file('file')){
+             $lastId = $contest->id;
 
         $pictureInfo = $req->file('file');
 
@@ -102,6 +109,7 @@ class contestController extends Controller
 
         $staffPic->feature_image = $picUrl;
         $staffPic->save();
+        }
         
         $req->session()->flash('status','New contest added successfully');
         return redirect('contests');
