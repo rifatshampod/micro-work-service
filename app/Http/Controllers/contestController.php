@@ -228,4 +228,85 @@ class contestController extends Controller
     
     }
 
+    function approveContest($proof_slug)
+    {
+        $approve=Submitted_proof::where('id', $proof_slug)
+        ->update([
+           'status' => 1
+        ]);
+        $reject=Submitted_proof::where('id','!=', $proof_slug)
+        ->update([
+           'status' => 2
+        ]);
+
+        $userID = Submitted_proof::where('id', $proof_slug)
+                        ->get(['user_id'])->first();
+        $jobAvailability = Submitted_proof::where('id', $proof_slug)
+                        ->get(['job_id'])->first();
+        // $jobUpdate = Contest::where('id',$jobAvailability['job_id'])
+        // ->update([
+        //         'total_approved'=> DB::raw('total_approved+1'), 
+        //         'due_availability' => DB::raw('due_availability-1')
+        //         ]);
+
+        //add payment to user
+        $jobPrice=Contest::where('id',$jobAvailability['job_id'])
+        ->get('prize_money')->first();
+        
+        $submitted_user=$userID['user_id'];
+        $jobPriceSingle = $jobPrice['prize_money'];
+        
+        if($submitted_user!=null){
+            $earned=User::find($submitted_user);
+            $earned->earned+=$jobPriceSingle;
+            $earned->update();
+        }
+        
+
+        // $req = new Request;
+        // $req->session()->flash('status','Job approved successfully');
+        return redirect()->back();
+    }
+    function rejectContest($proof_slug)
+    {
+        $approve=Submitted_proof::where('id', $proof_slug)
+        ->update([
+           'status' => 2
+        ]);
+        // $req = new Request;
+        // $req->session()->flash('status','Job approved successfully');
+        return back();
+    }
+
+    function mistakeApproveContest($proof_slug)  //if approved by mistake
+    {
+        $approve=Submitted_proof::where('id', $proof_slug)
+        ->update([
+           'status' => 2
+        ]);
+        $recover=Submitted_proof::where('id','!=', $proof_slug)
+        ->update([
+           'status' => 0
+        ]);
+        
+        $userID = Submitted_proof::where('id', $proof_slug)
+                        ->get(['user_id'])->first();
+        $jobAvailability = Submitted_proof::where('id', $proof_slug)
+                        ->get(['job_id'])->first();
+        
+        //add payment to user
+        $jobPrice=Contest::where('id',$jobAvailability['job_id'])
+        ->get('prize_money')->first();
+        
+        $submitted_user=$userID['user_id'];
+        $jobPriceSingle = $jobPrice['prize_money'];
+        
+        if($submitted_user!=null){
+            $earned=User::find($submitted_user);
+            $earned->earned-=$jobPriceSingle;
+            $earned->update();
+        }
+        return back();
+    }
+
 }

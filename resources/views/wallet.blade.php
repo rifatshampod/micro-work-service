@@ -60,7 +60,7 @@
                 </div>
                 <div>
                     <div class="text-center mb-4">
-                        <h3 class="cl-mat-black fw-bold pt-5 pb-3">Recent Transaction History</h3>
+                        <h3 class="cl-mat-black fw-bold pt-5 pb-3">Recent Deposit History</h3>
 
                     </div>
                 </div>

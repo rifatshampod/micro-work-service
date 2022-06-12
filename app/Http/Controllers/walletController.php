@@ -18,6 +18,7 @@ class walletController extends Controller
                     ->where('completed',1)
                     ->get();
         $transaction= Deposit::where('user_id',$user_id)
+                    ->orderBy('created_at',"DESC")
                     ->get();
         return view('wallet',['balance'=>$balance])
         ->with('withdraw',$withdraw)

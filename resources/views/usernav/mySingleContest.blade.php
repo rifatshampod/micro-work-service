@@ -152,16 +152,38 @@
                   <td><a href="/{{$item['attachment']}}" target="_blank">
                     <i class="fas fa-link cl-pm me-2"></i>{{$item['attachment']}}
                   </a></td>
-                  <td>
+                  @if($item['approval']==0)
+                    <td>
                       <div class="d-flex justify-content-end">
+                        <a href="approve-contest={{$item['id']}}" style="text-decoration: none;">
                           <div class="submissionIcon d-flex justify-content-center align-items-center mx-1 cursor">
                             <i class="fa fa-check cl-pm"></i>
                           </div>
+                        </a>
+                        <a href="reject-contest={{$item['id']}}" style="text-decoration: none;">
                           <div class="submissionIcon d-flex justify-content-center align-items-center mx-1 cursor">
                             <i class="fa fa-times text-danger"></i>
                           </div>
+                        </a>
                       </div>
                   </td>
+                  @elseif($item['approval']==1)
+                  <td class="text-end cl-green"> <b>Approved</b> 
+                  <a href="mistake-reject-contest={{$item['id']}}" style="text-decoration: none;">
+                    <div>
+                      <small>Approved by mistake? Reject</small>
+                    </div>
+                  </a>
+                  </td>
+                  @else
+                  <td class="text-end cl-red"> <b>Rejected</b> 
+                  <a href="approve-contest={{$item['id']}}" style="text-decoration: none;">
+                    <div>
+                      <small>Rejected by mistake? Approve</small>
+                    </div>
+                  </a>
+                  </td>
+                  @endif
                 </tr>
                 @endforeach
 
