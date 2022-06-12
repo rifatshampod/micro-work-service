@@ -2,6 +2,73 @@
 <html lang="en">
   <!-- link and header data --> 
   <x-assets title="Create gig : "/>
+  <style>
+    .rating {
+  display: inline-block;
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  font-size: 50px;
+}
+
+.rating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.rating label:last-child {
+  position: static;
+}
+
+.rating label:nth-child(1) {
+  z-index: 5;
+}
+
+.rating label:nth-child(2) {
+  z-index: 4;
+}
+
+.rating label:nth-child(3) {
+  z-index: 3;
+}
+
+.rating label:nth-child(4) {
+  z-index: 2;
+}
+
+.rating label:nth-child(5) {
+  z-index: 1;
+}
+
+.rating label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.rating label .icon {
+  float: left;
+  color: transparent;
+}
+
+.rating label:last-child .icon {
+  color: #000;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+  color: #09f;
+}
+
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+  color: #000;
+  text-shadow: 0 0 5px #09f;
+}
+  </style>
 
   <body>
     <!-- Hero start -->
@@ -163,6 +230,54 @@
                     <div class="mt-2">
                         <h4 class="cl-mat-black">Total Ratings: <span class="ms-3 cl-pm">{{collect($ratings)->sum('rating')/collect($ratings)->count('rating')}}</span></h4>
                     </div>
+                    <!-------------------add rating ------------------>
+                    {{-- @if($condition)
+                      
+                    @endif --}}
+                    <form class="rating" method="post" action="give-rating">
+                      @csrf
+                      <input type="hidden" name="gig_id" value="{{$gigs->id}}">
+                      <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                      <label>
+                        <input type="radio" name="stars" value="1" />
+                        <span class="icon">★</span>
+                      </label>
+                      <label>
+                        <input type="radio" name="stars" value="2" />
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                      </label>
+                      <label>
+                        <input type="radio" name="stars" value="3" />
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>   
+                      </label>
+                      <label>
+                        <input type="radio" name="stars" value="4" />
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                      </label>
+                      <label>
+                        <input type="radio" name="stars" value="5" />
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                      </label>
+                      <br>
+                      {{-- <br>
+                      <label>
+                      <input type="submit" name="submit" value="submit"/>
+                      </label> --}}
+                      <button type="submit">Submit</button>
+                    </form>
+                    
+
+
                 </div>
             </div>
           </div>
@@ -174,77 +289,12 @@
     <!-- Bottom Section -->
     <x-footer/>
 
-    <!-------edit-Modal------>
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-body">
-            <form action="update-plan" method="POST">
-              @csrf
-              @method('PUT')
 
-              <input type="hidden" name="id" id="plan_id" />
-              <input type="hidden" name="order_id" id="order_id" />
-
-              https://dev.to/madsstoumann/star-rating-using-a-single-input-i0l
-              
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <label for="section">Review</label>
-                    <input
-                      type="text"
-                      name="total_qty"
-                      class="form-control"
-                      id="total_qty"
-                      placeholder="Section"
-                      readonly
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="row justify-content-center">
-                <div class="col-lg-4">
-                  <button type="button" class="btn btn-danger w-100" data-dismiss="modal">
-                    Cancel
-                  </button>
-                </div>
-                <div class="col-lg-4">
-                  <button type="submit" class="btn btn-success w-100">
-                    Submit
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!--- modal popup ends --->
 
     <script src="js/main.js"></script>
 
-    <script>
-      $(document).ready(function(){
-        $(document).on('click', '.startBtn', function(){ 
-          var plan_id = $(this).val();
-          console.log(plan_id);
-          jQuery.noConflict(); 
-          $('#editModal').modal('show');
-          $.ajax({
-            url: '/edit-plan' + plan_id,
-            type: "GET",
-            success:function(response){
-              console.log(response);
-              $('#total_qty').val(response.plan.total_qty);
-              $('#order_id').val(response.plan.order_id);
-              $('#plan_id').val(plan_id);
-            }
-          });
-        });
-      });
-    </script>
 
   </body>
 </html>

@@ -209,8 +209,25 @@ class gigsController extends Controller
         }
         $req->session()->flash('status','Gig edited successfully');
         return redirect('gigs');
+    }
 
-    
+    function addRating(Request $req){
+        
+        $rating = new Rating();
+        $rating->user_id = $req->input('user_id');
+        $rating->gig_id = $req->input('gig_id');
+        $rating->rating = $req->input('stars');
+        $rating->save();
+
+        //review
+        $gig = Gig::find($req->input('gig_id'));
+        $gig->review += $req->input('stars');
+        $gig->review_amount += 1;
+        $gig->update();
+        
+        //review amount
+        
+        return back();
     }
 
 

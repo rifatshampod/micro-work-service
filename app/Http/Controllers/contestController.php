@@ -234,15 +234,18 @@ class contestController extends Controller
         ->update([
            'status' => 1
         ]);
-        $reject=Submitted_proof::where('id','!=', $proof_slug)
-        ->update([
-           'status' => 2
-        ]);
+        
 
         $userID = Submitted_proof::where('id', $proof_slug)
                         ->get(['user_id'])->first();
         $jobAvailability = Submitted_proof::where('id', $proof_slug)
                         ->get(['job_id'])->first();
+
+        $reject=Submitted_proof::where('id','!=', $proof_slug)
+        ->where('job_id',$jobAvailability['job_id'])
+        ->update([
+           'status' => 2
+        ]);
         // $jobUpdate = Contest::where('id',$jobAvailability['job_id'])
         // ->update([
         //         'total_approved'=> DB::raw('total_approved+1'), 
@@ -284,15 +287,18 @@ class contestController extends Controller
         ->update([
            'status' => 2
         ]);
-        $recover=Submitted_proof::where('id','!=', $proof_slug)
-        ->update([
-           'status' => 0
-        ]);
+        
         
         $userID = Submitted_proof::where('id', $proof_slug)
                         ->get(['user_id'])->first();
         $jobAvailability = Submitted_proof::where('id', $proof_slug)
                         ->get(['job_id'])->first();
+        
+        $recover=Submitted_proof::where('id','!=', $proof_slug)
+        ->where('job_id',$jobAvailability['job_id'])
+        ->update([
+           'status' => 0
+        ]);
         
         //add payment to user
         $jobPrice=Contest::where('id',$jobAvailability['job_id'])

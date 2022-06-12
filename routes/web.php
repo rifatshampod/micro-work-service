@@ -128,6 +128,8 @@ Route::get('my-campaigns',[jobsDetail::class, 'userCampaign']);
 Route::get('my-gigs',[gigsController::class,'getUserData']);
 Route::get('edit-gig={gig_slug}',[gigsController::class,'editUserData']);
 Route::post('updateGig',[gigsController::class,'updateUserData']);
+Route::post('give-rating',[gigsController::class,'addRating']);
+
 
 //user menu ends ------------------------------
 });
