@@ -1,61 +1,100 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<div align="center">
+  <h1>Micro Work Service</h1>
+  <p><em>Launch, manage, and verify crowdsourced micro-jobs, gigs, and contests with built-in wallet flows.</em></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+  <p>
+    <img alt="Tech" src="https://img.shields.io/badge/Stack-Laravel%208%20%7C%20PHP%207.3%2B%20%7C%20Bootstrap%205-blue" />
+    <img alt="License" src="https://img.shields.io/badge/License-MIT-green" />
+    <img alt="Status" src="https://img.shields.io/badge/Status-Active-success" />
+    <img alt="Version" src="https://img.shields.io/badge/Version-0.1.0-orange" />
+  </p>
+</div>
 
-## About Laravel
+## Introduction
+Micro Work Service is a Laravel-powered marketplace for short-term digital tasks. It lets requesters post jobs, gigs, or contests; collect participant proofs; and handle deposits or withdrawals through an in-app wallet. Admins manage catalog data through Backpack CRUD screens.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Features
+- 🚀 Browse featured and latest micro-jobs by category with pagination.
+- 🧾 Submit proof for jobs and contests with file uploads for fast approvals.
+- 🛠️ Create gigs with rich descriptions, images, and pricing from authenticated dashboards.
+- 🧲 Promote campaigns by raising a job's priority to featured placement.
+- 💰 Deposit or withdraw funds with tracked balances and transaction history.
+- 🛡️ Admin CRUD for jobs, contests, categories, charges, and user wallets via Backpack.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Use Cases & Examples
+- **Launch a job campaign:** Authenticated users open `/add-job` to set category, payout, and availability. Posting deducts budget totals and optionally escalates the job as a featured campaign for higher visibility.
+- **Submit task proof:** Workers visit `/job-details={id}` and upload screenshots or notes through `/submit-proof`; approvers can review, approve, or reject entries to update user earnings and job availability.
+- **Run a gig storefront:** Creators add gigs via `/add-gig`, including media uploads. Visitors browse `/gigs` by category, view creator profiles, and leave ratings to build reputation.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Tech Stack
+- **Backend:** Laravel 8 (PHP 7.3+), Backpack CRUD, Bavix Laravel Wallet utilities, PHPMailer
+- **Frontend:** Blade templates, Bootstrap 5, Vue 2, Laravel Mix, Axios
+- **Data:** Eloquent ORM with MySQL/PostgreSQL-compatible migrations
+- **Tooling:** Composer, NPM, PHPUnit
 
-## Learning Laravel
+## Getting Started
+### Prerequisites
+- PHP 7.3+ with Composer
+- Node.js 14+ with NPM or Yarn
+- MySQL/PostgreSQL instance and `.env` configuration
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Installation
+```bash
+# Install PHP dependencies
+composer install
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# Install front-end tooling
+npm install
 
-## Laravel Sponsors
+# Environment and app key
+cp .env.example .env
+php artisan key:generate
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+# Build assets
+npm run dev
 
-### Premium Partners
+# Run database migrations
+php artisan migrate
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+### Configuration
+Update `.env` with your database and mail settings:
+```env
+APP_NAME="Micro Work Service"
+APP_ENV=local
+APP_KEY=base64:generated-key
+APP_URL=http://localhost
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=micro_work_service
+DB_USERNAME=root
+DB_PASSWORD=secret
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+```
+
+## Project Structure
+```
+app/Http/Controllers/        # Web controllers for jobs, gigs, contests, wallets, and auth
+app/Http/Controllers/Admin/  # Backpack CRUD controllers for catalog and wallet data
+app/Models/                  # Eloquent models for marketplace entities
+resources/views/             # Blade templates for public pages and user dashboards
+routes/web.php               # Route definitions for public and authenticated flows
+public/                      # Public assets and entry point (index.php)
+```
 
 ## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. Fork the repository and create a feature branch.
+2. Follow PSR-12 coding standards and Laravel conventions.
+3. Write unit or feature tests where applicable.
+4. Open a pull request describing changes and test coverage.
 
 ## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT license](LICENSE).
